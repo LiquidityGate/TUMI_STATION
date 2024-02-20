@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    
+    <name>primefaces_rain</name>
+    
+    <component>
+        <component-type>org.primefaces.component.RainMenu</component-type>
+        <component-class>org.primefaces.rain.component.RainMenu</component-class>
+    </component>
+    
+    <managed-bean>
+        <managed-bean-name>DataProcessor</managed-bean-name>
+        <managed-bean-class>ConnectionBD.DataProcessor</managed-bean-class>
+        < }
+    </managed-bean>
+    
+    <render-kit>
+        <renderer>
+            <component-family>org.primefaces.component</component-family>
+            <renderer-type>org.primefaces.component.RainMenuRenderer</renderer-type>
+            <renderer-class>org.primefaces.rain.component.RainMenuRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+    
+</faces-config>

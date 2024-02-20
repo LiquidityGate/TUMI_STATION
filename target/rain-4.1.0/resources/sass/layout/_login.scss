@@ -1,0 +1,106 @@
+.login-body {
+    @include flex-center();
+
+    .login-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+
+        img {
+            height: 240px;
+            width: 100%;
+        }
+    }
+
+    .login-card {
+        z-index: 2;
+        border-top: 8px solid $primaryColor;
+        background-color: $contentBgColor;
+        padding: 15px 42px;
+        @include flex();
+        flex-direction: column;
+        @include flex-align-center();
+        text-align: center;
+        margin-top: -20%;
+
+        > h1 {
+            font-size: 20px;
+            color: $textColor;
+            margin: 0;
+
+            > span {
+                font-size: 20px;
+                color: $textSecondaryColor;;
+            }
+        }
+
+        > span {
+            font-size: 14px;
+            color: $textSecondaryColor;
+            margin-top: 13px;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .form-group {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 15px;
+
+            span {
+                display: block;
+                font-size: 15px;
+                color: $textColor;
+                margin-bottom: 6px;
+            }
+
+            input {
+                width: 100%;
+            }
+        }
+
+        .form-footer {
+            width: 100%;
+            margin: 8px 0;
+            @include flex();
+            @include flex-align-center();
+            @include flex-justify-between();
+
+            .checkbox {
+                @include flex();
+                @include flex-align-center();
+
+                > span {
+                    color: $textColor;
+                    font-size: 14px;
+                    margin-right: 6px;
+                }
+            }
+
+            a {
+                color: $textSecondaryColor;
+                text-decoration: none;
+                font-size: 14px;
+
+                &:hover {
+                    color: $textColor;
+                }
+
+            }
+
+        }
+
+        .ui-linkbutton {
+            margin-top: 24px;
+            width: 100%;
+            a {
+                width: 100%;
+                span {
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}

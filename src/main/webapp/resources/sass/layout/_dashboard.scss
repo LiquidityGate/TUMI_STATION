@@ -1,0 +1,460 @@
+.layout-dashboard {
+    .overview-box {
+        background-color: $contentBgColor;
+        position: relative;
+        height: 100%;
+        padding: 8px 12px;
+
+        > img {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .overview-icon {
+            position: absolute;
+            right: -10px;
+            top: -10px;
+            
+            > img {
+                height: 32px;
+                width: 32px;
+            }
+        }
+
+        .overview {
+            .overview-title {
+                font-weight: 500;
+                font-size: 13px;
+                opacity: 0.7;
+                letter-spacing: 0.85px;
+                color: $textColor;
+                margin: 0;
+                margin-bottom: 2px;
+            }
+
+            > h3 {
+                font-weight: normal;
+                color: $textColor;
+                margin: 7px 0;
+            }
+
+            > span {
+                display: block;
+                opacity: 0.6;
+                font-size: 12px;
+                font-weight: 500;
+                color: $textColor;
+
+                > span {
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    .chart {
+        overflow: auto;
+
+        h5 {
+            margin-top: 0;
+        }
+    }
+
+    .products {
+        height: 100%;
+
+        > ul {
+            padding: 0;
+            list-style-type: none;
+
+            > li {
+                @include flex();
+                @include flex-align-center();
+                margin-bottom: 14px;
+                
+                .products-info-icon {
+                    @include flex();
+                    @include flex-align-center();
+                    flex-grow: 1;
+
+                    .products-icon {
+                        @include flex();
+                        @include flex-align-center();
+                        @include flex-justify-center();
+                        border-radius: 4px;
+                        background-color: $contentAltBgColor;
+                        height: 36px;
+                        width: 36px;
+                        margin-right:11px;
+
+                        > i {
+                            font-size: 16px;
+                            color: $primaryColor;
+                        }
+                    }
+
+                    .products-info {
+                        .product-name {
+                            font-weight: normal;
+                            font-size: 15px;
+                            margin: 0;
+                            margin-bottom: 3px;
+                            color: $textColor;
+                        }
+
+                        > span {
+                            display: block;
+                            font-size: 12px;
+                            font-weight: 500;
+                            color: $textSecondaryColor;
+                        }
+                    }
+                }
+
+                .products-stat {
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: $textSecondaryColor;
+                    margin: 0 4px;
+                    text-align: center;
+                    width: auto;
+                }
+
+                .products-graph {
+                    margin: 0 16px;
+                }
+
+                .buttons {
+                    @include flex();
+                    @include flex-align-center();
+                }
+            }
+        }
+    }
+
+    .stat-box {
+        @include flex();
+        @include flex-align-center();
+        @include flex-justify-between();
+        padding: 9px 12px 12px;
+        height: 100%;
+
+        .stats {
+            .stat-title {
+                font-weight: 500;
+                opacity: 0.7;
+                letter-spacing: 0.85px;
+                color: $textColor;
+                margin: 0;
+                margin-bottom: 6px;
+            }
+
+            > h5 {
+                font-weight: normal;
+                color: $textColor;
+                margin: 0;
+            }
+        }
+
+    }
+
+    .feedbacks {
+        height: 100%;
+
+        .card-header {
+            .rating {
+                @include flex();
+                @include flex-align-center();
+
+                span {
+                    font-size: 14px;
+                    color: $textSecondaryColor;
+                }
+
+                .ui-rating{
+                    @include flex();
+                    @include flex-align-center();
+                    .ui-rating-star {
+                        margin-right: 0;
+                        > a {
+                            font-size: 14px;
+                            @include flex();
+                            @include flex-align-center();
+                        }
+                    }
+                    .ui-rating-cancel {
+                        display: none;
+                    }
+                }
+            }
+            
+        }
+
+        .feedbacks-list{
+            .feedback {
+                @include flex();
+                @include flex-align-start();
+                margin-bottom: 20px;
+    
+                > img {
+                    margin-right: 12px;
+                    height: 28px;
+                    width: auto;
+                }
+    
+                .feedback-header {
+                    @include flex();
+                    @include flex-align-center();
+                    flex-wrap: wrap;
+    
+                    h6 {
+                        font-weight: normal;
+                        margin: 0;
+                        color: $textColor;
+                        margin-right: 8px;
+                    }
+    
+                    .ui-rating{
+                        @include flex();
+                        @include flex-align-center();
+
+                        .ui-rating-star {
+                            margin-right: 0;
+                            > a {
+                                font-size: 12px;
+                                @include flex();
+                                @include flex-align-center();
+                            }
+                        }
+                        .ui-rating-cancel {
+                            display: none;
+                        }
+                    }
+    
+                    span {
+                        font-size: 12px;
+                        color: $textSecondaryColor;
+                        flex-grow: 1;
+                        text-align: right;
+                    }
+                }
+    
+                span {
+                    margin: 0;
+                    font-size: 12px;
+                    color: $textSecondaryColor;
+                 
+                }
+            }
+        }
+    }
+
+    .status {
+        height: 100%;
+
+        .status-content {
+            margin-top: 24px;
+            flex-wrap: wrap;
+
+            .status-graph {
+                position: relative;
+                @include flex();
+                @include flex-align-center();
+                @include flex-justify-center();
+
+                > img {
+                    height: 120px;
+                    width: auto;
+                }
+
+                .graph-info {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -11px;
+                    margin-left: -23px;
+
+                    > h5 {
+                        font-weight: 700;
+                        color: $textSecondaryColor;
+                        margin: 0;
+                    }
+                }
+            }
+           
+
+            .status-info {
+                width: 100%;
+                margin-top: 16px;
+
+                > h6 {
+                    font-weight: 500;
+                    color: $textSecondaryColor;
+                    margin: 0;
+                    margin-bottom: 12px;
+                }
+
+                > ul {
+                    list-style-type: none;
+                    padding: 0;
+
+                    > li {
+                        margin: 10px 0;
+
+                        .status {
+                            @include flex();
+                            @include flex-align-center();
+                            @include flex-justify-between();
+                            margin-bottom: 6px;
+            
+                            > span {
+                                font-size: 14px;
+                                line-height: 1.5;
+                                color: $textColor;
+
+                                i {
+                                    color: $primaryColor;
+                                    margin-right: 7px;
+                                }
+
+                                &:last-child{
+                                    color: $textSecondaryColor;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .transactions {
+        height: 100%;
+    }
+
+    .tasks {
+        > ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 0px;
+
+            > li {
+                border-top: solid 1px rgba($dividerColor, 0.2);
+                padding: 6px 9px;
+                @include flex();
+                @include flex-align-center();
+                @include flex-justify-between();
+
+                .checkbox {
+                    @include flex();
+                    @include flex-align-center();
+
+                    > p {
+                        line-height: 1.5;
+                        color: $textColor;
+                        margin: 0;
+                        margin-left: 9px;
+                    }
+                }
+
+                > span {
+                    font-size: 12px;
+                    font-weight: bold;
+                    color: #ffffff;
+                    display: block;
+                    padding: 3px;
+                    border-radius: 2px;
+                    background-color: $primaryColor;
+
+                    &.later {
+                        color: $textSecondaryColor;
+                        border: solid 1px rgba($dividerColor, 0.4);
+                        background-color: $contentAltBgColor;
+                    }
+                }
+            }
+        }
+    }
+
+    .sales {
+
+        > img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 28px;
+        }
+
+        .progress-item {
+            margin-bottom: 6px;
+
+            .progress-title {
+                @include flex();
+                @include flex-align-center();
+                @include flex-justify-between();
+                margin-bottom: 6px;
+
+                > span {
+                    font-size: 14px;
+                    line-height: 1.5;
+                    color: $textSecondaryColor;
+                }
+            }
+
+            .progress-bar {
+                @include flex();
+                @include flex-align-center();
+                width: 100%;
+        
+                > span {
+                    height: 4px;
+                    border-radius: 2px;
+                    background-color: $contentAltBgColor;
+                    width: 100%;
+        
+                    &.progress {
+                        z-index: 1;
+                        background-color: $primaryColor;
+                        margin-right: -3px;
+                    }
+                }
+            }
+
+            &:nth-child(4) {
+                .progress-bar {
+                    > span {
+                        width: 70%;
+                        &.progress {
+                            width: 30%;
+                        }
+                    }
+                }
+            }
+            &:nth-child(5) {
+                .progress-bar {
+                    > span {
+                        width: 60%;
+                        &.progress {
+                            width: 40%;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: $tabletBreakpoint) {
+    .layout-dashboard {
+        .products {
+            ul {
+                li {
+                    .products-graph,
+                    .buttons {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,479 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Menu</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/menu">MENU</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="grid ui-fluid">
+                <div class="col-12">
+                    <div class="card">
+                        <h5>MenuBar</h5>
+                        <p:menubar autoDisplay="false">
+                            <p:submenu label="Customers" icon="pi pi-table">
+                                <p:submenu label="New" icon="pi pi-user-plus">
+                                    <p:menuitem value="Customer" url="#" icon="pi pi-plus" />
+                                    <p:menuitem value="Duplicate" url="#" icon="pi pi-copy" />
+                                </p:submenu>
+                                <p:menuitem value="Edit" url="#" icon="pi pi-user-edit" />
+                            </p:submenu>
+
+                            <p:submenu label="Orders" icon="pi pi-shopping-cart">
+                                <p:menuitem value="View" url="#" icon="pi pi-list" />
+                                <p:menuitem value="Search" url="#" icon="pi pi-search" />
+                            </p:submenu>
+
+                            <p:submenu label="Shipments" icon="pi pi-envelope">
+                                <p:menuitem value="Tracker" url="#" icon="pi pi-compass" />
+                                <p:menuitem value="Map" url="#" icon="pi pi-map-marker" />
+                                <p:menuitem value="Manage" url="#" icon="pi pi-pencil" />
+                            </p:submenu>
+
+                            <p:submenu label="Profile" icon="pi pi-user">
+                                <p:menuitem value="Settings" url="#" icon="pi pi-cog" />
+                                <p:menuitem value="Billing" url="#" icon="pi pi-file" />
+                            </p:submenu>
+                            
+                            <p:menuitem value="Quit" url="#"  icon="pi pi-sign-out"/>
+
+                            <f:facet name="options">
+                                <span class="ui-input-icon-right">
+                                    <p:inputText placeholder="Search" />
+                                    <i class="pi pi-search"></i>
+                                </span>
+                            </f:facet>
+                        </p:menubar>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="card">
+                        <h5>Breadcrumb</h5>
+                        <p:breadCrumb>
+                            <p:menuitem value="Electronics" url="#" />
+                            <p:menuitem value="Computer" url="#" />
+                            <p:menuitem value="Notebook" url="#" />
+                            <p:menuitem value="Accessories" url="#" />
+                            <p:menuitem value="Backpacks" url="#" />
+                            <p:menuitem value="Item" url="#" />
+                        </p:breadCrumb>
+                    </div>
+                </div>
+                    
+                <div class="col-12 md:col-6">
+                    <div class="card">
+                        <h5>Steps</h5>
+                        <p:steps activeIndex="1">
+                            <p:menuitem value="Personal" />
+                            <p:menuitem value="Seat" />
+                            <p:menuitem value="Payment" />
+                            <p:menuitem value="Confirm" />
+                        </p:steps>
+                    </div>
+                </div>
+
+                <div class="col-12 md:col-6">
+                    <div class="card">
+                        <h5>TabMenu</h5>
+                        <p:tabMenu activeIndex="#{param.i}">
+                            <p:menuitem value="Overview" outcome="/menu" icon="pi pi-home">
+                                <f:param name="i" value="0" />
+                            </p:menuitem>
+                            <p:menuitem value="Members" outcome="/menu" icon="pi pi-users">
+                                <f:param name="i" value="1" />
+                            </p:menuitem>
+                            <p:menuitem value="Sales" outcome="/menu" icon="pi pi-shopping-cart">
+                                <f:param name="i" value="2" />
+                            </p:menuitem>
+                            <p:menuitem value="Profile" outcome="/menu" icon="pi pi-user">
+                                <f:param name="i" value="3" />
+                            </p:menuitem>
+                            <p:menuitem value="Settings" outcome="/menu" icon="pi pi-cog">
+                                <f:param name="i" value="4" />
+                            </p:menuitem>
+                        </p:tabMenu>
+                    </div>
+                </div>
+
+                <div class="col-12 md:col-4">
+                    <div class="card">
+                        <h5>Tiered Menu</h5>
+                        <p:tieredMenu>
+                            <p:submenu label="Customers" icon="pi pi-table">
+                                <p:submenu label="New" icon="pi pi-user-plus">
+                                    <p:menuitem value="Customer" url="#" icon="pi pi-plus" />
+                                    <p:menuitem value="Duplicate" url="#" icon="pi pi-copy" />
+                                </p:submenu>
+                                <p:menuitem value="Edit" url="#" icon="pi pi-user-edit" />
+                            </p:submenu>
+
+                            <p:submenu label="Orders" icon="pi pi-shopping-cart">
+                                <p:menuitem value="View" url="#" icon="pi pi-list" />
+                                <p:menuitem value="Search" url="#" icon="pi pi-search" />
+                            </p:submenu>
+
+                            <p:submenu label="Shipments" icon="pi pi-envelope">
+                                <p:menuitem value="Tracker" url="#" icon="pi pi-compass" />
+                                <p:menuitem value="Map" url="#" icon="pi pi-map-marker" />
+                                <p:menuitem value="Manage" url="#" icon="pi pi-pencil" />
+                            </p:submenu>
+
+                            <p:submenu label="Profile" icon="pi pi-user">
+                                <p:menuitem value="Settings" url="#" icon="pi pi-cog" />
+                                <p:menuitem value="Billing" url="#" icon="pi pi-file" />
+                            </p:submenu>
+
+                            <p:separator />
+                            
+                            <p:menuitem value="Quit" url="#"  icon="pi pi-sign-out"/>
+                        </p:tieredMenu>
+                    </div>
+
+                    <div class="card">
+                        <h5>MenuButton</h5>
+                        <p:menuButton value="Options">
+                            <p:menuitem value="Save" icon="pi pi-save"/>
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" icon="pi pi-trash"/>
+                            <p:separator />
+                            <p:menuitem value="Home" url="http://www.primefaces.org" icon="pi pi-home"/>
+                        </p:menuButton>
+                    </div>
+                </div>
+
+                <div class="col-12 md:col-4">
+                    <div class="card">
+                        <h5>Plain Menu</h5>
+                        <p:menu>
+                            <p:submenu label="Customers">
+                                <p:menuitem value="New" url="#" icon="pi pi-plus" />
+                                <p:menuitem value="Edit" url="#" icon="pi pi-user-edit" />
+                            </p:submenu>
+                            <p:submenu label="Orders">
+                                <p:menuitem value="View" url="#" icon="pi pi-list" />
+                                <p:menuitem value="Search" url="#" icon="pi pi-search" />
+                            </p:submenu>
+                            <p:submenu label="Shipments">
+                                <p:menuitem value="Tracker" url="#" icon="pi pi-compass" />
+                                <p:menuitem value="Map" url="#" icon="pi pi-map-marker" />
+                                <p:menuitem value="Manage" url="#" icon="pi pi-pencil" />
+                            </p:submenu>
+                        </p:menu>
+                    </div>
+                </div>
+
+                <div class="col-12 md:col-4">
+                    <div class="card">
+                        <h5>Context Menu</h5>
+                        Right click to display.
+                        <p:contextMenu>
+                            <p:menuitem value="Save" icon="pi pi-save"/>
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" icon="pi pi-trash"/>
+                            <p:separator />
+                            <p:menuitem value="Options" icon="pi pi-cog"/>
+                        </p:contextMenu>
+                    </div>
+
+                    <div class="card">
+                        <h5>Slide Menu</h5>
+                        <p:slideMenu style="width:200px">
+                            <p:submenu label="Customers" icon="pi pi-table">
+                                <p:submenu label="New" icon="pi pi-user-plus">
+                                    <p:menuitem value="Customer" url="#" icon="pi pi-plus" />
+                                    <p:menuitem value="Duplicate" url="#" icon="pi pi-copy" />
+                                </p:submenu>
+                                <p:menuitem value="Edit" url="#" icon="pi pi-user-edit" />
+                            </p:submenu>
+
+                            <p:submenu label="Orders" icon="pi pi-shopping-cart">
+                                <p:menuitem value="View" url="#" icon="pi pi-list" />
+                                <p:menuitem value="Search" url="#" icon="pi pi-search" />
+                            </p:submenu>
+
+                            <p:submenu label="Shipments" icon="pi pi-envelope">
+                                <p:menuitem value="Tracker" url="#" icon="pi pi-compass" />
+                                <p:menuitem value="Map" url="#" icon="pi pi-map-marker" />
+                                <p:menuitem value="Manage" url="#" icon="pi pi-pencil" />
+                            </p:submenu>
+
+                            <p:submenu label="Profile" icon="pi pi-user">
+                                <p:menuitem value="Settings" url="#" icon="pi pi-cog" />
+                                <p:menuitem value="Billing" url="#" icon="pi pi-file" />
+                            </p:submenu>
+                        </p:slideMenu>
+                    </div>
+                </div>
+                
+                <div class="col-12 md:col-6">
+                    <div class="card">
+                        <h5>MegaMenu - Horizontal</h5>
+                        <p:megaMenu orientation="horizontal" autoDisplay="false">
+                            <p:submenu label="Fashion" icon="pi pi-tag">
+                                <p:column>
+                                    <p:submenu label="Women">
+                                        <p:menuitem value="Women Item" url="#" />
+                                        <p:menuitem value="Women Item" url="#" />
+                                        <p:menuitem value="Women Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Men">
+                                        <p:menuitem value="Men Item" url="#" />
+                                        <p:menuitem value="Men Item" url="#" />
+                                        <p:menuitem value="Men Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="Kids">
+                                        <p:menuitem value="Kids Item" url="#" />
+                                        <p:menuitem value="Kids Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Luggage">
+                                        <p:menuitem value="Luggage Item" url="#" />
+                                        <p:menuitem value="Luggage Item" url="#" />
+                                        <p:menuitem value="Luggage Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+
+                            <p:submenu label="Electronics" icon="pi pi-desktop">
+                                <p:column>
+                                    <p:submenu label="Computer">
+                                        <p:menuitem value="Computer Item" url="#" />
+                                        <p:menuitem value="Computer Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Camcorder">
+                                        <p:menuitem value="Camcorder Item" url="#" />
+                                        <p:menuitem value="Camcorder Item" url="#" />
+                                        <p:menuitem value="Camcorder Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="TV">
+                                        <p:menuitem value="TV Item" url="#" />
+                                        <p:menuitem value="TV Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Audio">
+                                        <p:menuitem value="Audio Item" url="#" />
+                                        <p:menuitem value="Audio Item" url="#" />
+                                        <p:menuitem value="Audio Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                                <p:column>
+                                    <p:submenu label="Sports.7">
+                                        <p:menuitem value="Sports.7.1" url="#" />
+                                        <p:menuitem value="Sports.7.2" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+
+                            <p:submenu label="Furniture" icon="pi pi-image">
+                                <p:column>
+                                    <p:submenu label="Living Room">
+                                        <p:menuitem value="Living Room Item" url="#" />
+                                        <p:menuitem value="Living Room Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Kitchen">
+                                        <p:menuitem value="Kitchen Item" url="#" />
+                                        <p:menuitem value="Kitchen Item" url="#" />
+                                        <p:menuitem value="Kitchen Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="Bedroom">
+                                        <p:menuitem value="Bedroom Item" url="#" />
+                                        <p:menuitem value="Bedroom Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Outdoor">
+                                        <p:menuitem value="Outdoor Item" url="#" />
+                                        <p:menuitem value="Outdoor Item" url="#" />
+                                        <p:menuitem value="Outdoor Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+
+                            <p:submenu label="Sports" icon="pi pi-star">
+                                <p:column>
+                                    <p:submenu label="Basketball">
+                                        <p:menuitem value="Basketball Item" url="#" />
+                                        <p:menuitem value="Basketball Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Football">
+                                        <p:menuitem value="Football Item" url="#" />
+                                        <p:menuitem value="Football Item" url="#" />
+                                        <p:menuitem value="Football Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="Tennis">
+                                        <p:menuitem value="Tennis Item" url="#" />
+                                        <p:menuitem value="Tennis Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+                        </p:megaMenu>
+                        
+                        <h5>MegaMenu - Vertical</h5>
+                        <p:megaMenu orientation="vertical" style="width:200px" autoDisplay="false">
+                            <p:submenu label="Fashion" icon="pi pi-tag">
+                                <p:column>
+                                    <p:submenu label="Women">
+                                        <p:menuitem value="Women Item" url="#" />
+                                        <p:menuitem value="Women Item" url="#" />
+                                        <p:menuitem value="Women Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Men">
+                                        <p:menuitem value="Men Item" url="#" />
+                                        <p:menuitem value="Men Item" url="#" />
+                                        <p:menuitem value="Men Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="Kids">
+                                        <p:menuitem value="Kids Item" url="#" />
+                                        <p:menuitem value="Kids Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Luggage">
+                                        <p:menuitem value="Luggage Item" url="#" />
+                                        <p:menuitem value="Luggage Item" url="#" />
+                                        <p:menuitem value="Luggage Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+
+                            <p:submenu label="Electronics" icon="pi pi-desktop">
+                                <p:column>
+                                    <p:submenu label="Computer">
+                                        <p:menuitem value="Computer Item" url="#" />
+                                        <p:menuitem value="Computer Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Camcorder">
+                                        <p:menuitem value="Camcorder Item" url="#" />
+                                        <p:menuitem value="Camcorder Item" url="#" />
+                                        <p:menuitem value="Camcorder Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="TV">
+                                        <p:menuitem value="TV Item" url="#" />
+                                        <p:menuitem value="TV Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Audio">
+                                        <p:menuitem value="Audio Item" url="#" />
+                                        <p:menuitem value="Audio Item" url="#" />
+                                        <p:menuitem value="Audio Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                                <p:column>
+                                    <p:submenu label="Sports.7">
+                                        <p:menuitem value="Sports.7.1" url="#" />
+                                        <p:menuitem value="Sports.7.2" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+
+                            <p:submenu label="Furniture" icon="pi pi-image">
+                                <p:column>
+                                    <p:submenu label="Living Room">
+                                        <p:menuitem value="Living Room Item" url="#" />
+                                        <p:menuitem value="Living Room Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Kitchen">
+                                        <p:menuitem value="Kitchen Item" url="#" />
+                                        <p:menuitem value="Kitchen Item" url="#" />
+                                        <p:menuitem value="Kitchen Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="Bedroom">
+                                        <p:menuitem value="Bedroom Item" url="#" />
+                                        <p:menuitem value="Bedroom Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Outdoor">
+                                        <p:menuitem value="Outdoor Item" url="#" />
+                                        <p:menuitem value="Outdoor Item" url="#" />
+                                        <p:menuitem value="Outdoor Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+
+                            <p:submenu label="Sports" icon="pi pi-star">
+                                <p:column>
+                                    <p:submenu label="Basketball">
+                                        <p:menuitem value="Basketball Item" url="#" />
+                                        <p:menuitem value="Basketball Item" url="#" />
+                                    </p:submenu>
+                                    <p:submenu label="Football">
+                                        <p:menuitem value="Football Item" url="#" />
+                                        <p:menuitem value="Football Item" url="#" />
+                                        <p:menuitem value="Football Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+
+                                <p:column>
+                                    <p:submenu label="Tennis">
+                                        <p:menuitem value="Tennis Item" url="#" />
+                                        <p:menuitem value="Tennis Item" url="#" />
+                                    </p:submenu>
+                                </p:column>
+                            </p:submenu>
+                        </p:megaMenu>
+                    </div>
+                </div>
+
+                <div class="col-12 md:col-6">
+                    <div class="card">
+                        <h5>PanelMenu</h5>
+                        <p:panelMenu>
+                            <p:submenu label="Customers" icon="pi pi-table">
+                                <p:submenu label="New" icon="pi pi-user-plus">
+                                    <p:menuitem value="Customer" url="#" icon="pi pi-plus" />
+                                    <p:menuitem value="Duplicate" url="#" icon="pi pi-copy" />
+                                </p:submenu>
+                                <p:menuitem value="Edit" url="#" icon="pi pi-user-edit" />
+                                <p:separator />
+                                
+                            </p:submenu>
+
+                            <p:submenu label="Orders" icon="pi pi-shopping-cart">
+                                <p:menuitem value="View" url="#" icon="pi pi-list" />
+                                <p:menuitem value="Search" url="#" icon="pi pi-search" />
+                            </p:submenu>
+
+                            <p:submenu label="Shipments" icon="pi pi-envelope">
+                                <p:menuitem value="Tracker" url="#" icon="pi pi-compass" />
+                                <p:menuitem value="Map" url="#" icon="pi pi-map-marker" />
+                                <p:menuitem value="Manage" url="#" icon="pi pi-pencil" />
+                            </p:submenu>
+
+                            <p:submenu label="Profile" icon="pi pi-user">
+                                <p:menuitem value="Settings" url="#" icon="pi pi-cog" />
+                                <p:menuitem value="Billing" url="#" icon="pi pi-file" />
+                            </p:submenu>
+                        </p:panelMenu>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+            
+    </ui:define>
+
+</ui:composition>

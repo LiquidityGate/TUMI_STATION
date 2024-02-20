@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="140" viewBox="0 0 140 140">
+    <defs>
+        <circle id="z5xgrrjlaa" cx="60" cy="60" r="60"/>
+        <mask id="bualm4or1b" width="140" height="140" x="-10" y="-10" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox">
+            <path fill="#fff" d="M-10 -10H130V130H-10z"/>
+            <use xlink:href="#z5xgrrjlaa"/>
+        </mask>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(10 10)">
+        <circle cx="60" cy="60" r="63"  stroke="rgba(126, 146, 185, .3)" stroke-width="6"/>
+        <use stroke="#7e92b9" stroke-dasharray="230 900" stroke-width="20" mask="url(#bualm4or1b)" transform="matrix(1 0 0 -1 0 120)" xlink:href="#z5xgrrjlaa"/>
+    </g>
+</svg>

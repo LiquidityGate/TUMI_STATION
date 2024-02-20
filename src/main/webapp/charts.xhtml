@@ -1,0 +1,94 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Charts</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/charts">CHARTS</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="grid ui-fluid">
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Line Chart</h5>
+                    <p:lineChart model="#{chartDemoView.lineModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Bar Chart</h5>
+                    <p:barChart model="#{chartDemoView.barModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Mixed Chart</h5>
+                    <p:barChart model="#{chartDemoView.mixedModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Pie Chart</h5>
+                    <p:pieChart model="#{chartDemoView.pieModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Donut Chart</h5>
+                    <p:donutChart model="#{chartDemoView.donutModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Polar Area Chart</h5>
+                    <p:polarAreaChart model="#{chartDemoView.polarAreaModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Radar Chart</h5>
+                    <p:radarChart model="#{chartDemoView.radarModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Bubble Chart</h5>
+                    <p:bubbleChart model="#{chartDemoView.bubbleModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Scatter Chart</h5>
+                    <p:scatterChart model="#{chartDemoView.scatterModel}" style="width: 100%; height: 500px;"/>
+                </div>
+            </div>
+
+            
+
+
+            
+            
+              
+        </div>
+
+    </ui:define>
+
+</ui:composition>

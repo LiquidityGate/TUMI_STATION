@@ -1,0 +1,39 @@
+.misc-demo {
+    .ui-button.ui-widget {
+        min-width: 6rem;
+    }
+
+    .badges .ui-badge,
+    .badges .ui-tag {
+        margin-right: .5rem;
+    }
+
+    .ui-chip.custom-chip {
+        background: var(--primary-color);
+        color: var(--primary-color-text);
+    }
+
+    .custom-scrolltop {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 4px;
+        background-color: var(--primary-color);
+    }
+    .custom-scrolltop:hover {
+        background-color: var(--primary-color);
+    }
+
+    .custom-scrolltop .ui-scrolltop-icon {
+        font-size: 1rem;
+        color: var(--primary-color-text);
+    }
+
+    .custom-skeleton {
+        border: 1px solid var(--surface-d);
+        border-radius: 4px;
+    }
+
+    .custom-skeleton ul {
+        list-style: none;
+    }
+}

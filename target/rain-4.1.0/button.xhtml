@@ -1,0 +1,180 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Button</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/button">BUTTON</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="grid button-demo">
+                <div class="col-12 md:col-6">
+                    <div class="card">
+                        <h5>Default</h5>
+                        <p:button value="Submit" styleClass="mr-2 mb-2"/>
+                        <p:button value="Disabled" disabled="true"/>
+                    </div>
+
+                    <div class="card">
+                        <h5>Severities</h5>
+                        <p:button value="Primary" styleClass="mr-2 mb-2"/>
+                        <p:button value="Secondary" styleClass="ui-button-secondary mr-2 mb-2"/>
+                        <p:button value="Success" styleClass="ui-button-success mr-2 mb-2"/>
+                        <p:button value="Info" styleClass="ui-button-info mr-2 mb-2"/>
+                        <p:button value="Warning" styleClass="ui-button-warning mr-2 mb-2"/>
+                        <p:button value="Help" styleClass="ui-button-help mr-2 mb-2"/>
+                        <p:button value="Danger" styleClass="ui-button-danger"/>
+                    </div>
+
+                    <div class="card">
+                        <h5>Text</h5>
+                        <p:button value="Primary" styleClass="ui-button-flat mr-2 mb-2"/>
+                        <p:button value="Secondary" styleClass="ui-button-secondary ui-button-flat mr-2 mb-2"/>
+                        <p:button value="Success" styleClass="ui-button-success ui-button-flat mr-2 mb-2"/>
+                        <p:button value="Info" styleClass="ui-button-info ui-button-flat mr-2 mb-2"/>
+                        <p:button value="Warning" styleClass="ui-button-warning ui-button-flat mr-2 mb-2"/>
+                        <p:button value="Help" styleClass="ui-button-help ui-button-flat mr-2 mb-2"/>
+                        <p:button value="Danger" styleClass="ui-button-danger ui-button-flat mr-2 mb-2"/>
+                        <p:button value="Plain" styleClass="ui-button-flat ui-button-plain mr-2 mb-2"/>
+                    </div>
+
+                    <div class="card">
+                        <h5>Outlined</h5>
+                        <p:button value="Primary" styleClass="ui-button-outlined mr-2 mb-2"/>
+                        <p:button value="Secondary" styleClass="ui-button-outlined ui-button-secondary mr-2 mb-2"/>
+                        <p:button value="Success" styleClass="ui-button-outlined ui-button-success mr-2 mb-2"/>
+                        <p:button value="Info" styleClass="ui-button-outlined ui-button-info mr-2 mb-2"/>
+                        <p:button value="Warning" styleClass="ui-button-outlined ui-button-warning mr-2 mb-2"/>
+                        <p:button value="Help" styleClass="ui-button-outlined ui-button-help mr-2 mb-2"/>
+                        <p:button value="Danger" styleClass="ui-button-outlined ui-button-danger mr-2 mb-2"/>
+                    </div>
+
+                    <div class="card">
+                        <h5>Button Group</h5>
+                        <div class="ui-button-group">
+                            <p:button icon="pi pi-check" value="Save"/>
+                            <p:button icon="pi pi-trash" value="Delete"/>
+                            <p:button icon="pi pi-times" value="Cancel"/>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h5>SplitButton</h5>
+                        <p:splitButton value="Save" icon="pi pi-save" styleClass="ui-button-secondary mr-2 mb-2">
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" ajax="false" icon="pi pi-times"/>
+                            <p:divider />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                        </p:splitButton>
+                        <p:splitButton value="Save" icon="pi pi-save" styleClass="ui-button-success mr-2 mb-2">
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" ajax="false" icon="pi pi-times"/>
+                            <p:divider />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                        </p:splitButton>
+                        <p:splitButton value="Save" icon="pi pi-save" styleClass="ui-button-info mr-2 mb-2">
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" ajax="false" icon="pi pi-times"/>
+                            <p:divider />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                        </p:splitButton>
+                        <p:splitButton value="Save" icon="pi pi-save" styleClass="ui-button-warning mr-2 mb-2">
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" ajax="false" icon="pi pi-times"/>
+                            <p:divider />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                        </p:splitButton>
+                        <p:splitButton value="Save" icon="pi pi-save" styleClass="ui-button-help mr-2 mb-2">
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" ajax="false" icon="pi pi-times"/>
+                            <p:divider />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                        </p:splitButton>
+                        <p:splitButton value="Save" icon="pi pi-save" styleClass="ui-button-danger mr-2 mb-2">
+                            <p:menuitem value="Update" icon="pi pi-refresh"/>
+                            <p:menuitem value="Delete" ajax="false" icon="pi pi-times"/>
+                            <p:divider />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="pi pi-home"/>
+                        </p:splitButton>
+                    </div>
+                </div>
+
+                <div class="col-12 md:col-6">
+                    <div class="card">
+                        <h5>Icons</h5>
+                        <p:button icon="pi pi-star-fill" styleClass="mr-2"/>
+                        <p:button value="Submit" icon="pi pi-bookmark" styleClass="mr-2"/>
+                        <p:button value="Submit" icon="pi pi-bookmark" iconPos="right"/>
+                    </div>
+
+                    <div class="card">
+                        <h5>Raised</h5>
+                        <p:button value="Primary" styleClass="ui-button-raised mr-2 mb-2" />
+                        <p:button value="Secondary" styleClass="ui-button-raised ui-button-secondary mr-2 mb-2" />
+                        <p:button value="Success" styleClass="ui-button-raised ui-button-success mr-2 mb-2" />
+                        <p:button value="Info" styleClass="ui-button-raised ui-button-info mr-2 mb-2" />
+                        <p:button value="Warning" styleClass="ui-button-raised ui-button-warning mr-2 mb-2" />
+                        <p:button value="Help" styleClass="ui-button-raised ui-button-help mr-2 mb-2" />
+                        <p:button value="Danger" styleClass="ui-button-raised ui-button-danger mr-2 mb-2" />
+                    </div>
+
+                    <div class="card">
+                        <h5>Rounded</h5>
+                        <p:button value="Primary" styleClass="rounded-button mr-2 mb-2" />
+                        <p:button value="Secondary" styleClass="rounded-button ui-button-secondary mr-2 mb-2" />
+                        <p:button value="Success" styleClass="rounded-button ui-button-success mr-2 mb-2" />
+                        <p:button value="Info" styleClass="rounded-button ui-button-info mr-2 mb-2" />
+                        <p:button value="Warning" styleClass="rounded-button ui-button-warning mr-2 mb-2" />
+                        <p:button value="Help" styleClass="rounded-button ui-button-help mr-2 mb-2" />
+                        <p:button value="Danger" styleClass="rounded-button ui-button-danger mr-2 mb-2" />
+                    </div>
+
+                    <div class="card">
+                        <h5>Rounded Icons</h5>
+                        <p:button icon="pi pi-bookmark" styleClass="rounded-button ui-button-secondary mr-2 mb-2" />
+                        <p:button icon="pi pi-search" styleClass="rounded-button ui-button-success mr-2 mb-2" />
+                        <p:button icon="pi pi-user" styleClass="rounded-button ui-button-info mr-2 mb-2" />
+                        <p:button icon="pi pi-bell" styleClass="rounded-button ui-button-warning mr-2 mb-2" />
+                        <p:button icon="pi pi-heart" styleClass="rounded-button ui-button-help mr-2 mb-2" />
+                        <p:button icon="pi pi-times" styleClass="rounded-button ui-button-danger mr-2 mb-2" />
+                        <p:button icon="pi pi-check" styleClass="rounded-button mr-2 mb-2" />
+                    </div>
+
+                    <div class="card">
+                        <h5>Rounded Text</h5>
+                        <p:button icon="pi pi-check" styleClass="rounded-button ui-button-flat mr-2 mb-2" />
+                        <p:button icon="pi pi-bookmark" styleClass="rounded-button ui-button-secondary ui-button-flat mr-2 mb-2" />
+                        <p:button icon="pi pi-search" styleClass="rounded-button ui-button-success ui-button-flat mr-2 mb-2" />
+                        <p:button icon="pi pi-user" styleClass="rounded-button ui-button-info ui-button-flat mr-2 mb-2" />
+                        <p:button icon="pi pi-bell" styleClass="rounded-button ui-button-warning ui-button-flat mr-2 mb-2" />
+                        <p:button icon="pi pi-heart" styleClass="rounded-button ui-button-help ui-button-flat mr-2 mb-2" />
+                        <p:button icon="pi pi-times" styleClass="rounded-button ui-button-danger ui-button-flat mr-2 mb-2" />
+                        <p:button icon="pi pi-filter" styleClass="rounded-button ui-button-flat ui-button-plain mr-2 mb-2" />
+                    </div>
+
+                    <div class="card">
+                        <h5>Rounded Outlined</h5>
+                        <p:button icon="pi pi-check" styleClass="rounded-button ui-button-outlined mr-2 mb-2" />
+                        <p:button icon="pi pi-bookmark" styleClass="rounded-button ui-button-secondary ui-button-outlined mr-2 mb-2" />
+                        <p:button icon="pi pi-search" styleClass="rounded-button ui-button-success ui-button-outlined mr-2 mb-2" />
+                        <p:button icon="pi pi-user" styleClass="rounded-button ui-button-info ui-button-outlined mr-2 mb-2" />
+                        <p:button icon="pi pi-bell" styleClass="rounded-button ui-button-warning ui-button-outlined mr-2 mb-2" />
+                        <p:button icon="pi pi-heart" styleClass="rounded-button ui-button-help ui-button-outlined mr-2 mb-2" />
+                        <p:button icon="pi pi-times" styleClass="rounded-button ui-button-danger ui-button-outlined mr-2 mb-2" />
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

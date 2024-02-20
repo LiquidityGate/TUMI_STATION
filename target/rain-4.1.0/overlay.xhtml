@@ -1,0 +1,144 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Overlay</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/overlay">OVERLAY</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="head">
+        <h:outputStylesheet name="css/flags/flags.css" library="demo" />
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <p:tooltip />
+
+            <div class="grid overlay-demo">
+                <div class="col-12 lg:col-6">
+                    <div class="card">
+                        <h5>Dialog</h5>
+                        <p:commandButton value="Show" type="button" onclick="PF('dlg').show()" icon="pi pi-external-link" />
+                        <p:dialog header="Dialog" widgetVar="dlg" modal="true" responsive="true" width="350" showEffect="fade" hideEffect="fade">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                                in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </p>
+                            <f:facet name="footer">
+                                <p:commandButton value="Dismiss" type="button" icon="pi pi-check" styleClass="ui-button-secondary" onclick="PF('dlg').hide()" />
+                            </f:facet>
+                        </p:dialog>  
+                    </div>
+
+                    <div class="card ui-fluid">
+                        <h5>Overlay Panel</h5>
+                        <h:form>
+                            <div class="grid formgrid">
+                                <div class="col-6">
+                                    <p:commandButton id="imageBtn" value="Image" type="button" class="ui-button-success" />
+                                    <p:overlayPanel id="imagePanel" for="imageBtn">
+                                        <p:graphicImage name="demo/images/nature/nature9.jpg" width="250" />
+                                    </p:overlayPanel>
+                                </div>
+                                <div class="col-6">
+                                    <p:commandButton id="tableButton" value="DataTable" type="button" styleClass="ui-button-success"/>
+                                    <p:overlayPanel for="tableButton" dynamic="true" style="width:300px" showCloseIcon="true" widgetVar="tableOP">
+                                        <p:dataTable var="customer" value="#{overlayDemoView.customers}" rows="5" paginator="true"
+                                            selectionMode="single" selection="#{overlayDemoView.selectedCustomer}" rowKey="#{customer.id}" onRowClick="PF('tableOP').hide()">
+                                            <p:column headerText="Name">
+                                                <h:outputText value="#{customer.name}" />
+                                            </p:column>
+                                            <p:column headerText="Country" style="width: 4rem">
+                                                <span class="flag flag-#{customer.country.code}" style="width: 30px; height: 20px"></span>
+                                            </p:column>
+                                        </p:dataTable>
+                                    </p:overlayPanel>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+
+                    <div class="card">
+                        <h5>Tooltip</h5>
+                        <div class="formgroup-inline">
+                            <div class="field">
+                                <p:outputLabel for="name" styleClass="sr-only">Username</p:outputLabel>
+                                <p:inputText id="name" type="text" placeholder="Username" pt:data-tooltip="Your username"  />
+                            </div>
+                            <p:commandButton type="button" value="Submit" pt:data-tooltip="Click to proceed" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 lg:col-6">
+                    <div class="card">
+                        <h5>Confirmation</h5>
+                        <p:commandButton value="Delete" class="ui-button-danger" icon="pi pi-trash">
+                            <p:confirm header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle" />
+                        </p:commandButton>
+
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" width="350">
+                            <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary" icon="pi pi-times" />
+                        </p:confirmDialog>
+                    </div>
+
+                    <div class="card">
+                        <h5>Sidebar</h5>
+                        <p:sidebar widgetVar="sidebar1" baseZIndex="10000">
+                            <h1 style="font-weight:normal">Left Sidebar</h1>
+                        </p:sidebar>
+                        
+                        <p:sidebar widgetVar="sidebar2" position="right" baseZIndex="10000">
+                            <h1 style="font-weight:normal">Right Sidebar</h1>
+                        </p:sidebar>
+                        
+                        <p:sidebar widgetVar="sidebar3" position="top" baseZIndex="10000">
+                            <h1 style="font-weight:normal">Top Sidebar</h1>
+                        </p:sidebar>
+                        
+                        <p:sidebar widgetVar="sidebar4" position="bottom" baseZIndex="10000">
+                            <h1 style="font-weight:normal">Bottom Sidebar</h1>
+                        </p:sidebar>
+                        
+                        <p:sidebar widgetVar="sidebar5" fullScreen="true" baseZIndex="10000">
+                            <h1 style="font-weight:normal">Full Screen Sidebar</h1>
+                        </p:sidebar>
+                        
+                        <p:commandButton icon="pi pi-arrow-right" oncomplete="PF('sidebar1').show()" style="margin-right: .5rem" styleClass="ui-button-warning"/>
+                        <p:commandButton icon="pi pi-arrow-left" oncomplete="PF('sidebar2').show()" style="margin-right: .5rem" styleClass="ui-button-warning"/>
+                        <p:commandButton icon="pi pi-arrow-down" oncomplete="PF('sidebar3').show()" style="margin-right: .5rem" styleClass="ui-button-warning"/>
+                        <p:commandButton icon="pi pi-arrow-up" oncomplete="PF('sidebar4').show()" style="margin-right: .5rem" styleClass="ui-button-warning"/>
+                        <p:commandButton icon="pi pi-th-large" oncomplete="PF('sidebar5').show()" styleClass="ui-button-warning"/>
+                    </div>
+
+                    <div class="card">
+                        <h5>ConfirmPopup</h5>
+                        <p:commandButton value="Confirm" styleClass="mr-2" icon="pi pi-check">
+                            <p:confirm type="popup" header="Confirmation" message="Are you sure you want to proceed?" icon="pi pi-exclamation-triangle"/>
+                        </p:commandButton>
+
+                        <p:confirmPopup global="true" showEffect="fade" hideEffect="fade">
+                            <p:button value="No" styleClass="ui-confirm-popup-no ui-button-flat"/>
+                            <p:button value="Yes" styleClass="ui-confirm-popup-yes" />
+                        </p:confirmPopup>
+                    </div>
+
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

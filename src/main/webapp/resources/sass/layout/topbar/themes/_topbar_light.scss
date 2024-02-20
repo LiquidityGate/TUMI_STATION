@@ -1,0 +1,15 @@
+.layout-topbar-light {
+    $topbarBgColor: #ffffff;
+    $topbarBorderColor: #d8dadc;
+    $topbarBoxShadow:0 2px 5px 0 rgba(0,0,0,0.05);
+
+    $topbarItemTextColor: $primaryColor;
+    $topbarItemSecondaryTextColor:lighthen($primaryColor, 10%);
+    $topbarItemTextHoverBgColor:#E8EDF0;
+    $topbarItemBgColor:#f8fafc;
+    $topbarItemBorderColor:#ebedef;
+
+    $topbarItemSubmenuItemHoverBgColor: rgba($primaryColor, .2);
+
+    @import '../_topbar_theme';
+}

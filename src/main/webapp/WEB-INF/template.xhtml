@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      lang="en">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <link rel="icon" href="#{request.contextPath}/resources/rain-layout/images/favicon.ico" type="image/x-icon"></link>
+        </f:facet>
+        <title><ui:insert name="title">PrimeFaces Rain</ui:insert></title>
+        <h:outputScript name="js/layout.js" library="rain-layout" />
+        <h:outputScript name="js/prism.js" library="rain-layout"/>
+        <h:outputScript name="sections.js" library="demo" />
+        <ui:insert name="head"/>
+    </h:head>
+
+    <h:body styleClass="#{guestPreferences.inputStyleClass}">
+        <div class="layout-wrapper layout-topbar-#{guestPreferences.topbarTheme} layout-menu-#{guestPreferences.menuTheme} #{guestPreferences.menuMode}" >
+            <ui:include src="./topbar.xhtml"/>
+            <ui:include src="./menu.xhtml"/>
+
+            <ui:include src="./rightpanel.xhtml"/>
+            <ui:include src="./config.xhtml" />
+
+            <div class="layout-main"> 
+                <ui:include src="./breadcrumb.xhtml" />    
+                <div class="layout-content">
+                    <ui:insert name="content"/>
+                </div>
+                <ui:include src="./footer.xhtml"/>
+            </div>
+
+            <p:ajaxStatus style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+                <f:facet name="start">
+                    <i class="pi pi-spin pi-spinner layout-ajax-loader-icon" aria-hidden="true"/>
+                </f:facet>
+
+                <f:facet name="complete">
+                    <h:outputText value=""/>
+                </f:facet>
+            </p:ajaxStatus>
+            <div class="layout-mask modal-in"></div>
+        </div>
+        <h:outputStylesheet name="css/primeicons.css" library="rain-layout" />
+        <h:outputStylesheet name="css/primeflex.min.css" library="rain-layout" />
+        <h:outputStylesheet name="css/#{guestPreferences.layout}.css" library="rain-layout" />
+        <h:outputStylesheet name="css/demo-#{guestPreferences.darkMode}.css" library="demo" />
+    </h:body>
+
+</html>

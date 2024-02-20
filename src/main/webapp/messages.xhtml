@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Messages</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/messages">MESSAGES</p:link>
+        </li>
+    </ui:define>
+    
+    <ui:define name="content">
+        <p:tooltip />
+
+        <p:growl id="growl" showDetail="true"/> 
+
+        <div class="grid messages-demo">
+            <div class="col-12 lg:col-6">
+                <div class="card">
+                    <h5>Messages</h5>
+                    <h:form>
+                        <p:commandButton value="Info" actionListener="#{messageDemoView.info}" styleClass="ui-button-info mr-2" process="@this" update="messages"/>
+                        <p:commandButton value="Warn" actionListener="#{messageDemoView.warn}"  styleClass="ui-button-warning mr-2" process="@this" update="messages"/>
+                        <p:commandButton value="Error" actionListener="#{messageDemoView.error}" styleClass="ui-button-danger" process="@this" update="messages"/>
+
+                        <p:messages id="messages" showDetail="true" closable="true" />
+                    </h:form>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-6">
+                <div class="card">
+                    <h5>Growl</h5>
+                    <h:form>
+                        <p:commandButton value="Info" actionListener="#{messageDemoView.info}" styleClass="ui-button-info mr-2" process="@this" update=":growl"/>
+                        <p:commandButton value="Warn" actionListener="#{messageDemoView.warn}"  styleClass="ui-button-warning mr-2" process="@this" update=":growl"/>
+                        <p:commandButton value="Error" actionListener="#{messageDemoView.error}" styleClass="ui-button-danger" process="@this" update=":growl"/>
+
+                        <div style="margin: 1rem"></div>
+                    </h:form>
+                </div>
+            </div>
+                    
+            <div class="col-12 lg:col-8">
+                <div class="card">
+                    <h5>Inline</h5>
+                    <h:form>
+                        <p:outputPanel id="grid">
+                            <div class="field grid align-items-start">
+                                <p:outputLabel for="firstname" styleClass="col-fixed" value="First Name" />
+                                <div class="col">
+                                    <p:inputText id="firstname" required="true" requiredMessage="Field is required" />
+                                    <p:message for="firstname" />
+                                </div>
+                            </div>
+                            <div class="field grid">
+                                <p:outputLabel for="lastname" styleClass="col-fixed" value="Last Name" />
+                                <div class="col">
+                                    <p:inputText id="lastname" required="true" />
+                                    <p:message for="lastname" display="icon" />
+                                </div>
+                            </div>
+                            <div class="field grid">
+                                <p:outputLabel for="email" styleClass="col-fixed" value="Email" />
+                                <div class="col">
+                                    <p:inputText id="email" required="true" />
+                                    <p:message for="email" display="icon" />
+                                </div>
+                            </div>
+                        </p:outputPanel>
+        
+                        <p:commandButton id="submitButton" value="Submit"  update="grid" />
+                    </h:form>
+                </div>
+            </div>
+
+            <div class="col-12 lg:col-4">
+                <div class="card">
+                    <h5>Help Text</h5>
+                    <h:form>
+                        <div class="field ui-fluid">
+                            <p:outputLabel for="username" value="Username" />
+                            <p:inputText id="username" styleClass="ui-state-error" />
+                            <small class="ui-state-error">Enter your username to reset your password.</small>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

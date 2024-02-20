@@ -1,0 +1,206 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+    
+    <ui:define name="title">Servicios</ui:define>
+
+    <ui:define name="viewname">
+        <li>MENU</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/input">SERVICIOS</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="grid ui-fluid">
+            <div class="col-12 md:col-6">
+                <div class="card">
+                    <h5>InputText</h5>
+                    <div class="grid formgrid">
+                        <div class="col-12 mb-2 lg:col-4 mb-lg-0">
+                            <p:inputText placeholder="Default" />
+                        </div>
+                        <div class="col-12 mb-2 lg:col-4 mb-lg-0">
+                            <p:inputText placeholder="Disabled" disabled="true"/>
+                        </div>
+                        <div class="col-12 mb-2 lg:col-4 mb-lg-0">
+                            <p:inputText placeholder="Invalid" styleClass="ui-state-error" />
+                        </div>
+                    </div>
+
+                    <h5>Icons</h5>
+                    <div class="grid formgrid">
+                        <div class="col-12 mb-2 lg:col-4 mb-lg-0">
+                            <span class="ui-input-icon-left">
+                                <i class="pi pi-user"></i>
+                                <p:inputText placeholder="Username" />
+                            </span>
+                        </div>
+                        <div class="col-12 mb-2 lg:col-4 mb-lg-0">
+                            <span class="ui-input-icon-right">
+                                <p:inputText placeholder="Search" />
+                                <i class="pi pi-search"></i>
+                            </span>
+                        </div>
+                        <div class="col-12 mb-2 lg:col-4 mb-lg-0">
+                            <span class="ui-input-icon-left ui-input-icon-right">
+                                <i class="pi pi-user"></i>
+                                <p:inputText placeholder="Search" />
+                                <i class="pi pi-search"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <h5>Float Label</h5>
+                    <span class="ui-float-label">
+                        <p:inputText id="float-input" />
+                        <p:outputLabel for="@previous" value="Username" />
+                    </span>
+
+                    <h5>Textarea</h5>
+                    <p:inputTextarea placeholder="Your message" />
+
+                    <h5>AutoComplete</h5>
+                    <p:autoComplete id="dd" dropdown="true" multiple="true" completeMethod="#{formDemoView.completeText}" placeholder="Search"/>
+                
+                    <h5>DatePicker</h5>
+                    <p:datePicker showIcon="true"/>
+
+                    <h5>Spinner</h5>
+                    <p:spinner />
+
+                    <h5>Chips</h5>
+                    <p:chips />
+
+                    <h5>Keyboard</h5>
+                    <p:keyboard />
+                </div>
+
+                <div class="card">
+                    <h5>Slider</h5>
+                    <p:inputText id="slider" />
+                    <p:slider for="slider" style="margin-top: .5rem" />
+
+                    <h5>Rating</h5>
+                    <p:rating />
+
+                    <h5>ColorPicker</h5>
+                    <p:colorPicker value="424242" />
+                </div>
+            </div>
+
+            <div class="col-12 md:col-6">
+                <div class="card">
+                    <h5>RadioButton</h5>
+                    <p:selectOneRadio layout="responsive" columns="3">
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectOneRadio>
+
+                    <h5>Checkbox</h5>
+                    <p:selectManyCheckbox layout="responsive" columns="3">
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectManyCheckbox>
+
+                    <h5>Toggle Switch</h5>
+                    <p:toggleSwitch />
+                </div>
+
+                <div class="card">
+                    <h5>Listbox</h5>
+                    <p:selectManyMenu showCheckbox="true" filter="true" filterMatchMode="contains">
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectManyMenu>
+
+                    <h5>Dropdown</h5>
+                    <p:selectOneMenu>
+                        <f:selectItem itemLabel="Select" itemValue="" />
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectOneMenu>
+
+                    <h5>CheckboxMenu</h5>
+                    <p:selectCheckboxMenu label="Select" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectCheckboxMenu>
+                </div>
+
+                <div class="card">
+                    <h5>ToggleButton</h5>
+                    <p:selectBooleanButton onLabel="Yes" offLabel="No" style="width:50%" />
+
+                    <h5>SelectOneButton</h5>
+                    <p:selectOneButton>
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectOneButton>
+
+                    <h5>SelectManyButton</h5>
+                    <p:selectManyButton>
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectManyButton>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <h5>InputGroup</h5>
+                    <div class="grid ui-fluid">
+                        <div class="col-12 md:col-6">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon">
+                                    <i class="pi pi-user"></i>
+                                </span>
+                                <p:inputText placeholder="Username" />      
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>  
+                                <span class="ui-inputgroup-addon"><i class="pi pi-globe"></i></span>   
+                                <p:inputText placeholder="Price" />
+                                <span class="ui-inputgroup-addon">$</span>  
+                                <span class="ui-inputgroup-addon">.00</span>      
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6">
+                            <h:form>
+                                <div class="ui-inputgroup">
+                                    <p:commandButton value="Search"/> 
+                                    <p:inputText placeholder="Keyword" />        
+                                </div>
+                            </h:form>
+                        </div>
+                        <div class="col-12 md:col-6">
+                            <div class="ui-inputgroup">
+                                <span class="ui-inputgroup-addon"><p:selectBooleanCheckbox /></span>
+                                <p:inputText placeholder="Username" />
+                                <span class="ui-inputgroup-addon"><p:radioButton for="radioDemo" itemIndex="0"/></span>
+                            </div>
+
+                            <p:selectOneRadio id="radioDemo" layout="custom" unselectable="true">
+                                <f:selectItem itemValue="demo"/>
+                            </p:selectOneRadio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

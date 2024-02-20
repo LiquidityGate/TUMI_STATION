@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <style>
+            /* -----------------------Estilo para el fondo de la imagen ----------------------*/
+            body {
+                background: linear-gradient(rgba(5,7,12,0.3), rgba(5,7,12,0.3)), url("#{resource['image/medico2.jpg']}"); /*Fondo de imagen con un trasparente oscuro*/
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                margin: 0;
+                padding: 0;
+                height: 100vh; /* Aseguramos que el fondo del body ocupe toda la pantalla */
+                font-family: 'Roboto', sans-serif;
+            }
+
+            /* --------------------------------CONTENEDOR DE TODO ---------------------------*/
+            .container {
+                display: flex;
+                justify-content: center; /* Centrar horizontalmente */
+                align-items: center;
+                flex-direction: column; /* Alineamos los elementos en columna */
+                height: 100vh; /* Ajustamos la altura al 80% del viewport (pantalla) */
+                max-width: 1200px; /* Ajustamos el ancho máximo del container */
+                margin: 0 auto; /* Para centrar el container horizontalmente en la pantalla */
+            }
+
+            /*---------------------CONTENEDOR DE DIV'S-----------------------------*/
+
+            .register-card {
+                width: 200%;
+                height: 500px;/* Ajustamos el ancho del login-card al 80% del container */
+                max-width: 600px; /* Limitamos el ancho máximo del login-card */
+                display: flex; /* Agregamos el display flex para alinear los divs internos */
+                justify-content: center; /* Centrar horizontalmente */
+                align-items: center; /* Centrar verticalmente */
+
+            }
+
+            /* ---------------------FONDO VERDE --------------------------------*/
+            .register-card-left {
+                background-color: #2F9E8D;
+                flex: 0 0 55%; /* Reducimos el ancho del login-card-left al 30% */
+                display: flex;
+                justify-content: center; /* Centrar horizontalmente */
+                align-items: center; /* Centrar verticalmente */
+                height: 900px;
+                width: 550px;
+                border-top-left-radius: 012px;
+                border-bottom-left-radius: 012px;
+                box-shadow: 0px 0px 59px -1px rgba(255,255,255,0.82);
+
+            }
+
+            /*-----------------------------FONDO AZUL NOCHE-------------------------------------*/
+            .register-card-right {
+                flex-grow: 1; /* Permite que el login-card-right ocupe todo el espacio restante */
+                padding: 20px;
+                background-color: #03181F;
+                opacity: 0.9;
+                color: white;
+                height: 900px;
+                width: 90000000px;
+                display: flex;
+                justify-content: center; /* Centrar horizontalmente los elementos en el eje principal */
+                align-items: center;
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+                box-shadow: 0px 0px 59px -1px rgba(255,255,255,0.82);
+
+            }
+            .register-card-center{
+                border: 3px solid black;
+                height: 95%;/*--------------ALTURA----------------*/
+                width: 75%;/*------------ANCHO--------------*/
+                padding: 15px 30px 15px 30px;
+                background-color:black;
+                justify-content: center; /* Centrar horizocomo ajustar a la pantalla la linea de código en netbeansntalmente */
+                align-items: center;
+                margin: 0 auto;
+                border-radius:12px;
+                box-shadow: 0px 0px 59px -20px rgba(255,255,255,0.8);
+            }
+            /*-----------------------MODIFICANDO LISTA DESPEGABLE---------------------------*/
+            .list{
+                background: transparent;
+                color: white;
+                font-size: 18px;
+                border: none;
+                border-bottom: 3px solid #2F9E8D;
+                margin-top: 10px;
+                margin-bottom: 22px;
+                border-radius: 4px;
+                width: 64%;
+                padding: 7px;
+            }
+            .list option{  /*-------------Personalizando las opciones de la lista--------------*/
+                background-color: black;
+                color: #4B576F;
+                padding: 5px;
+                border: none;
+                font-family: calibri;
+                border-radius: 10px;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <div class="register-card">
+                <div class="register-card-left">
+                    <!-- Contenido del div izquierdo -->
+                    <p:graphicImage library="image" name="logo_TUMI.png" alt="Logo" style="width: 65%; height: 70%;"/>
+                    <!-- Puedes agregar aquí cualquier otro contenido que desees en la parte izquierda -->
+                </div>
+                <div class="register-card-right">
+                    <!-- Contenido del div derecho -->
+                    <div class="register-card-center" >
+                        <h1 style="text-align: center">
+                            Bienvenido a <br></br>TUMI CLINIC
+                        </h1>
+                        <h:form id="validacion">
+                            <div class="form-group">
+
+                                <div>
+                                    <i class="pi pi-cog"></i>
+                                    <p:outputLabel value="ROL" class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; padding-left: 10px; " />
+                                </div>
+                                <div>
+                                    <select class="list" required="true" >     
+                                        <option disabled="selected">Seleccionar rol</option>     
+                                        <option value="medico">Médico</option>    
+                                        <option value="administrador">Administrador</option>|
+                                        <option value="laboratorista">Laboratorista</option>
+                                        <option value="farmaceutico">Farmacéutico</option>
+                                        <option value="terapeuta">Terapeuta</option>
+                                        <option value="psicologo">Psicólogo</option>
+                                        <option value="nutricionista">Nutricionista</option>       
+                                        <option value="moderador">Moderador</option>
+                                        <option value="paciente">Paciente</option>
+                                    </select>
+                                </div>
+
+                                <div class="field col-12 md:col-4">
+                                    <i class="pi pi-user"></i>
+                                    <p:outputLabel value="USUARIO " class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; padding-left: 10px; " /> 
+                                </div>
+                                <div class="field col-12 md:col-6">
+                                    <p:inputText id="dni" type="text" placeholder="Ingrese su DNI" value="#{validacionManagedBean.dni}" style="background:transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 10px; margin-bottom: 22px; width: 64%" required="true"/> 
+                                </div>
+
+                                <div class="field col-12 md:col-4 mt-4">
+                                    <i class="pi pi-lock" ></i>
+                                    <p:outputLabel for="password" value="CONTRASEÑA" class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; margin-top: 8px; padding-left: 10px"/> 
+                                </div>
+                                <div class="password-input">
+                                    <p:password id="password" value="#{bean.password}" toggleMask="true" placeholder="Ingrese su contraseña" redisplay="true" style="background:transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 10px; margin-bottom: 22px;" />
+                                </div> 
+
+                                <div>
+                                    <i class="pi pi-lock" ></i>
+                                    <p:outputLabel value="CONFIRMAR CONTRASEÑA" class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; margin-top: 8px; padding-left: 10px; "/>
+                                </div>
+                                <div class="password-input">
+                                    <p:password id="confirm_password" value="#{bean.confirm_password}" toggleMask="true" placeholder="Ingrese su contraseña" redisplay="true" style="background:transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 10px; margin-bottom: 22px; " />
+                                </div> 
+
+                                <div class="field col-12 md:col-4">
+                                    <i class="pi pi-phone" ></i>
+                                    <p:outputLabel value="TELÉFONO " class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; padding-left: 10px; " /> 
+                                </div>
+                                <div class="field col-12 md:col-6">
+                                    <p:inputText id="telefono" placeholder="Ingrese su teléfono" value="#{validacionManagedBean.telefono}" style="background:transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 10px; margin-bottom: 22px; width: 64%" required="true"/> 
+                                </div>
+
+                            </div>
+
+                            <div style="transform: translateY(30%);">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <p:commandButton id="btnCodigo" value="Enviar Código" action="#{validacionManagedBean.validarCodigo}" disabled="false" update="messages"/>
+                                </div>
+                                <div>
+                                    <p:inputText  placeholder="Ingrese el código" style="background:transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 10px; margin-bottom: 22px; margin-left: 200px; transform: translateY(-130%); width: 45%" required="true" />
+                                </div>
+                            </div>
+
+                            <div style="transform: translateY(-20%);">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <p:commandButton id="btnCodPaquete" value="Enviar Código Paquete " action="#{validacionManagedBean.validarCodPaquete}" disabled="false" update="messages"/>
+                                </div>
+                                <div>
+                                    <p:inputText  placeholder="Ingrese el código" style="background:transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 10px; margin-bottom: 22px; margin-left: 200px; transform: translateY(-130%); width: 45%" required="true" />
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <p:commandButton id="botonRegistrar" value="Registrarse" style="color: black; font-family: 'Inter', sans-serif; font-weight: 600; background-color: #2F9E8D; margin-top: -20px; height: 40px; width: 120px; border-color: #000; border-radius: 8px; transform: translateY(-130%)" action="#{validacionManagedBean.validarRegistro}" disabled="false" update="messages" />
+                            </div>
+
+                            <div class="field col-12 md:col-4">
+                                <i class="pi pi-check"></i>
+                                <p:outputLabel value="Acepto Términos y Condiciones" class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; padding-left: 10px; " /> 
+                            </div>
+                            <div class="field col-12 md:col-6">
+                                <h:selectBooleanCheckbox value="#{validacionManagedBean.aceptoTerminos}" style="margin-top: 10px;" required="true"/>
+                            </div>
+
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <p:commandButton id="botonRegistrar" value="Registrarse" style="color: black; font-family: 'Inter', sans-serif; font-weight: 600; background-color: #2F9E8D; margin-top: -20px; height: 40px; width: 120px; border-color: #000; border-radius: 8px; transform: translateY(-130%)" action="#{validacionManagedBean.validarRegistro}" disabled="true" update="messages" onclick="redireccionarPagina()" />
+                            </div>
+
+                            <script type="text/javascript">
+                                function redireccionarPagina() {
+                                    // Redirigir a una página dentro del paquete de recursos
+                                    window.location.href = '#{resource['Web Pages/RegistroExitoso.xhtml']}';
+                                }
+                            </script>
+                            
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin-top: 10px;">
+                                <p:commandButton id="botonActualizar" value="Actualizar" style="color: black; font-family: 'Inter', sans-serif; font-weight: 600; background-color: #2F9E8D; margin-top: -20px; height: 40px; width: 120px; border-color: #000; border-radius: 8px; transform: translateY(-130%)" action="#{validacionManagedBean.actualizarDatos}" disabled="true" update="messages" />
+                            </div>
+
+                            <p:messages id="messages" showDetail="true" showSummary="false" closable="true" />
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                var dniInput = document.getElementById("validacion:dni");
+                var contraseñaInput = document.getElementById("validacion:contraseña");
+                var botonRegistrar = document.getElementById("validacion:botonRegistrar");
+
+                dniInput.addEventListener("input", toggleButtonState);
+                contraseñaInput.addEventListener("input", toggleButtonState);
+
+                function toggleButtonState() {
+                    console.log("toggleButtonState called");
+                    if (dniInput.value.trim() !== "") {
+                        if (contraseñaInput.value.trim() !== "") {
+                            // Ambos campos tienen contenido
+                            botonRegistrar.disabled = false; // Habilitar el botón
+                            botonRegistrar.style.backgroundColor = "#2F9E8D";
+                            botonRegistrar.style.color = "#000000";
+                        } else {
+                            // Solo el campo de contraseña está vacío
+                            botonRegistrar.disabled = true; // Deshabilitar el botón
+                            botonRegistrar.style.backgroundColor = "#787878";
+                            botonRegistrar.style.color = "black";
+                        }
+                    } else {
+                        // El campo de correo está vacío
+                        botonRegistrar.disabled = true; // Deshabilitar el botón
+                        botonRegistrar.style.backgroundColor = "#787878";
+                        botonRegistrar.style.color = "black";
+                    }
+                }
+            });
+        </script>
+    </h:body>
+</html>

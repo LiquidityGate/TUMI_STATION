@@ -1,0 +1,75 @@
+body {
+  .ui-lightbox {
+    box-shadow: $overlayContainerShadow;
+
+    .ui-lightbox-caption {
+      border: $panelHeaderBorder;
+      background: $panelHeaderBg;
+      color: $panelHeaderTextColor;
+      padding: $panelHeaderPadding;
+      font-weight: $panelHeaderFontWeight;
+
+      .ui-lightbox-caption-text {
+        color: $panelHeaderTextColor;
+        margin: 0;
+      }
+
+      .ui-lightbox-close {
+        padding: 0;
+        @include action-icon();
+
+        .ui-icon {
+          @include icon_override("\e90b");
+        }
+      }
+    }
+
+    .ui-lightbox-content-wrapper {
+      overflow: hidden;
+      background: $panelContentBg;
+      color: $panelContentTextColor;
+      border: 0 none;
+      padding: 0;
+
+      .ui-lightbox-nav-left {
+        @include icon_override("\e900");
+        transition: all $transitionDuration;
+        font-size: 24px;
+        margin-left: 4px;
+        color: #ffffff;
+
+        &:hover {
+          scale: 1.2;
+        }
+
+        span {
+          display: none;
+        }
+      }
+
+      .ui-lightbox-nav-right {
+        @include icon_override("\e901");
+        transition: all $transitionDuration;
+        font-size: 24px;
+        margin-right: 4px;
+        color: #ffffff;
+
+        &:hover {
+          scale: 1.2;
+        }
+
+        span {
+          display: none;
+        }
+      }
+
+      .ui-lightbox-content {
+        border-radius: 0;
+      }
+
+      .ui-lightbox-content.ui-lightbox-loading + a {
+        display: none;
+      }
+    }
+  }
+}

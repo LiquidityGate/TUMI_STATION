@@ -1,0 +1,23 @@
+.layout-menu-dim {
+    $menuBgColor:#2B394F;
+    
+    $rootMenuItemTextColor:#f8fafc;
+    $rootMenuTextColor:lighten($primaryColor, 15%);
+    $rootMenuItemHoverBgColor:rgba($primaryColor, .2);
+    $activeRootMenuItemTextColor: scale-color($primaryColor, $lightness: 15%);
+    $menuItemIconColor:lighten($primaryColor, 15%);
+
+    $submenuItemTextColor:#f8fafc;
+    $submenuItemHoverBgColor:rgba($primaryColor, .2);
+    $activeSubmenuItemTextColor:scale-color($primaryColor, $lightness: 15%);
+
+
+    $slimActiveRootMenuItemBgColor:$primaryColor;
+    $slimActiveRootMenuItemTextColor:#ffffff;
+
+    $menuShadow: 0 2px 10px 0 rgba(25, 26, 28, 0.12);
+    $menuBorderColor: $dividerColor;
+
+    @import '../_menu_theme';
+}
+

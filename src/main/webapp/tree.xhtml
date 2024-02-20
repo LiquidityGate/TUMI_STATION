@@ -1,0 +1,85 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+                
+    <ui:define name="title">Tree</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/tree">TREE</p:link>
+        </li>
+    </ui:define>
+    
+    <ui:define name="content">
+        <div class="grid">
+            <div class="col-12">
+                <div class="card">
+                    <h4>Tree</h4>
+                    <p:tree value="#{treeDemoView.root1}" var="doc" selectionMode="checkbox" selection="#{treeDemoView.selectedNodes1}">
+                        <p:treeNode expandedIcon="pi pi-folder-open" collapsedIcon="pi pi-folder">
+                            <h:outputText value="#{doc.name}"/>
+                        </p:treeNode>
+                        <p:treeNode type="document" icon="pi pi-file">
+                            <h:outputText value="#{doc.name}" />
+                        </p:treeNode>
+                        <p:treeNode type="picture" icon="pi pi-file">
+                            <h:outputText value="#{doc.name}" />
+                        </p:treeNode>
+                        <p:treeNode type="mp3" icon="pi pi-video">
+                            <h:outputText value="#{doc.name}" />
+                        </p:treeNode>
+                    </p:tree>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <h4>TreeTable</h4>
+                    <p:treeTable value="#{treeDemoView.root2}" var="document" selectionMode="checkbox" selection="#{treeDemoView.selectedNodes2}">
+                        <f:facet name="header">
+                            File System
+                        </f:facet>
+                        <p:column headerText="Name" sortBy="#{document.name}">
+                            <h:outputText value="#{document.name}" />
+                        </p:column>
+                        <p:column headerText="Size" responsivePriority="3">
+                            <h:outputText value="#{document.size}" />
+                        </p:column>
+                        <p:column headerText="Type" responsivePriority="2">
+                            <h:outputText value="#{document.type}" />
+                        </p:column>
+                    </p:treeTable>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <h4>Horizontal Tree</h4>
+                    <p:tree value="#{treeDemoView.root3}" var="doc" orientation="horizontal">
+                        <p:treeNode expandedIcon="pi pi-folder-open" collapsedIcon="pi pi-folder">
+                            <h:outputText value="#{doc.name}"/>
+                        </p:treeNode>
+                        <p:treeNode type="document" icon="pi pi-file">
+                            <h:outputText value="#{doc.name}" />
+                        </p:treeNode>
+                        <p:treeNode type="picture" icon="pi pi-file">
+                            <h:outputText value="#{doc.name}" />
+                        </p:treeNode>
+                        <p:treeNode type="mp3" icon="pi pi-video">
+                            <h:outputText value="#{doc.name}" />
+                        </p:treeNode>
+                    </p:tree>
+                </div>
+            </div>
+            
+
+            
+        </div>
+    </ui:define>
+
+</ui:composition>

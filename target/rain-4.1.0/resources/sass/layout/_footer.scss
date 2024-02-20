@@ -1,0 +1,51 @@
+.layout-footer {
+    padding: 16px 120px;
+    border-top: solid 1px $dividerColor;
+    
+    span {
+        font-size: 12px;
+        font-weight: 500;
+        margin: 0;
+        margin-bottom: 12px;
+        color: $textSecondaryColor;
+    }
+
+    ul {
+        padding: 0;
+        margin-left: 16px;
+
+        > li {
+            font-size: 14px;
+            color: $textSecondaryColor;
+            padding-bottom: 6px;
+            cursor: pointer;
+
+            &:hover {
+                color: $textColor;
+            }
+        }
+    }
+
+    .socials {
+        @include flex();
+        @include flex-align-center();
+        margin-top: 1em;
+        
+        > i {
+            font-size: 22px;
+            color: $textSecondaryColor;
+            margin-right: 12px;
+            cursor: pointer;
+
+            &:hover {
+                color: $textColor;
+            }
+        }
+    }
+}
+
+@media(max-width: $tabletBreakpoint) {
+    .layout-footer {
+        padding: 18px 24px 64px;
+    }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <link rel="shortcut icon" href="resources/rain-layout/images/favicon.ico" type="image/x-icon"></link>
+            <link rel="icon" href="#{request.contextPath}/resources/rain-layout/images/favicon.ico" type="image/x-icon"></link>
+        </f:facet>
+        <title>PrimeFaces Rain - Denied</title>
+    </h:head>
+
+    <h:body styleClass="exception-body access">
+        <div class="exception-image">
+            <p:graphicImage name="images/pages/bg-header-access.png" library="rain-layout" />
+        </div>
+        <div class="exception-card">
+            <h1>ACCESS <span>DENIED</span></h1>
+            <p:graphicImage name="images/pages/asset-access.svg" library="rain-layout" />
+            <span>You are not authorized to access this resource.</span>
+            <p:linkButton outcome="/dashboard" value="GO TO DASHBOARD" />
+        </div>
+        <h:outputStylesheet name="css/#{guestPreferences.layout}.css" library="rain-layout" />
+    </h:body>
+
+</html>

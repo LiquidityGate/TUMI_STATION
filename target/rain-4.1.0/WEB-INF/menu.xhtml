@@ -1,0 +1,203 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+                xmlns:h="http://java.sun.com/jsf/html" 
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets" 
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pr="http://primefaces.org/rain">
+    
+        <style>
+        .menu-wrapper {
+            /* Estilos para el contenedor del menú */
+        }
+
+        .menu-hidden {
+            display: none; /* O cualquier estilo para ocultar el menú */
+        }
+    </style>
+
+    <div class="menu-wrapper" id="menuWrapper">
+        <div class="layout-menu-container">
+            <br></br><br></br>
+            <div>
+                <p class="font-bold mr-3 w-2" style="color: #2f9e8d ;margin-left: 20px;" >FAVORITOS</p>
+            </div>
+            <br></br> 
+            <p:link outcome="dashboard" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-home"  style="margin-right: 6px"/>Dashboard</p:link>
+            <br></br> <br></br>
+            <div>
+                <p class="font-bold mr-3 w-2" style="color: #2f9e8d; margin-left: 20px;">INICIO</p>
+            </div>
+            <br></br> <br></br>
+            <p:panelMenu style="width:300px">
+                <p:submenu label="Asociados">
+                    <p:menuitem value="Postulaciones" url="table" icon="pi-user-plus" outcome="table"/>
+                    <p:menuitem value="Imprimir" icon="pi-file-pdf"/>
+                </p:submenu>
+            </p:panelMenu>
+            <br></br> 
+            <p:link outcome="table" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-user-plus"></i> Postulación Asociados</p:link>
+            <br></br><br></br>
+            <p:link outcome="formPrincipalAsociados" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-wrench"></i> Servicios</p:link>
+            <br></br><br></br>
+            <p:link outcome="tabviewtable" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-bookmark" style="margin-right: 6px"/>Etiquetas flotantes</p:link>
+            <br></br><br></br>
+            <p:link outcome="invalidstate" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-exclamation-circle" style="margin-right: 6px"/>Estado invalido</p:link>
+            <br></br><br></br>
+            <p:link outcome="pruebatabla" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-mobile" style="margin-right: 6px"/>Botón</p:link>
+            <br></br><br></br>
+            <p:link outcome="formlayout" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-table" style="margin-right: 6px"/>Formularios</p:link>
+            <br></br><br></br>
+            <p:link outcome="list" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-list" style="margin-right: 6px"/>Lista</p:link>
+            <br></br><br></br>
+            <p:link outcome="tree" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-share-alt" style="margin-right: 6px"/>Arbol</p:link>
+            <br></br><br></br>
+            <p:link outcome="panel" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-tablet" style="margin-right: 6px"/>Panel</p:link>
+            <br></br><br></br>
+            <p:link outcome="overlay" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-clone" style="margin-right: 6px"/>Overlay</p:link>
+            <br></br><br></br>
+            <p:link outcome="menu" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-bars" style="margin-right: 6px"/>Menu</p:link>
+            <br></br><br></br>
+            <p:link outcome="messages" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-comment" style="margin-right: 6px"/>Mensaje</p:link>
+            <br></br><br></br>
+            <p:link outcome="file" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-file" style="margin-right: 6px"/>Archivo</p:link>
+            <br></br><br></br>
+            <p:link outcome="charts" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-chart-bar" style="margin-right: 6px"/>Chart</p:link>
+            <br></br><br></br>
+            <p:link outcome="media" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-image" style="margin-right: 6px"/>Media</p:link>
+            <br></br><br></br>
+            <p:link outcome="D_trabajador" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-circle-off" style="margin-right: 6px"/>Jeraraquia de Empresa</p:link>
+            <br></br><br></br>
+            <p:link outcome="formPrincipalAsociados" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-google" style="margin-right: 6px"/>Asociados</p:link>
+            <br></br><br></br>
+            <p:link id="logouLink" outcome="login" style="color: #fff ; text-decoration: none; margin-left:20px;" onclick="return confirmarCerrarSesion()"><i class="pi pi-power-off" style="margin-right: 6px"></i>Cerrar Sesión</p:link>
+
+            <!--FUNCION PARA CARGAR VENTANA EMERGENTE DE CIERRE DE SESION-->
+            <script>
+                function confirmarCerrarSesion() {
+                    if (confirm('¿Estás seguro que deseas cerrar sesión?')) {
+                        // Si el usuario confirma, se redirige a la página de cierre de sesión
+                        return true;
+                    } else {
+                        // Si el usuario cancela, se detiene el evento de clic
+                        return false;
+                    }
+                }
+            </script>
+
+
+
+            <ui:fragment rendered="#{guestPreferences.profileMode == 'popup' ? false : true}">
+                <div class="layout-profile">
+                    <a class="layout-profile-button" href="#">
+                        <span class="image-name">
+                            <p:graphicImage name="images/avatar-profilemenu.png" library="rain-layout" />
+                            <span class="layout-profile-userinfo">
+                                <span class="layout-profile-name">Jordi Santiago</span>
+                                <span class="layout-profile-mail">jordi@primetek.com.tr</span>
+                            </span>
+                        </span>
+                        <i class="layout-profile-icon pi pi-chevron-down"/>
+                    </a>
+                    <ul class="layout-profile-menu">
+                        <li>
+                            <a href="#">
+                                <i class="pi pi-user"/>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pi pi-cog"/>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pi pi-envelope"/>
+                                <span>Messages</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="pi pi-bell"/>
+                                <span>Notifications</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </ui:fragment>
+            <h:form id="menuform">
+                <pr:menu widgetVar="RainMenuWidget">
+                    <p:submenu id="m_homepage" label="Favorites" icon="pi pi-home">
+                        <p:menuitem id="m_dashboard" value="Dashboard" icon="pi pi-home" outcome="/dashboard" />
+                    </p:submenu>
+                    <p:submenu id="m_components" label="UI Kit" icon="pi pi-star-fill">
+                        <p:menuitem id="m_formlayout" value="Form Layout" icon="pi pi-id-card" outcome="/formlayout" />
+                        <p:menuitem id="m_input" value="Input" icon="pi pi-check-square" outcome="/input" />
+                        <p:menuitem id="m_floatlabel" value="Float Label" icon="pi pi-bookmark" outcome="/floatlabel" />
+                        <p:menuitem id="m_invalidstate" value="Invalid State" icon="pi pi-exclamation-circle" outcome="/invalidstate" />
+                        <p:menuitem id="m_button" value="Button" icon="pi pi-mobile" outcome="/button" styleClass="rotated-icon"/>
+                        <p:menuitem id="m_table" value="Table" icon="pi pi-table" outcome="/table" />
+                        <p:menuitem id="m_list" value="List" icon="pi pi-list" outcome="/list" />
+                        <p:menuitem id="m_tree" value="Tree" icon="pi pi-share-alt" outcome="/tree" />
+                        <p:menuitem id="m_panel" value="Panel" icon="pi pi-tablet" outcome="/panel" />
+                        <p:menuitem id="m_overlay" value="Overlay" icon="pi pi-clone" outcome="/overlay" />
+                        <p:menuitem id="m_menu" value="Menu" icon="pi pi-bars" outcome="/menu" />
+                        <p:menuitem id="m_message" value="Message" icon="pi pi-comment" outcome="/messages" />
+                        <p:menuitem id="m_file" value="File" icon="pi pi-file" outcome="/file" />
+                        <p:menuitem id="m_chart" value="Chart" icon="pi pi-chart-bar" outcome="/charts" />
+                        <p:menuitem id="m_media" value="Media" icon="pi pi-image" outcome="/media" />
+                        <p:menuitem id="m_misc" value="Misc" icon="pi pi-circle-off" outcome="/misc" />
+                    </p:submenu>
+                    <p:submenu id="m_primeblocks" label="Prime Blocks" icon="pi pi-prime">
+                        <p:menuitem id="m_freeblocks" value="Free Blocks" icon="pi pi-eye" outcome="/blocks"/>
+                        <p:menuitem id="m_allblocks" value="All Blocks" icon="pi pi-globe" target="_blank" url="https://www.primefaces.org/primeblocks-jsf"/>
+                    </p:submenu>
+                    <p:submenu id="m_utils" label="Utilities" icon="pi pi-compass">
+                        <p:menuitem id="m_icons" value="PrimeIcons" icon="pi pi-prime" outcome="/icons"/>
+                        <p:menuitem id="m_flex" value="PrimeFlex" icon="pi pi-desktop" target="_blank" url="https://www.primefaces.org/primeflex"/>
+                    </p:submenu>
+                    <p:submenu id="m_default" label="Pages" icon="pi pi-briefcase">
+                        <p:menuitem id="m_crud" value="Crud" icon="pi pi-pencil" outcome="/crud" />
+                        <p:menuitem id="m_calendar" value="Calendar" icon="pi pi-calendar-plus" outcome="/calendar" />
+                        <p:menuitem id="m_chronoline" value="Chronoline" icon="pi pi-calendar" outcome="/chronoline" />
+                        <p:menuitem id="m_landing" value="Landing" icon="pi pi-user-plus" outcome="/landing" />
+                        <p:menuitem id="m_login" value="Login" icon="pi pi-sign-in" outcome="/login" />
+                        <p:menuitem id="m_invoice" value="Invoice" icon="pi pi-dollar" outcome="/invoice" />
+                        <p:menuitem id="m_help" value="Help" icon="pi pi-question-circle" outcome="/help" />
+                        <p:menuitem id="m_error" value="Error" icon="pi pi-times-circle" outcome="/error" />
+                        <p:menuitem id="m_notfound" value="Not Found" icon="pi pi-exclamation-circle" outcome="/notfound" />
+                        <p:menuitem id="m_access" value="Access Denied" icon="pi pi-lock" outcome="/access" />
+                        <p:menuitem id="m_empty" value="Empty" icon="pi pi-circle-off" outcome="/empty" />
+                    </p:submenu>
+                    <p:submenu id="m_hierarchy" label="Hierarchy" icon="pi pi-align-left">
+                        <p:submenu id="m_sm1" label="Submenu 1" icon="pi pi-align-left">
+                            <p:submenu id="m_sm11" label="Submenu 1.1" icon="pi pi-align-left">
+                                <p:menuitem id="m_lnk111" value="Link 1.1.1" icon="pi pi-align-left" url="#" />
+                                <p:menuitem id="m_lnk112" value="Link 1.1.2" icon="pi pi-align-left" url="#" />
+                                <p:menuitem id="m_lnk113" value="Link 1.1.3" icon="pi pi-align-left" url="#" />
+                            </p:submenu>
+                            <p:submenu id="m_sm12" label="Submenu 1.2" icon="pi pi-align-left">
+                                <p:menuitem id="m_lnk121" value="Link 1.2.1" icon="pi pi-align-left" url="#" />
+                            </p:submenu>
+                        </p:submenu>
+                        <p:submenu id="m_sm2" label="Submenu 2" icon="pi pi-align-left">
+                            <p:submenu id="m_sm21" label="Submenu 2.1" icon="pi pi-align-left">
+                                <p:menuitem id="m_lnk211" value="Link 2.1.1" icon="pi pi-align-left" url="#" />
+                                <p:menuitem id="m_lnk212" value="Link 2.1.2" icon="pi pi-align-left" url="#" />
+                            </p:submenu>
+                            <p:submenu id="m_sm22" label="Submenu 2.2" icon="pi pi-align-left">
+                                <p:menuitem id="m_lnk221" value="Link 2.2.1" icon="pi pi-align-left" url="#" />
+                            </p:submenu>
+                        </p:submenu>
+                    </p:submenu>
+                    <p:submenu id="m_getstarted" label="Start" icon="pi pi-download">
+                        <p:menuitem id="m_buy" value="Buy Now" icon="pi pi-shopping-cart" url="https://www.primefaces.org/store" />
+                        <p:menuitem id="m_doc" value="Documentation" icon="pi pi-info-circle" outcome="/documentation"/>
+                    </p:submenu>
+                </pr:menu>
+            </h:form>
+        </div>
+    </div>
+
+</ui:composition>

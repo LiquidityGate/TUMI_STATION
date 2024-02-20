@@ -1,0 +1,10 @@
+.layout-content {
+    padding: 30px 36px;
+    flex: 1 1 auto;
+}
+
+@media (max-width: $tabletBreakpoint) {
+    .layout-content {
+        padding: 32px 13px;
+    }
+}

@@ -1,0 +1,198 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <ui:define name="title">Servicios</ui:define>
+
+    <ui:define name="viewname">
+        <li>INICIO</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/button">Servicios</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <h:form> 
+            <h2 class="mt-0">Servicios</h2>
+            
+            <!--ESTE UN PANEL, DENTRO LLEVA UN DROPDOWN QUE FILTRARA LOS PACIENTES QUE SI/NO HAN SIDO ATENDIDOS-->
+            <p:panel header="Estado del paciente">
+                <p:selectOneMenu value="#{basicView.estadoSeleccionado}" style="width:150px">
+                    <f:selectItem itemLabel="Eliga:" itemValue="" noSelectionOption="true"/>
+                    <f:selectItem itemLabel="Atendidos" itemValue="atendido"/>
+                    <f:selectItem itemLabel="No atendidos" itemValue="noAtendido"/>
+                    <p:ajax listener="#{basicView.onEstadoChange}"/>
+                </p:selectOneMenu>
+            </p:panel>
+            <br></br>
+          <!--ESTE UN PANEL, DENTRO LLEVA UN DROPDOWN QUE FILTRARA LOS MEDICOS QUE SI/NO HAN SIDO ASIGNADOS AL PACIENTE -->
+            <p:panel header="Estado del Especialista">
+                <p>Este campo filtra si el médico a sido asignado a un paciente.</p>
+                <p:selectOneMenu value="#{basicView.estadoSeleccionado}" style="width:150px">
+                    <f:selectItem itemLabel="Eliga:" itemValue="" noSelectionOption="true"/>
+                    <f:selectItem itemLabel="Asignado" itemValue="atendido"/>
+                    <f:selectItem itemLabel="No Asignado" itemValue="noAtendido"/>
+                    <p:ajax listener="#{basicView.onEstadoChange}"/>
+                </p:selectOneMenu>
+            </p:panel>
+            <br></br>
+            
+            <!--ESTE ESTE ES UNA TABLA DE VISTA DONDE, SE PODRÁ FILTRAR LOS SERVICIOS QUE HAGAN RESERVADO LOS PACIENTES-->
+            <p:panel header="Estado de atención" footer="Movie Details">
+                <h2>Historia por Servicio</h2>
+                <p>Los pacientes que han adquirido/reservado uno de los servicios disponibles; su información podrá ser visualizada en la tabla.</p> 
+                <p:tabView scrollable="true">
+                    <p:tab title="Atención Medica">Servicios de Atención Medica</p:tab>
+                    <p:tab title="Enfermeria">Servicios de Enfermeria</p:tab>
+                    <p:tab title="Examenes de Laboratorio"> Servicios Examenes de laboratorio</p:tab>
+                    <p:tab title="Examenes por imágenes">Servicios Examenes por imagenes</p:tab>
+                    <p:tab title="Ambulancia">Servicios de Ambulancia</p:tab>
+                    <p:tab title="Terapia"> Servicios de Terapia</p:tab>
+                    <p:tab title="Nutrición">Servicios de Nutrición</p:tab>
+                    <p:tab title="Psicologia">Servicios de Psicologia</p:tab>
+                    <p:tab title="Obstetricia">Servicios de Obstetricia</p:tab>
+                    <p:tab title="Examenes Auxiliares">Servicios en Examenes Auxiliares</p:tab>
+                </p:tabView>
+
+                
+              <!--ESTA TABLA MUESTRA LOS DATOS DEL PACIENTE QUE HA RESERVADO UN SERVICIO EN SALUD-->
+                <p:dataTable var="customer" value="#{dtPaginatorView.customers}" rows="10"
+                             paginator="true" paginatorPosition="bottom"  
+                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"    
+                             rowsPerPageTemplate="5,10,{ShowAll|'All'}"
+                             scrollable="true" scrollWidth="auto"> <!-- Ajusta el ancho según tus necesidades -->
+                    <!-- Columnas de la tabla -->
+                    <p:column headerText="Codigo" style="width: 300px;">
+                        <h:outputText value="#{customer.Codigo_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Rol" style="width: 300px;">
+                        <h:outputText value="#{customer.codRol}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo de Identidad" style="width: 300px;">
+                        <h:outputText value="#{customer.codTipoDocIdent}" />
+                    </p:column>
+
+                    <p:column headerText="N° Ruc" style="width: 300px;">
+                        <h:outputText value="#{customer.NUmeroRuc_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="DNI" style="width: 300px;">
+                        <h:outputText value="#{customer.NumDocIdent_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre" style="width: 300px;">
+                        <h:outputText value="#{customer.Nombres_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Apellido Paterno" style="width: 300px;">
+                        <h:outputText value="#{customer.ApePaterno_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Apellido Materno" style="width: 300px;">
+                        <h:outputText value="#{customer.ApeMaterno_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Fecha de Nacimiento" style="width: 300px;">
+                        <h:outputText value="#{customer.FecNacimiento_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Género" style="width: 300px;">
+                        <h:outputText value="#{customer.codSexo}" />
+                    </p:column>
+
+                    <p:column headerText="Estado Civil" style="width: 300px;">
+                        <h:outputText value="#{customer.codEstadoCivil}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo de Sangre" style="width: 300px;">
+                        <h:outputText value="#{customer.codTipoSangre}" />
+                    </p:column>
+
+                    <p:column headerText="País" style="width: 300px;">
+                        <h:outputText value="#{customer.codPais}" />
+                    </p:column>
+
+                    <p:column headerText="Departamento" style="width: 300px;">
+                        <h:outputText value="#{customer.codDepartamento}" />
+                    </p:column>
+
+                    <p:column headerText="Provincia" style="width: 300px;">
+                        <h:outputText value="#{customer.codProvincia}" />
+                    </p:column>
+
+                    <p:column headerText="Distrito" style="width: 300px;">
+                        <h:outputText value="#{customer.codDistrito}" />
+                    </p:column>
+
+                    <p:column headerText="Domicilio" style="width: 300px;">
+                        <h:outputText value="#{customer.Domicilio_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Referencia de Domicilio" style="width: 300px;">
+                        <h:outputText value="#{customer.ReferenciaDomicilio_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Ubigeo" style="width: 300px;">
+                        <h:outputText value="#{customer.Ubigeo_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Foto de Perfil" style="width: 300px;">
+                        <h:outputText value="#{customer.FotoPerfil_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Número de Teléfono" style="width: 300px;">
+                        <h:outputText value="#{customer.NumeroTelefono_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Correo Electrónico" style="width: 300px;">
+                        <h:outputText value="#{customer.Correo_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Clave" style="width: 300px;">
+                        <h:outputText value="#{customer.Clave_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Fecha de Registro" style="width: 300px;">
+                        <h:outputText value="#{customer.FecRegistro_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Situación de Acceso" style="width: 300px;">
+                        <h:outputText value="#{customer.codSituacionAccesoAsociado}" />
+                    </p:column>
+
+                    <p:column headerText="Fecha de Inicio de Suspensión" style="width: 300px;">
+                        <h:outputText value="#{customer.FecInicioSuspension}" />
+                    </p:column>
+
+                    <p:column headerText="Fecha de Término de Suspensión" style="width: 300px;">
+                        <h:outputText value="#{customer.FecTerminoSuspencion}" />
+                    </p:column>
+
+                    <p:column headerText="Estado de Actividad" style="width: 300px;">
+                        <h:outputText value="#{customer.EstadoActividad_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Aceptó Términos" style="width: 300px;">
+                        <h:outputText value="#{customer.AceptoTerminos}" />
+                    </p:column>
+
+                    <p:column headerText="Situar" style="width: 300px;">
+                        <!-- Botón que abre la ventana emergente -->
+                        <p:commandButton update=":form:productDetail" oncomplete="PF('productDialog').show()"
+                                         icon="pi pi-search" title="View" />
+                    </p:column>
+
+                </p:dataTable>
+            </p:panel>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

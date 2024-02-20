@@ -1,0 +1,14 @@
+//general
+$fontSize: 14px !default;
+$fontFamily: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$mobileBreakpoint: 991px !default;
+$borderRadius: 4px !default;
+$transitionDuration: .2s !default;
+$transition: background-color $transitionDuration, color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration !default;
+$actionIconTransition:background-color $transitionDuration, color $transitionDuration, box-shadow $transitionDuration, opacity $transitionDuration ease-in-out !default;
+$listItemTransition: box-shadow $transitionDuration !default;
+$animationDuration: .2s !default;
+$animationTimingFunction: cubic-bezier(.05, .74, .2, .99) !default;
+$letterSpacing: normal !default;
+$tabletBreakpoint: 991px !default;
+$phoneBreakpoint: 576px !default;

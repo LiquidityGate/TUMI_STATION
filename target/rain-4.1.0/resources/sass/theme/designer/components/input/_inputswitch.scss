@@ -1,0 +1,45 @@
+body {
+  .ui-inputswitch {
+    height: 14px;
+    width: 34px !important;
+    overflow: visible;
+    background: $inputSwitchOffBg;
+    border-radius: 8px;
+
+    .ui-inputswitch-handle {
+      top: -4px;
+      left: -2px;
+      background: $inputSwitchHandleOffBg;
+      border-radius: 50%;
+      border: $inputSwitchHandleOffBorder;
+      transition: $transition;
+      width: 20px !important;
+      height: 20px !important;
+      box-shadow: $inputSwitchHandleShadow;
+
+      &.ui-state-focus {
+        @include focused-input();
+      }
+    }
+
+    .ui-inputswitch-on {
+      visibility: hidden;
+    }
+
+    .ui-inputswitch-off, .ui-inputswitch-on {
+      span {
+        visibility: hidden;
+      }
+    }
+
+    &.ui-inputswitch-checked {
+      background: $inputSwitchOnBg;
+
+      .ui-inputswitch-handle {
+        background: $inputSwitchHandleOnBg;
+        border-color: $inputSwitchHandleOnBorderColor;
+        margin-left: 2px;
+      }
+    }
+  }
+}

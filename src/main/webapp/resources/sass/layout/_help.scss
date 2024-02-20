@@ -1,0 +1,135 @@
+.help-page {
+    p {
+        margin: 0;
+    }
+    
+    .help-search {
+        background-image: url("\#{resource['rain-layout:images/pages/help/rain.png']}");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 0;
+        text-align: center;
+
+        .help-search-content {
+            padding: 5rem 12rem;
+
+            h4 {
+                color: $textColor;
+                font-weight: 500;
+            }
+        }
+
+        .search-container {
+            font-size: 1rem;
+            padding: 1rem;
+            position: relative;
+
+            input {
+                appearance: none;
+                font-size: 1rem;
+                text-indent: 2.5rem;
+                padding: .5rem;
+                width: 100%;       
+
+            }
+    
+            i {
+                color:$primaryColor;
+                width: 1rem;
+                position: absolute;
+                margin-left: .5rem;
+                top: 50%;
+                margin-top: -.5rem;
+            }
+        }
+    }
+
+    .status-bars {
+        margin-top: 1rem;
+        @include flex();
+
+        .status-bar {
+            flex: 1 1 0;
+            -ms-flex: 1 1 0px;
+            background: #3C9462;
+            height: 50px;
+            margin-right: .25rem;
+            transition: transform $transitionDuration;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.status-bar-failure {
+                background: #DB8519;
+            }
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .status-bar-footer {
+        padding: 1rem 0 0 0;
+        @include flex();
+        @include flex-justify-between();
+    }
+
+    .blog-post {
+        border-radius: 4px;
+        padding: 20px;
+        margin: 3rem 2rem;
+        border: 1px solid rgba($textSecondaryColor,.5);
+        background-color:$contentBgColor;
+        position: relative;
+
+        &:last-child {
+            margin-bottom: 1rem;
+        }
+
+        img {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .blog-text {
+            h1 {
+                color: $textColor;
+                margin-bottom: 1rem;
+                font-weight: 500;
+            }
+
+            span {
+                color: $textSecondaryColor;
+                line-height: 1.4;
+            }
+        }
+
+        .blog-profile {
+            position: absolute;
+            top: -25px;
+            left: -25px;
+
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                
+            }
+        }
+    }   
+}
+
+@media screen and (max-width: $tabletBreakpoint) {
+    .help-page {
+        .help-search {    
+            .help-search-content {
+                padding: 6rem 2rem;
+            }
+        }
+    }
+}

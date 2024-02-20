@@ -1,0 +1,90 @@
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+}
+
+@keyframes fadeinmask {
+    from { opacity: 0; }
+    to   { opacity: .8; }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.fadeOutUp {
+    -webkit-animation-name: fadeOutUp;
+    animation-name: fadeOutUp;
+}
+
+
+  @-webkit-keyframes modal-in {
+    from {
+      background-color: transparent;
+    }
+  
+    to {
+        background-color: rgba(0,0,0,0.6);
+    }
+  }
+  
+  @keyframes modal-in {
+    from {
+        background-color: transparent;
+      }
+    
+      to {
+          background-color: rgba(0,0,0,0.6);
+      }
+  }
+
+.modal-in {
+    -webkit-animation-name: modal-in;
+    animation-name: modal-in;
+}

@@ -1,0 +1,231 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Misc</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/misc">MISC</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            $(function() {
+                setInterval(function () {
+                    var pb = PF('pb');
+                    var oldValue = pb.getValue();
+                    var newValue = oldValue + 10;
+
+                    pb.setValue(pb.getValue() + 10);
+
+                    if (newValue === 100) {
+                        clearInterval(window['progress']);
+                    }
+                }, 1000);
+            });
+        </script>
+    </ui:define>
+    
+    <ui:define name="content">
+        <h:form>
+            <div class="grid misc-demo">
+                <div class="col-12">
+                    <div class="card">
+                        <h5>ProgressBar</h5>
+                        <div class="grid">
+                            <div class="col">
+                                <p:progressBar widgetVar="pb" />
+                            </div>
+                            <div class="col">
+                                <p:progressBar value="50" displayOnly="true" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 lg:col-6">
+                    <div class="card">
+                        <h4>Badge</h4>
+                        <h:form>
+                            <h5 class="mt-0">Numbers</h5>
+                            <p:badge value="2" styleClass="mr-2"/>
+                            <p:badge value="8" severity="success" styleClass="mr-2"/>
+                            <p:badge value="4" severity="info" styleClass="mr-2"/>
+                            <p:badge value="12" severity="warning" styleClass="mr-2"/>
+                            <p:badge value="3" severity="danger"/>
+
+                            <h5 class="mb-4">Positioned Badge</h5>
+
+                            <p:badge value="2">
+                                <i class="pi pi-bell" style="font-size: 2rem"/>
+                            </p:badge>
+
+                            <p:badge value="10+" severity="danger">
+                                <i class="pi pi-calendar ml-4" style="font-size: 2rem"/>
+                            </p:badge>
+
+                            <p:badge severity="danger">
+                                <i class="pi pi-envelope ml-4" style="font-size: 2rem"/>
+                            </p:badge>
+
+                            <h5>Button Badge</h5>
+                            <p:badge value="8">
+                                <p:button value="Emails"/>
+                            </p:badge>
+                            <p:badge value="8" severity="danger">
+                                <p:button value="Messages" icon="pi pi-users" styleClass="ui-button-warning ml-4" />
+                            </p:badge>
+
+                            <h5>Sizes</h5>
+                            <p:badge value="2" styleClass="mr-2"/>
+                            <p:badge value="4" styleClass="mr-2" size="large" severity="warning"/>
+                            <p:badge value="6" size="xlarge" severity="success"/>
+                        </h:form>
+                    </div>
+                    <div class="card">
+                        <h4>Avatar</h4>
+                        <h5>Avatar Group</h5>
+                        <p:avatarGroup styleClass="mb-3">
+                            <p:avatar size="large" shape="circle">
+                                <p:graphicImage value="resources/demo/images/avatar/amyelsner.png"/>
+                            </p:avatar>
+                            <p:avatar size="large" shape="circle">
+                                <p:graphicImage value="resources/demo/images/avatar/asiyajavayant.png"/>
+                            </p:avatar>
+                            <p:avatar size="large" shape="circle">
+                                <p:graphicImage value="resources/demo/images/avatar/onyamalimba.png"/>
+                            </p:avatar>
+                            <p:avatar size="large" shape="circle">
+                                <p:graphicImage value="resources/demo/images/avatar/ionibowcher.png"/>
+                            </p:avatar>
+                            <p:avatar size="large" shape="circle">
+                                <p:graphicImage value="resources/demo/images/avatar/xuxuefeng.png"/>
+                            </p:avatar>
+                            <p:avatar label="+2" shape="circle" size="large" style="background-color:#9c27b0; color: #ffffff" />
+                        </p:avatarGroup>
+
+                        <h5>Label - Circle</h5>
+                        <p:avatar label="P" styleClass="mr-2" size="xlarge" shape="circle" />
+                        <p:avatar label="V" styleClass="mr-2" size="large" style="background-color:#2196F3; color: #ffffff" shape="circle"  />
+                        <p:avatar label="U" styleClass="mr-2" style="background-color:#9c27b0; color: #ffffff" shape="circle"  />
+
+                        <h5>Icon - Badge</h5>
+                        <p:badge value="4" severity="success">
+                            <p:avatar icon="pi pi-user" size="xlarge"/>
+                        </p:badge>
+                    </div>
+                    <div class="card">
+                        <h4>ScrollTop</h4>
+                        <h5>Element</h5>
+                        <p:scrollPanel style="width: 250px; height: 200px" mode="native">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Vitae et leo duis ut diam.
+                                Ultricies mi quis hendrerit dolor magna eget est lorem. Amet consectetur adipiscing elit ut.
+                                Nam libero justo laoreet sit amet. Pharetra massa massa ultricies mi quis hendrerit dolor magna.
+                                Est ultricies integer quis auctor elit sed vulputate. Consequat ac felis donec et. Tellus orci ac auctor augue mauris.
+                                Semper feugiat nibh sed pulvinar proin gravida hendrerit lectus a. Tincidunt arcu non sodales neque sodales.
+                                Metus aliquam eleifend mi in nulla posuere sollicitudin aliquam ultrices. Sodales ut etiam sit amet nisl purus.
+                                Cursus sit amet dictum sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+                                Et tortor consequat id porta nibh venenatis cras sed. Diam maecenas ultricies mi eget mauris.
+                                Eget egestas purus viverra accumsan in nisl nisi. Suscipit adipiscing bibendum est ultricies integer.
+                                Mattis aliquam faucibus purus in massa tempor nec.
+                            </p>
+                            <p:scrollTop target="parent" threshold="100" styleClass="custom-scrolltop" icon="pi pi-arrow-up" />
+                        </p:scrollPanel>
+                    </div>
+                </div>
+                <div class="col-12 lg:col-6">
+                    <div class="card">
+                        <h4>Tag</h4>
+                        <h5>Tags</h5>
+                        <p:tag styleClass="mr-2" value="Primary"/>
+                        <p:tag styleClass="mr-2" severity="success" value="Success"/>
+                        <p:tag styleClass="mr-2" severity="info" value="Info"/>
+                        <p:tag styleClass="mr-2" severity="warning" value="Warning"/>
+                        <p:tag severity="danger" value="Danger"/>
+
+                        <h5>Pills</h5>
+                        <p:tag styleClass="mr-2" value="Primary" rounded="true"/>
+                        <p:tag styleClass="mr-2" severity="success" value="Success" rounded="true"/>
+                        <p:tag styleClass="mr-2" severity="info" value="Info" rounded="true"/>
+                        <p:tag styleClass="mr-2" severity="warning" value="Warning" rounded="true"/>
+                        <p:tag severity="danger" value="Danger" rounded="true"/>
+
+                        <h5>Icons</h5>
+                        <p:tag styleClass="mr-2" icon="pi pi-user" value="Primary"/>
+                        <p:tag styleClass="mr-2" icon="pi pi-check" severity="success" value="Success"/>
+                        <p:tag styleClass="mr-2" icon="pi pi-info-circle" severity="info" value="Info"/>
+                        <p:tag styleClass="mr-2" icon="pi pi-exclamation-triangle" severity="warning" value="Warning"/>
+                        <p:tag icon="pi pi-times" severity="danger" value="Danger"/>
+                    </div>
+                    <div class="card">
+                        <h4>Chip</h4>
+                        <h5>Basic</h5>
+                        <div class="flex align-items-center flex-wrap">
+                            <p:chip label="Action" styleClass="mr-2"/>
+                            <p:chip label="Comedy" styleClass="mr-2"/>
+                            <p:chip label="Mystery" styleClass="mr-2"/>
+                            <p:chip label="Thriller" removable="true"/>
+                        </div>
+
+                        <h5>Icon</h5>
+                        <div class="flex align-items-center flex-wrap">
+                            <p:chip label="Apple" icon="pi pi-apple" styleClass="mr-2"/>
+                            <p:chip label="Facebook" icon="pi pi-facebook" styleClass="mr-2"/>
+                            <p:chip label="Google" icon="pi pi-google" styleClass="mr-2"/>
+                            <p:chip label="Microsoft" icon="pi pi-microsoft" removable="true"/>
+                        </div>
+
+                        <h5>Image</h5>
+                        <div class="flex align-items-center flex-wrap">
+                            <p:chip label="Amy Elsner" image="resources/demo/images/avatar/amyelsner.png" styleClass="mr-2"/>
+                            <p:chip label="Asiya Javayant" image="resources/demo/images/avatar/asiyajavayant.png"
+                                    styleClass="mr-2"/>
+                            <p:chip label="Onyama Limba" image="resources/demo/images/avatar/onyamalimba.png"
+                                    styleClass="mr-2"/>
+                            <p:chip label="Xuxue Feng" image="resources/demo/images/avatar/xuxuefeng.png"
+                                    removable="true"/>
+                        </div>
+
+                        <h5>Styling</h5>
+                        <div class="flex align-items-center flex-wrap">
+                            <p:chip label="Action" styleClass="mr-2 custom-chip"/>
+                            <p:chip label="Apple" icon="pi pi-apple" styleClass="mr-2 custom-chip"/>
+                            <p:chip label="Onyama Limba" image="resources/demo/images/avatar/onyamalimba.png"
+                                    styleClass="mr-2 custom-chip"/>
+                            <p:chip label="Xuxue Feng" image="resources/demo/images/avatar/xuxuefeng.png"
+                                    styleClass="custom-chip" removable="true"/>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4>Skeleton</h4>
+                        <div class="custom-skeleton p-4">
+                            <div class="flex mb-3">
+                                <p:skeleton shape="circle" size="4rem" class="mr-2"/>
+                                <div>
+                                    <p:skeleton width="10rem" class="mb-2"/>
+                                    <p:skeleton width="5rem" class="mb-2"/>
+                                    <p:skeleton height=".5rem"/>
+                                </div>
+                            </div>
+                            <p:skeleton width="100%" height="150px"/>
+                            <div class="flex justify-content-between mt-3">
+                                <p:skeleton width="4rem" height="2rem"/>
+                                <p:skeleton width="4rem" height="2rem"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,57 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns = "http://www.w3.org/1999/xhtml"
+      xmlns:h = "http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite = "http://java.sun.com/jsf/composite">
+
+<composite:interface componentType="BlockViewer">
+  <composite:attribute name = "header" type="java.lang.String" />
+  <composite:attribute name = "containerClass" type="java.lang.String" />
+  <composite:attribute name = "previewStyle" type="java.lang.String" />
+  <composite:attribute name = "code" type="java.lang.String" />
+</composite:interface>
+
+<composite:implementation>
+  <h:form id="blockViewerForm">
+    <p:remoteCommand name="#{cc.clientId}_code" update=":#{cc.clientId}:blockViewerForm" action="#{cc.change2CodeMode}" oncomplete="Prism.highlightAll();"/>
+    <p:remoteCommand name="#{cc.clientId}_preview" update=":#{cc.clientId}:blockViewerForm" action="#{cc.change2PreviewMode}" oncomplete="Prism.highlightAll();"/>
+
+    <div id="blockSection" class="block-section">
+      <div class="block-header">
+        <span class="block-title">
+          <span>#{cc.attrs.header}</span>
+          <span class="badge-free">Free</span>
+        </span>
+        <div class="block-actions">
+          <a tabindex="0" class="#{!cc.codeMode ? 'block-action-active' : ''}" onclick="#{cc.clientId}_preview()"><span>Preview</span></a>
+          <a tabindex="0" class="#{cc.codeMode ? 'block-action-active' : ''}"
+             onclick="#{cc.clientId}_code()">
+            <span>Code</span>
+          </a>
+          <p:remoteCommand name="#{cc.clientId}_copyCode" action="#{freeBlocksDemoView.copyCode(cc.attrs.code)}"/>
+          <a tabindex="0" class="block-action-copy" data-tooltip="Copied to clipboard" onclick="#{cc.clientId}_copyCode()" >
+            <i class="pi pi-copy"/>
+          </a>
+        </div>
+      </div>
+      <div id="blockContent" class="block-content">
+        <ui:fragment rendered="#{!cc.codeMode}">
+          <div class="block-content-active #{cc.attrs.containerClass}" style="#{cc.attrs.previewStyle}">
+            <composite:insertChildren/>
+          </div>
+        </ui:fragment>
+        <ui:fragment rendered="#{cc.codeMode}">
+          <div class="block-code block-content-active">
+              <pre class=" language-markup"><code class=" language-markup">#{cc.attrs.code}</code></pre>
+          </div>
+        </ui:fragment>
+      </div>
+    </div>
+  </h:form>
+</composite:implementation>
+</html>

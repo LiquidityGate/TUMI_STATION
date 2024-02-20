@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+
+        <style>
+            /* -----------------------Estilo para el fondo de la imagen ----------------------*/
+            body {
+                background-image: url("#{resource['image/medico2.jpg']}");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                margin: 0;
+                padding: 0;
+                height: 100vh; /* Aseguramos que el fondo del body ocupe toda la pantalla */
+                font-family: 'Roboto', sans-serif;
+            }
+            body:after{
+                content: ' ';
+                background: red ;
+                /*position: absolute;
+                width: 100%;
+                height: 100vh;
+                left: 0;
+                top: 0;*/
+                opacity: 0.5;
+            }
+
+            /* --------------------------------CONTENEDOR DE TODO ---------------------------*/
+            .container {
+                display: flex;
+                justify-content: center; /* Centrar horizontalmente */
+                align-items: center;
+                flex-direction: column; /* Alineamos los elementos en columna */
+                height: 100vh; /* Ajustamos la altura al 80% del viewport (pantalla) */
+                max-width: 1200px; /* Ajustamos el ancho máximo del container */
+                margin: 0 auto; /* Para centrar el container horizontalmente en la pantalla */
+            }
+
+            /*---------------------CONTENEDOR DE DIV'S-----------------------------*/
+
+            .login-card {
+                width: 200%;
+                height: 500px;/* Ajustamos el ancho del login-card al 80% del container */
+                max-width: 600px; /* Limitamos el ancho máximo del login-card */
+                display: flex; /* Agregamos el display flex para alinear los divs internos */
+                justify-content: center; /* Centrar horizontalmente */
+                align-items: center; /* Centrar verticalmente */
+
+            }
+
+            /* ---------------------FONDO AMARILLO --------------------------------*/
+            .login-card-left {
+                background-color: #2F9E8D;
+                flex: 0 0 55%; /* Reducimos el ancho del login-card-left al 30% */
+                display: flex;
+                justify-content: center; /* Centrar horizontalmente */
+                align-items: center; /* Centrar verticalmente */
+                height: 800px;
+                width: 550px;
+                border-top-left-radius: 012px;
+                border-bottom-left-radius: 012px;
+                box-shadow: 0px 0px 59px -1px rgba(255,255,255,0.82);
+
+            }
+
+            /*-----------------------------FONDO AZUL NOCHE-------------------------------------*/
+            .login-card-right {
+                flex-grow: 1; /* Permite que el login-card-right ocupe todo el espacio restante */
+                padding: 20px;
+                background-color: #03181F;
+                opacity: 0.8;
+                color: white;
+                height: 800px;
+                width: 90000000px;
+                display: flex;
+                justify-content: center; /* Centrar horizontalmente los elementos en el eje principal */
+                align-items: center;
+                border-top-right-radius: 12px;
+                border-bottom-right-radius: 12px;
+                box-shadow: 0px 0px 59px -1px rgba(255,255,255,0.82);
+
+            }
+            .login-card-center{
+                border: 3px solid black;
+                height: 60%;/*--------------ALTURA----------------*/
+                width: 70%;/*------------ANCHO--------------*/
+                padding: 15px 30px 15px 30px;
+                background-color:black;
+                justify-content: center; /* Centrar horizontalmente */
+                align-items: center;
+                margin: 0 auto;
+                border-radius:12px;
+                box-shadow: 0px 0px 59px -20px rgba(255,255,255,0.8);
+            }
+
+        </style>
+
+        <h:body>
+            <div class="container">
+                <div class="login-card">
+                    <div class="login-card-left">
+                        <!-- Contenido del div izquierdo -->
+                        <p:graphicImage library="image" name="logo_TUMI.png" alt="Logo" style="width: 65%; height: 70%;"/>
+                        <!-- Puedes agregar aquí cualquier otro contenido que desees en la parte izquierda -->
+                    </div>
+                    <div class="login-card-right">
+                        <!-- Contenido del div derecho -->
+                        <div class="login-card-center" >
+                            <h5>
+                                Bienvenido a TUMI CLINIC
+                            </h5>
+
+                            <h2>
+                                Ingrese a su cuenta <br></br> TUMI CLINIC
+                            </h2>
+                            <h:form id="validacion">
+                                <div class="form-group">
+                                    <div class="field col-12 md:col-4">
+                                        <p:outputLabel value="USUARIO " class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600;" />
+                                    </div>
+                                    <div class="field col-12 md:col-6">
+                                        <p:inputText id="dni" placeholder="76543210" value="#{validacionManagedBean.dni}" style="background: transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 10px; margin-bottom: 22px;" required="true" />
+                                    </div>
+
+                                    <div class="field col-12 md:col-4 mt-4">
+                                        <p:outputLabel value="CONTRASEÑA" class="pt-2" style="color: white; font-family: 'Inter', sans-serif; font-weight: 600; margin-top: 8px;" />
+                                    </div>
+
+                                    <div>
+                                        <p:inputText id="contraseña" type="password" placeholder="Ingrese su contraseña" value="#{validacionManagedBean.contraseña}" style="background: transparent; color: white; border: none; border-bottom: 3px solid #2F9E8D; margin-top: 8px;" required="true" />
+                                    </div>  
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <p:commandButton id="botonIngresar" value="Ingresar" action="#{validacionManagedBean.validarInicioSesion}" disabled="false" update="messages" style="color: black; font-family: 'Inter', sans-serif; font-weight: 600; background-color: #2F9E8D; margin-top: 40px; height: 40px; width: 120px; border-color: #000; border-radius: 8px;" />
+                                    <a href="faces/register.xhtml" style=" margin-left: 35px; color: white" >Registrarse</a> <!--FALTA INGRESAR URL-->
+                                </div>
+
+                                <p:messages id="messages" showDetail="true" showSummary="false" closable="true" />
+                            </h:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                document.addEventListener("DOMContentLoaded", function () {
+                    var dniInput = document.getElementById("validacion:dni");
+                    var contraseñaInput = document.getElementById("validacion:contraseña");
+                    var botonIngresar = document.getElementById("validacion:botonIngresar");
+
+                    dniInput.addEventListener("input", toggleButtonState);
+                    contraseñaInput.addEventListener("input", toggleButtonState);
+
+                    // Llama a la función para borrar los campos cuando la página se carga
+                    clearInputFields();
+
+                    function toggleButtonState() {
+                        console.log("toggleButtonState called");
+                        if (dniInput.value.trim() !== "") {
+                            if (contraseñaInput.value.trim() !== "") {
+                                // Ambos campos tienen contenido
+                                botonIngresar.disabled = false; // Habilitar el botón
+                                botonIngresar.style.backgroundColor = "#2F9E8D";
+                                botonIngresar.style.color = "#000000";
+                            } else {
+                                // Solo el campo de contraseña está vacío
+                                botonIngresar.disabled = true; // Deshabilitar el botón
+                                botonIngresar.style.backgroundColor = "#787878";
+                                botonIngresar.style.color = "black";
+                            }
+                        } else {
+                            // El campo de dni está vacío
+                            botonIngresar.disabled = true; // Deshabilitar el botón
+                            botonIngresar.style.backgroundColor = "#787878";
+                            botonIngresar.style.color = "black";
+                        }
+                    }
+                    // Función para borrar los campos de entrada
+                    function clearInputFields() {
+                        dniInput.value = '';
+                        contraseñaInput.value = '';
+                    }
+                });
+            </script>
+        </h:body>
+    </h:head>
+</html>
+

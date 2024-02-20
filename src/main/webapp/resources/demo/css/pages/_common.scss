@@ -1,0 +1,122 @@
+.order-badge {
+    border-radius: 2px;
+    padding: .25em .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+
+    &.order-delivered {
+        background: #ACEBB4;
+        color: #348861;
+    }
+    
+    &.order-cancelled {
+        background: #FABD9A;
+        color:#AD342B;
+    }
+    
+    &.order-pending {
+        background: #F8D895;
+        color: #A76927;
+    }
+    
+    &.order-returned {
+        background: #EFB8E5;
+        color: #833F91;
+    }
+}
+
+.product-badge {
+    border-radius: 2px;
+    padding: .25em .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+    text-align: center;
+
+    &.status-instock {
+        background: #ACEBB4;
+        color: #348861;
+    }
+    
+    &.status-outofstock {
+        background: #FABD9A;
+        color:#AD342B;
+    }
+    
+    &.status-lowstock {
+        background: #F8D895;
+        color: #A76927;
+    }
+}
+
+.customer-badge {
+    border-radius: 2px;
+    padding: .25em .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+
+    &.status-qualified {
+        background: #ACEBB4;
+        color: #348861;
+    }
+
+    &.status-unqualified {
+        background: #FABD9A;
+        color:#AD342B;
+    }
+
+    &.status-negotiation {
+        background: #F8D895;
+        color: #A76927;
+    }
+
+    &.status-new {
+        background: #9BF2F7;
+        color: #2B7AA4;
+    }
+
+    &.status-renewal {
+        background: #EFB8E5;
+        color: #833F91;
+    }
+
+    &.status-proposal {
+        background: #FFD8B2;
+        color: #805B36;
+    }
+}
+
+.filter-container {
+    .ui-inputtext {
+        width: 400px;
+    }
+}
+
+.ui-selection-column {
+    width: 2rem;
+}
+
+@media (max-width: 640px) {
+    .filter-container {
+        width: 100%;
+        margin-top: .5rem;
+    }
+    
+    .filter-container .ui-inputtext {
+        width: 100%;
+    }
+
+    .ui-selection-column {
+        width: auto;
+        text-align: center;
+        
+        .ui-column-title {
+            display: none !important;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+.exception-body {
+    @include flex-center();
+    padding-top: 10%;
+
+    .exception-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+
+        img {
+            height: 240px;
+            width: 100%;
+        }
+    }
+
+    .exception-card {
+        z-index: 2;
+        border-top: 8px solid #db374e;
+        background-color: $contentBgColor;
+        padding: 15px 42px;
+        @include flex();
+        flex-direction: column;
+        @include flex-align-center();
+        text-align: center;
+
+        > h1 {
+            font-size: 25px;
+            color: $textColor;
+            margin: 0;
+
+            > span {
+                font-size: 25px;
+                color: #db374e;
+            }
+        }
+
+        img {
+            margin:  15px 0;
+            width: 100%;
+        }
+
+        > span {
+            font-size: 14px;
+            color: $textSecondaryColor;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .ui-linkbutton {
+            width: 100%;
+            a {
+                width: 100%;
+                span {
+                    color: #ffffff;
+                }
+            }
+        }
+
+        
+
+    }
+    &.access {
+        .exception-card {
+            border-color: #ffa723;
+            > h1 {
+                > span {
+                    color: #ffa723;
+                }
+            }
+        }
+    }
+    
+}

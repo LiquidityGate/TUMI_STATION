@@ -1,0 +1,202 @@
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin rotate($deg) {    
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin scale($deg) {    
+    -webkit-transform: scale($deg);
+    -moz-transform: scale($deg);
+    -o-transform: scale($deg);
+    -ms-transform: scale($deg);
+    transform: scale($deg);
+}
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie);
+  }
+
+@mixin background-gradient-top2bottom($start-color, $end-color) {
+    background-color: $start-color;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($start-color), to($end-color));
+    background-image: -webkit-linear-gradient(top, $start-color, $end-color);
+    background-image:    -moz-linear-gradient(top, $start-color, $end-color);
+    background-image:     -ms-linear-gradient(top, $start-color, $end-color);
+    background-image:      -o-linear-gradient(top, $start-color, $end-color);
+    background-image:         linear-gradient(to bottom, $start-color, $end-color);
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start-color}', endColorstr='#{$end-color}');
+}
+
+@mixin background-gradient-left2right($start-color, $end-color) {
+    background-color: $start-color;
+    background-image: -webkit-gradient(linear, left top, right top, from($start-color), to($end-color));
+    background-image: -webkit-linear-gradient(left, $start-color, $end-color);
+    background-image:    -moz-linear-gradient(left, $start-color, $end-color);
+    background-image:     -ms-linear-gradient(left, $start-color, $end-color);
+    background-image:      -o-linear-gradient(left, $start-color, $end-color);
+    background-image:         linear-gradient(left, $start-color, $end-color);
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start-color}', endColorstr='#{$end-color}', gradientType='1');
+}
+
+@mixin shadow($value) {
+    -webkit-box-shadow: $value;
+    -moz-box-shadow: $value;
+    box-shadow: $value;
+}
+
+@mixin border-radius($val) {
+    -moz-border-radius: $val;
+    -webkit-border-radius: $val;
+    border-radius: $val;
+}
+
+@mixin border-radius-top($val) {
+    -moz-border-radius-topleft: $val;
+    -webkit-border-top-left-radius: $val;
+    border-top-left-radius: $val;
+    -moz-border-radius-topright: $val;
+    -webkit-border-top-right-radius: $val;
+    border-top-right-radius: $val;
+}
+
+@mixin border-radius-bottom($val) {
+    -moz-border-radius-bottomleft: $val;
+    -webkit-border-bottom-left-radius: $val;
+    border-bottom-left-radius: $val;
+    -moz-border-radius-bottomright: $val;
+    -webkit-border-bottom-right-radius: $val;
+    border-bottom-right-radius: $val;
+}
+
+@mixin border-radius-right($val) {
+    -moz-border-radius-topright: $val;
+    -webkit-border-top-right-radius: $val;
+    border-top-right-radius: $val;
+    -moz-border-radius-bottomright: $val;
+    -webkit-border-bottom-right-radius: $val;
+    border-bottom-right-radius: $val; 
+}
+
+@mixin border-radius-left($val) {
+    -moz-border-radius-topleft: $val;
+    -webkit-border-top-left-radius: $val;
+    border-top-left-radius: $val;
+    -moz-border-radius-bottomleft: $val;
+    -webkit-border-bottom-left-radius: $val;
+    border-bottom-left-radius: $val;
+}
+
+@mixin input-placeholder($color) {
+    &::-webkit-input-placeholder {color: $color}
+    &:-moz-placeholder           {color: $color}
+    &::-moz-placeholder          {color: $color}
+    &:-ms-input-placeholder      {color: $color}
+}
+
+
+@mixin flex() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@mixin flex-center() {
+    @include flex();
+    @include flex-align-center();
+    @include flex-justify-center();
+}
+
+@mixin inline-flex() {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+}
+
+@mixin flex-direction-row() {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; 
+}
+
+@mixin flex-direction-column() {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; 
+}
+
+@mixin flex-justify-center() {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; 
+}
+
+@mixin flex-justify-between() {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; 
+}
+
+@mixin flex-align-center() {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@mixin flex-align-start() {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+@mixin flex-align-end() {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+@mixin flex-justify-start() {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+@mixin flex-justify-end() {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+@mixin nested-submenu-indents($val, $index, $length) {
+    ul {
+        li {
+            a {
+                padding-left: $val * $index * 1px;
+            }
+            
+            @if $index < $length {
+                @include nested-submenu-indents($val, $index + 1, $length);
+            }
+        }
+    }
+}

@@ -1,0 +1,187 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <div class="layout-rightpanel">
+        <div class="rightpanel-wrapper">
+            <h:form prependId="false">
+                <div class="rightpanel-header">
+                    <div class="profile">
+                        <h:link id="rightpanellogo" outcome="/dashboard">
+                            <p:graphicImage name="images/#{ guestPreferences.lightLogo ? 'logo.svg' : 'logo-black.svg'}"  library="rain-layout" />
+                        </h:link>
+                        <span class="profile-name">Rain Clothing</span>
+                        <span><i class="pi pi-map-pin"></i> Chicago, USA</span>
+                        <div class="profile-infos">
+                            <div class="profile-info">
+                                <span>Products</span>
+                                <h6>12K</h6>
+                            </div>
+                            <div class="profile-info">
+                                <span>Orders</span>
+                                <h6>26K</h6>
+                            </div>
+                            <div class="profile-info">
+                                <span>Sales</span>
+                                <h6>$200K</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpanel-actions">
+                    <div class="actions">
+                        <div class="action-buttons">
+                            <div class="grid">
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-pencil"></i>Manage Store</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-chart-bar"></i>Get Reports</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-chart-line"></i>Check Sales</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-plus-circle"></i>Create Add</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-sitemap"></i>View Activity</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-download"></i>Download Listings</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-dollar"></i>Request Payment</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-briefcase"></i>View Case Log</span>
+                                    </div>
+                                </div>
+                                <div class="col-6 md:col-4">
+                                    <div class="action">
+                                        <span><i class="pi pi-power-off"></i>CLose Store</span>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="rightpanel-chat">
+                    <p:tabView>
+                        <p:tab title="Tamas Bunce">
+                            <div class="card chat">
+                                <div class="chat-content">
+                                    <div class="chat-message">
+                                        <p:graphicImage name="images/dashboard/avatar-message-1.png" library="demo" />
+                                        <div class="message">
+                                            <p>The analysis of satellite data has revealed the astounding loss of ice in just a few months of abnormally high...</p>
+                                            <span>3 mins ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p:graphicImage name="images/dashboard/avatar-message-2.png" library="demo" />
+                                        <div class="message">
+                                            <p>Last year was the hottest on record for the Arctic, with the annual.</p>
+                                            <span>23 mins ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message send">
+                                        <p:graphicImage name="images/dashboard/avatar-message-3.png" library="demo" />
+                                        <div class="message">
+                                            <p>Minimum extent of sea ice in the region its second-lowest on record.</p>
+                                            <span>24 mins ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p:graphicImage name="images/dashboard/avatar-message-4.png" library="demo" />
+                                        <div class="message">
+                                            <p>Right… Right my friend. This is better. Right? Right my friend… 🏄‍♂️</p>
+                                            <span>25 mins ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-input">
+                                    <p:inputText placeholder="Type your message..." />
+                                    <div class="input-buttons">
+                                        <p:commandButton type="button" icon="pi pi-heart" styleClass="ui-button-secondary outlined-button mr-2" />
+                                        <p:commandButton type="button" icon="pi pi-paperclip" styleClass="ui-button-secondary outlined-button mr-2" />
+                                        <p:commandButton type="button" icon="pi pi-reply" styleClass="ui-button-success mr-2" />
+                                    </div>
+                                </div>
+                            </div>
+                        </p:tab>
+                        
+                        <p:tab title="Olivia Arribas" closable="true">
+                            <div class="card chat">
+                                <div class="chat-content">
+                                    <div class="chat-message">
+                                        <p:graphicImage name="images/dashboard/avatar-message-2.png" library="demo" />
+                                        <div class="message">
+                                            <p>Last year was the hottest on record for the Arctic, with the annual.</p>
+                                            <span>23 mins ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message send">
+                                        <p:graphicImage name="images/dashboard/avatar-message-3.png" library="demo" />
+                                        <div class="message">
+                                            <p>Minimum extent of sea ice in the region its second-lowest on record.</p>
+                                            <span>24 mins ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message">
+                                        <p:graphicImage name="images/dashboard/avatar-message-4.png" library="demo" />
+                                        <div class="message">
+                                            <p>Right… Right my friend. This is better. Right? Right my friend… 🏄‍♂️</p>
+                                            <span>25 mins ago</span>
+                                        </div>
+                                    </div>
+    
+                                    <div class="chat-message">
+                                        <p:graphicImage name="images/dashboard/avatar-message-1.png" library="demo" />
+                                        <div class="message">
+                                            <p>The analysis of satellite data has revealed the astounding loss of ice in just a few months of abnormally high...</p>
+                                            <span>3 mins ago</span>
+                                        </div>
+                                    </div>
+                                    <div class="chat-message send">
+                                        <p:graphicImage name="images/dashboard/avatar-message-3.png" library="demo" />
+                                        <div class="message">
+                                            <p>Minimum extent of sea ice in the region its second-lowest on record.</p>
+                                            <span>24 mins ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-input">
+                                    <p:inputText placeholder="Type your message..." />
+                                    <div class="input-buttons">
+                                        <p:commandButton type="button" icon="pi pi-heart" styleClass="ui-button-secondary outlined-button mr-2" />
+                                        <p:commandButton type="button" icon="pi pi-paperclip" styleClass="ui-button-secondary outlined-button mr-2" />
+                                        <p:commandButton type="button" icon="pi pi-reply" styleClass="ui-button-success mr-2" />
+                                    </div>
+                                </div>
+                            </div>
+                        </p:tab>
+                    </p:tabView>
+                </div>
+            </h:form>
+        </div>
+      
+    </div>
+
+</ui:composition>

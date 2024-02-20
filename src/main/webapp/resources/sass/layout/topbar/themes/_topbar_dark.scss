@@ -1,0 +1,16 @@
+.layout-topbar-dark {
+    $topbarBgColor: #2A2A2A;
+    $topbarBorderColor: #4D4D4D;
+    $topbarBoxShadow:none;
+
+    $topbarItemTextColor: lighten($primaryColor, 10%);
+    $topbarItemSecondaryTextColor: lighten($primaryColor, 20%);
+    $topbarItemTextHoverBgColor: lighten($topbarBgColor, 5%);
+    $topbarItemBgColor:lighten($topbarBgColor, 5%);
+    $topbarItemBorderColor: lighten($topbarBgColor, 5%);
+    
+    $topbarItemSubmenuItemHoverBgColor: rgba($primaryColor, .2);
+
+
+    @import '../_topbar_theme';
+}

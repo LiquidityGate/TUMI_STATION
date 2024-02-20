@@ -1,0 +1,33 @@
+.layout-rightpanel {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    top:60px;
+    height: calc(100% - 56px);
+    padding: 0;
+    width: 260px;
+    overflow: auto;
+    background-color:lighten($contentAltBgColor, 4%);
+    border-left: solid 1px $dividerColor;
+    border-top: solid 1px $dividerColor;
+    transform: translate3d(260px, 0px, 0px);
+    @include transition(transform $transitionDuration);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.layout-wrapper {
+    &.layout-rightpanel-active {
+        .layout-rightpanel {
+            transform: translate3d(0px, 0px, 0px);
+        }
+    }
+}
+
+@media(max-width: $tabletBreakpoint) {
+    .layout-rightpanel {
+        top:120px;
+        height: calc(100% - 120px);
+    }
+}

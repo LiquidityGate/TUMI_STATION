@@ -1,0 +1,68 @@
+.crud-demo {
+    .ui-datatable {
+        margin-top: 1rem;
+    }
+
+    .product-image {
+        width: 100px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    .ui-dialog .product-image {
+        width: 250px;
+        margin: 0 auto 2rem auto;
+        display: block;
+    }
+
+    .ui-dialog-footer .ui-button {
+        min-width: 6rem;
+    }
+
+    .ui-datatable .ui-column-filter {
+        display: none;
+    }
+    
+    .products-table-header {
+        @include flex();
+        @include flex-align-center();
+        @include flex-justify-between();
+        @include flex-wrap(wrap);
+    }
+
+    .edit-button.ui-button {
+        margin-right: .5rem;
+    }
+
+    .orders-subtable {
+        padding: 1rem;
+    }
+
+    .products-table {
+        > .ui-datatable-tablewrapper > table > thead > tr > th:nth-child(2) {
+            width: 2rem;
+        }
+    
+        .ui-rating {
+            display: inline-block;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .products-table > .ui-datatable-tablewrapper > table > thead > tr > th:nth-child(2),
+    .products-table > .ui-datatable-tablewrapper > table > tbody > tr > td:nth-child(2) {
+        .ui-column-title {
+            display: none !important;
+        }
+    }
+
+    .products-buttonbar {
+        @include flex-direction-column();
+
+        > div {
+            &:last-child {
+                margin-top: .5rem;
+            }
+        }
+    }
+}

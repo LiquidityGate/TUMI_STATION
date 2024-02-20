@@ -1,0 +1,605 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" xmlns:po="http://primefaces.org/rain" template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Dashboard</ui:define>
+    <ui:define name="viewname">
+        <li>RAIN</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/dashboard">DASHBOARD</p:link>
+        </li>
+    </ui:define>
+    <ui:define name="head">
+        <h:outputScript name="chartjs/chart.js" library="demo" />
+        <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
+        <script>
+            $(function(){
+                var ctx1 = document.getElementById("chart1").getContext('2d');
+                var myChart1 = new Chart(ctx1, {
+                    type: 'line',
+                    data: {
+                        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                        datasets: [{
+                            label: 'Revenue',
+                            data: [12, 19, 3, 5, 2, 3, 9],
+                            borderColor: [
+                                'rgba(126, 146, 185, .7)',
+                            ],
+                            borderWidth: 3,
+                            borderDash:[5, 5],
+                            fill: false,
+                            pointRadius: 3
+                        }, {
+                            label: 'Profit',
+                            data: [1, 2, 5, 3, 12, 7, 15],
+                            backgroundColor: [
+                                'rgba(126, 146, 185, .3)',
+                            ],
+                            borderColor: [
+                                '#7e92b9',
+                            ],
+                            borderWidth: 3,
+                            fill: true
+                        },
+                        ]
+                    },
+                    options: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                fontColor: '#7e92b9'
+                            }
+                        },
+                        responsive: true,
+                        hover: {
+                            mode: 'index'
+                        },
+                        scales: {
+                            xAxes: [{
+                                display: false,
+                            }],
+                            yAxes: [{
+                                display: true,
+                                gridLines: {
+                                    color:  'rgba(126, 146, 185, .3)',
+                                },
+                                ticks: {
+                                    fontColor: '#7e92b9'
+                                }
+                            }]
+                        }
+                    }
+                });
+            });
+        </script>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="layout-dashboard">
+            <div class="grid">
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card  overview-box">
+                        <p:graphicImage name="images/dashboard/effect-useronline.svg" library="demo" />
+                        <span class="overview-icon">
+                            <p:graphicImage name="images/dashboard/icon-usersonline.png" library="demo" />
+                        </span>
+                        <div class="overview">
+                            <span class="overview-title">USERS SIGNED UP</span>
+                            <h3>3882</h3>
+                            <span><span>72</span> new users since last visit</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card overview-box">
+                        <p:graphicImage name="images/dashboard/effect-checkins.svg" library="demo" />
+                        <span class="overview-icon">
+                            <p:graphicImage name="images/dashboard/icon-checkins.png" library="demo" />
+                        </span>
+                        <div class="overview">
+                            <span class="overview-title">REACHED LOCATIONS</span>
+                            <h3>532</h3>
+                            <span><span>48</span> new city since last visit</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card overview-box ">
+                        <p:graphicImage name="images/dashboard/effect-filessynced.svg" library="demo" />
+                        <span class="overview-icon">
+                            <p:graphicImage name="images/dashboard/icon-filessynced.png" library="demo" />
+                        </span>
+                        <div class="overview">
+                            <span class="overview-title">CONVERSION RATE</span>
+                            <h3>12.6%</h3>
+                            <span><span>1.8%</span> increase since last visit</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 xl:col-3">
+                    <div class="card overview-box">
+                        <p:graphicImage name="images/dashboard/effect-messages.svg" library="demo" />
+                        <span class="overview-icon">
+                            <p:graphicImage name="images/dashboard/icon-messages.png" library="demo" />
+                        </span>
+                        <div class="overview">
+                            <span class="overview-title">INTERACTIONS</span>
+                            <h3>440</h3>
+                            <span><span>24</span> new since last visit</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-12 xl:col-6">
+                    <div class="card chart">
+                        <div class="card-header">
+                            <h5>Orders</h5>
+                        </div>
+                        <canvas id="chart1"></canvas>
+                    </div>
+                </div>
+                <div class="col-12 md:col-12 xl:col-6">
+                    <div class="card products">
+                        <div class="card-header">
+                            <h5>Best Selling Products</h5>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="products-info-icon">
+                                    <div class="products-icon">
+                                        <i class="pi pi-mobile"></i>
+                                    </div>
+                                    <div class="products-info">
+                                        <span class="product-name">Mat Black Case</span>
+                                        <span>Phone Accessories</span>
+                                    </div>
+                                </div>
+                                <div class="products-stat">
+                                    +13,5%
+                                </div>
+                                <div class="products-graph">
+                                    <p:graphicImage name="images/dashboard/minigraph-1.svg" library="demo" />
+                                </div>
+                                <div class="buttons">
+                                    <p:commandButton type="button" icon="pi pi-download" styleClass="ui-button-secondary outlined-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-filter" styleClass="ui-button-secondary outlined-button mr-2"/>
+                                    <p:commandButton type="button" icon="pi pi-check-circle" styleClass="ui-button-success" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="products-info-icon">
+                                    <div class="products-icon">
+                                        <i class="pi pi-tag"></i>
+                                    </div>
+                                    <div class="products-info">
+                                        <span class="product-name">Space Tshirt</span>
+                                        <span>Clothing</span>
+                                    </div>
+                                </div>
+                                <div class="products-stat">
+                                    +11,6%
+                                </div>
+                                <div class="products-graph">
+                                    <p:graphicImage name="images/dashboard/minigraph-2.svg" library="demo" />
+                                </div>
+                                <div class="buttons">
+                                    <p:commandButton type="button" icon="pi pi-download" styleClass="ui-button-secondary outlined-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-filter" styleClass="ui-button-secondary outlined-button mr-2"/>
+                                    <p:commandButton type="button" icon="pi pi-check-circle" styleClass="ui-button-success" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="products-info-icon">
+                                    <div class="products-icon">
+                                        <i class="pi pi-tag"></i>
+                                    </div>
+                                    <div class="products-info">
+                                        <span class="product-name">Orange Black Hoodie </span>
+                                        <span>Clothing</span>
+                                    </div>
+                                </div>
+                                <div class="products-stat">
+                                    +10,9%
+                                </div>
+                                <div class="products-graph">
+                                    <p:graphicImage name="images/dashboard/minigraph-3.svg" library="demo" />
+                                </div>
+                                <div class="buttons">
+                                    <p:commandButton type="button" icon="pi pi-download" styleClass="ui-button-secondary outlined-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-filter" styleClass="ui-button-secondary outlined-button mr-2"/>
+                                    <p:commandButton type="button" icon="pi pi-check-circle" styleClass="ui-button-success" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="products-info-icon">
+                                    <div class="products-icon">
+                                        <i class="pi pi-paperclip"></i>
+                                    </div>
+                                    <div class="products-info">
+                                        <span class="product-name">Wonders Notebook </span>
+                                        <span>Office Products</span>
+                                    </div>
+                                </div>
+                                <div class="products-stat">
+                                    +7,4%
+                                </div>
+                                <div class="products-graph">
+                                    <p:graphicImage name="images/dashboard/minigraph-4.svg" library="demo" />
+                                </div>
+                                <div class="buttons">
+                                    <p:commandButton type="button" icon="pi pi-download" styleClass="ui-button-secondary outlined-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-filter" styleClass="ui-button-secondary outlined-button mr-2"/>
+                                    <p:commandButton type="button" icon="pi pi-check-circle" styleClass="ui-button-success" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="products-info-icon">
+                                    <div class="products-icon">
+                                        <i class="pi pi-tag"></i>
+                                    </div>
+                                    <div class="products-info">
+                                        <span class="product-name">Robots Tshirt </span>
+                                        <span>Clothing</span>
+                                    </div>
+                                </div>
+                                <div class="products-stat">
+                                    +4,9%
+                                </div>
+                                <div class="products-graph">
+                                    <p:graphicImage name="images/dashboard/minigraph-5.svg" library="demo" />
+                                </div>
+                                <div class="buttons">
+                                    <p:commandButton type="button" icon="pi pi-download" styleClass="ui-button-secondary outlined-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-filter" styleClass="ui-button-secondary outlined-button mr-2"/>
+                                    <p:commandButton type="button" icon="pi pi-check-circle" styleClass="ui-button-success" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="products-info-icon">
+                                    <div class="products-icon">
+                                        <i class="pi pi-desktop"></i>
+                                    </div>
+                                    <div class="products-info">
+                                        <span class="product-name">Green Portal Sticker</span>
+                                        <span>Computer Accessories</span>
+                                    </div>
+                                </div>
+                                <div class="products-stat">
+                                    +1,9%
+                                </div>
+                                <div class="products-graph">
+                                    <p:graphicImage name="images/dashboard/minigraph-2.svg" library="demo" />
+                                </div>
+                                <div class="buttons">
+                                    <p:commandButton type="button" icon="pi pi-download" styleClass="ui-button-secondary outlined-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-filter" styleClass="ui-button-secondary outlined-button mr-2"/>
+                                    <p:commandButton type="button" icon="pi pi-check-circle" styleClass="ui-button-success" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="products-info-icon">
+                                    <div class="products-icon">
+                                        <i class="pi pi-desktop"></i>
+                                    </div>
+                                    <div class="products-info">
+                                        <span class="product-name">Supernova Sticker</span>
+                                        <span>Computer Accessories</span>
+                                    </div>
+                                </div>
+                                <div class="products-stat">
+                                    +1,2%
+                                </div>
+                                <div class="products-graph">
+                                    <p:graphicImage name="images/dashboard/minigraph-3.svg" library="demo" />
+                                </div>
+                                <div class="buttons">
+                                    <p:commandButton type="button" icon="pi pi-download" styleClass="ui-button-secondary outlined-button mr-2" />
+                                    <p:commandButton type="button" icon="pi pi-filter" styleClass="ui-button-secondary outlined-button mr-2"/>
+                                    <p:commandButton type="button" icon="pi pi-check-circle" styleClass="ui-button-success" />
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 md:col-12 xl:col-8">
+                    <div class="grid">
+                        <div class="col-12 md:col-6 xl:col-3">
+                            <div class="card stat-box">
+                                <div class="stats">
+                                    <span class="stat-title">SALES</span>
+                                    <h5>$6,502</h5>
+                                </div>
+                                <p:graphicImage name="images/dashboard/minigraph-6.svg" library="demo" />
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6 xl:col-3">
+                            <div class="card stat-box">
+                                <div class="stats">
+                                    <span class="stat-title">ORDERS</span>
+                                    <h5>1663</h5>
+                                </div>
+                                <p:graphicImage name="images/dashboard/minigraph-7.svg" library="demo" />
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6 xl:col-3">
+                            <div class="card stat-box">
+                                <div class="stats">
+                                    <span class="stat-title">ADD VIEWS</span>
+                                    <h5>5510</h5>
+                                </div>
+                                <p:graphicImage name="images/dashboard/minigraph-8.svg" library="demo" />
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6 xl:col-3">
+                            <div class="card stat-box">
+                                <div class="stats">
+                                    <span class="stat-title">ADD CLICKS</span>
+                                    <h5>586</h5>
+                                </div>
+                                <p:graphicImage name="images/dashboard/minigraph-9.svg" library="demo" />
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6">
+                            <div class="card feedbacks">
+                                <div class="card-header">
+                                    <h5>Last Reviews</h5>
+                                    <div class="rating">
+                                        <p:rating value="4" readonly="true"/>
+                                        <span>4.0</span>
+                                    </div>
+                            
+                                </div>
+                                <div class="feedbacks-list">
+                                    <div class="feedback">
+                                        <p:graphicImage name="images/dashboard/avatar-1.png" library="demo" />
+                                        <div class="feedback-content">
+                                            <div class="feedback-header">
+                                                <h6>Tamas Bunce</h6>
+                                                <p:rating value="5" readonly="true"/>
+                                                <span>12h ago</span>
+                                            </div>
+                                            <span>The analysis of satellite data has revealed the loss of ice in just a few months of abnormally high…</span>
+                                        </div>
+                                    </div>
+                                    <div class="feedback">
+                                        <p:graphicImage name="images/dashboard/avatar-1.png" library="demo" />
+                                        <div class="feedback-content">
+                                            <div class="feedback-header">
+                                                <h6>Tamas Bunce</h6>
+                                                <p:rating value="5" readonly="true"/>
+                                                <span>12h ago</span>
+                                            </div>
+                                            <span>The analysis of satellite data has revealed the loss of ice in just a few months of abnormally high…</span>
+                                        </div>
+                                    </div>
+                                    <div class="feedback">
+                                        <p:graphicImage name="images/dashboard/avatar-2.png" library="demo" />
+                                        <div class="feedback-content">
+                                            <div class="feedback-header">
+                                                <h6>Olivia Arribas</h6>
+                                                <p:rating value="4" readonly="true"/>
+                                                <span>1d ago</span>
+                                            </div>
+                                            <span>The analysis of satellite data has revealed the loss of ice in just a few months of abnormally high…</span>
+                                        </div>
+                                    </div>
+                                    <div class="feedback">
+                                        <p:graphicImage name="images/dashboard/avatar-3.png" library="demo" />
+                                        <div class="fesedback-content">
+                                            <div class="feedback-header">
+                                                <h6>Naomí Yepes</h6>
+                                                <p:rating value="4"  readonly="true"/>
+                                                <span>1w ago</span>
+                                            </div>
+                                            <span>The analysis of satellite data has revealed the loss of ice in just a few months of abnormally high…</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 md:col-6">
+                            <div class="card status">
+                                <div class="card-header">
+                                    <h5>Store Conversion Rate</h5>
+                                </div>
+                                <div class="status-content">
+                                    <div class="status-graph">
+                                        <p:graphicImage name="images/dashboard/asset-graph-72.svg" library="demo" />
+                                        <div class="graph-info">
+                                            <h5>12.6%</h5>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="status-info">
+                                        <h6>Conversion Funnels</h6>
+                                        <ul>
+                                            <li>
+                                                <div class="status">
+                                                    <span ><i class="pi pi-circle-on"></i> Added to card</span>
+                                                    <span >4.6%</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="status">
+                                                    <span ><i class="pi pi-circle-on"></i> Reached checkout</span>
+                                                    <span >2.1%</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="status">
+                                                    <span ><i class="pi pi-circle-on"></i> Sessions converted</span>
+                                                    <span >5.9%</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 xl:col-4">
+                    <div class="card sales">
+                        <div class="card-header">
+                            <h5>Active Global Listings</h5>
+                            <div class="header-buttons">
+                                <p:commandButton type="button" icon="pi pi-search" styleClass="ui-button-secondary outlined-button mr-2" />
+                            </div>
+                        </div>
+                        <p:graphicImage name="images/dashboard/asset-worldmap.png" library="demo" />
+                        <div class="progress-item">
+                            <div class="progress-title">
+                                <span >United States of America</span>
+                                <span >5K/10K</span>
+                            </div>
+                            
+                            <div class="progress-bar">
+                                <span class="progress"></span>
+                                <span class="progress-bar-background"></span>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-title">
+                                <span >France</span>
+                                <span >2K/6K</span>
+                            </div>
+                            
+                            <div class="progress-bar">
+                                <span class="progress"></span>
+                                <span class="progress-bar-background"></span>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-title">
+                                <span >Japan</span>
+                                <span >4K/9K</span>
+                            </div>
+                            
+                            <div class="progress-bar">
+                                <span class="progress"></span>
+                                <span class="progress-bar-background"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-6 xl:col-4">
+                    <div class="card tasks">
+                        <div class="card-header">
+                            <h5>Tasks</h5>
+                        </div>
+                        <ul>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="true"/>
+                                    <p>Send Sales Report</p>
+                                </div>
+                                <span>TODAY</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="true"/>
+                                    <p>Pay Invoices</p>
+                                </div>
+                                <span>TODAY</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="true"/>
+                                    <p>Create New Add</p>
+                                </div>
+                                <span>TODAY</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="true"/>
+                                    <p>Send Promotion Mails</p>
+                                </div>
+                                <span>TODAY</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="false"/>
+                                    <p>Publish New Listing</p>
+                                </div>
+                                <span class="later">LATER</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="false"/>
+                                    <p>Meeting With Mike</p>
+                                </div>
+                                <span class="later">LATER</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="false"/>
+                                    <p>Present New Ideas </p>
+                                </div>
+                                <span class="later">LATER</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="false"/>
+                                    <p>Design New Tshirt</p>
+                                </div>
+                                <span class="later">LATER</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="false"/>
+                                    <p>Meeting For New Products</p>
+                                </div>
+                                <span class="later">LATER</span>
+                            </li>
+                            <li>
+                                <div class="checkbox">
+                                    <p:selectBooleanCheckbox value="false"/>
+                                    <p>Send Invocies to Accountant</p>
+                                </div>
+                                <span class="later">LATER</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12 md:col-12 xl:col-8">
+                    <div class="card transactions">
+                        <div class="card-header">
+                            <h5>Transactions</h5>
+                            <div class="header-buttons">
+                                <p:commandButton type="button" icon="pi pi-search" styleClass="ui-button-secondary outlined-button  mr-2"/>
+                                <p:commandButton type="button" icon="pi pi-ellipsis-v"  styleClass="ui-button-secondary outlined-button " />
+                            </div>
+                        </div>
+                        <h:form id="form">
+                            <p:dataTable id="ordersTable" var="order" value="#{dashboardView.orders}" selectionMode="single" reflow="true" paginatorPosition="bottom"
+                                rowKey="#{order.id}" paginator="true" rows="5" sortBy="#{order.date}"  >
+                                <p:column headerText="Id" sortBy="#{order.id}">
+                                    <h:outputText value="#{order.id}" />
+                                </p:column>
+
+                                <p:column headerText="Date" sortBy="#{order.date}">
+                                    <h:outputText value="#{order.date}" />
+                                </p:column>
+
+                                <p:column headerText="Amount" sortBy="#{order.amount}">
+                                    <h:outputText value="#{order.amount}">
+                                        <f:convertNumber currencySymbol="$" type="currency" />
+                                    </h:outputText>
+                                </p:column>
+
+                                <p:column headerText="Status" sortBy="#{order.status}">
+                                    <span class="order-badge order-#{order.status.name().toLowerCase()}">#{order.status}</span>
+                                </p:column>
+
+                                <p:column style="width: 3.5rem">
+                                    <p:commandButton icon="pi pi-search" />
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

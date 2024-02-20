@@ -1,0 +1,111 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+    <ui:define name="viewname">
+        <li>PAGES</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/invoice">INVOICE</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <p:commandButton value="Print" type="button" icon="pi pi-print" style="margin-bottom: 2rem" onclick="window.print()"></p:commandButton>
+
+        <div class="grid">
+            <div class="col">
+                <div class="card" >
+                    <p:outputPanel id="invoice-content">
+                        <div class="invoice">
+                            <div class="invoice-header">
+                                <div class="invoice-company">
+                                    <p:graphicImage id="invoice-logo" styleClass="logo-image" name="images/#{guestPreferences.lightLogo ? 'logo.svg' : 'logo-black.svg'}"  library="rain-layout" />
+                                    <p:graphicImage id="printed-invoice-logo" styleClass="logo-image" name="images/logo-black.svg" library="rain-layout" />
+                                    <div class="company-name">YOUR COMPANY</div>
+                                    <div>9137 3rd Lane California City</div> 
+                                    <div>CA 93504, U.S.A.</div>
+                                </div>
+                                <div>
+                                    <div class="invoice-title">INVOICE</div>
+                                    <div class="invoice-details">
+                                        <div class="invoice-label">DATE</div>
+                                        <div class="invoice-value">#{invoiceDemoView.today}</div>
+
+                                        <div class="invoice-label">INVOICE #</div>
+                                        <div class="invoice-value">8523</div>
+
+                                        <div class="invoice-label">CUSTOMER ID</div>
+                                        <div class="invoice-value">C1613</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="invoice-to">
+                                <div class="bill-to">BILL TO</div>
+                                <div class="invoice-to-info">
+                                    <div>Claire Williams, 148 Hope Lane</div>
+                                    <div>Palo Alto, CA 94304. </div>
+                                </div>
+                            </div>
+                            <div class="invoice-items">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Unit Price</th>
+                                            <th>Line Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Green T-Shirt</td>
+                                            <td>1</td>
+                                            <td>$49.00</td>
+                                            <td>$49.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Game Controller</td>
+                                            <td>2</td>
+                                            <td>$99.00</td>
+                                            <td>$198.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mini Speakers</td>
+                                            <td>1</td>
+                                            <td>$85.00</td>
+                                            <td>$85.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="invoice-summary">
+                                <div class="invoice-notes">
+                                    <b>NOTES</b>
+                                    <div>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="invoice-details">
+                                        <div class="invoice-label">SUBTOTAL</div>
+                                        <div class="invoice-value">$332.00</div>
+
+                                        <div class="invoice-label">VAT</div>
+                                        <div class="invoice-value">0</div>
+
+                                        <div class="invoice-label">TOTAL</div>
+                                        <div class="invoice-value">$332.00</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p:outputPanel>
+
+                    
+                </div>
+            </div>
+        </div>
+        
+    </ui:define>
+</ui:composition>

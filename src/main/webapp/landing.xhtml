@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" href="resources/rain-layout/images/favicon.ico" type="image/x-icon"></link>
+    </f:facet>
+    <title>PrimeFaces Rain</title>
+</h:head>
+
+
+<h:body styleClass="landing-body">
+    <div class="landing-wrapper">
+        <div class="landing-topbar">
+            <h:link outcome="/dashboard" styleClass="logo">
+                <p:graphicImage name="images/logo-rain-blue.svg" library="rain-layout" />
+            </h:link>
+
+            <ul class="landing-menu">
+                <li>
+                    <a href="#" id="landing-menu-close">
+                        <i class="pi pi-times"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#features">Features</a>
+                </li>
+                <li>
+                    <a href="#testimonials">Testimonials</a>
+                </li>
+                <li>
+                    <a href="#news">Blog</a>
+                </li>
+                <li>
+                    <a href="#pricing">Pricing</a>
+                </li>
+            </ul>
+
+            <a href="#"  id="landing-menu-button">
+                <i class="pi pi-bars"></i>
+            </a>
+
+        </div>
+        <div id="home"  class="landing-banner">
+            <div class="landing-banner-content">
+                <h3>PrimeFaces Presents <span>Rain</span></h3>
+                <h6>Modern and elegant responsive application template with a premium look for PrimeFaces components.</h6>
+                <p:commandButton type="button" value="Learn More" />
+            </div>
+            <div class="landing-banner-image">
+                <p:graphicImage name="images/pages/landing/asset-hero.png" library="rain-layout" />
+            </div>
+        </div>
+        <div id="features" class="landing-features">
+            <div class="section-header">
+                <h2>Features</h2>
+                <h6>Modern and elegant responsive application template with a premium look for PrimeFaces components.</h6>
+            </div>
+
+            <div class="features-content">
+                <p:graphicImage name="images/pages/landing/asset-features.png" library="rain-layout" />
+                <ul>
+                    <li>
+                        <p:graphicImage name="images/pages/landing/icon-responsivelayouts.svg" library="rain-layout" />
+                        <div class="feature-text">
+                            <h6>Responsive Layout</h6>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <p:graphicImage name="images/pages/landing/icon-moderndesign.svg" library="rain-layout" />
+                        <div class="feature-text">
+                            <h6>Modern Design</h6>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <p:graphicImage name="images/pages/landing/icon-welldocumented.svg" library="rain-layout" />
+                        <div class="feature-text">
+                            <h6>Well Documented</h6>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <p:graphicImage name="images/pages/landing/icon-cleancode.svg" library="rain-layout" />
+                        <div class="feature-text">
+                            <h6>Clean Code</h6>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="testimonials" class="testimonials">
+            <div class="section-header">
+                <h2>Testimonials</h2>
+            </div>
+            <p:graphicImage name="images/pages/landing/effect-3.svg" styleClass="effect-1" library="rain-layout" />
+            <p:graphicImage name="images/pages/landing/effect-4.svg" styleClass="effect-2" library="rain-layout" />
+            <div class="testimonials-wrapper">
+                <div class="testimonials-content">
+                    <div class="testimonial testimonial-1 ">
+                        <div class="testimonial-content">
+                            <p:graphicImage name="images/pages/landing/asset-avatar-emmy.png" library="rain-layout" />
+                            <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a enim et sem tempor volutpat nec eget nunc. Mauris ut elit cursus, varius diam sit amet, vulputate nisl. Quisque eget nulla a magna congue dignissim mollis sed justo. Aenean facilisis magna vitae erat posuere rutrum. Nullam non pretium orci, a laoreet elit. Phasellus commodo tempor sem ac suscipit. Sed volutpat diam eu dui efficitur consequat."</span>
+                            <h5>Emmy Elsner</h5>
+                            <h6>Santa Clara</h6>
+                        </div>
+                    </div>
+                    <div class="testimonial testimonial-2 ">
+                        <div class="testimonial-content">
+                            <p:graphicImage name="images/pages/landing/asset-avatar-lucas.png" library="rain-layout" />
+                            <span>"Vestibulum neque nibh, pharetra vel ante ac, pulvinar auctor justo. Mauris efficitur, dui id viverra efficitur, dolor turpis iaculis lorem, in posuere augue purus vel urna. Aenean pulvinar pellentesque ipsum non ornare. Praesent neque magna, condimentum quis ipsum nec, malesuada aliquam leo. Cras imperdiet elit vitae scelerisque molestie. In eget justo ut quam maximus scelerisque."</span>
+                            <h5>Lucas Pacheco</h5>
+                            <h6>Franklin</h6>
+                        </div>
+                    </div>
+                    <div class="testimonial testimonial-3 ">
+                        <div class="testimonial-content">
+                            <p:graphicImage name="images/pages/landing/asset-avatar-abbie.png" library="rain-layout" />
+                            <span>"Quisque a dui porta, volutpat metus sit amet, tincidunt velit. Suspendisse consequat lectus dui, sed ornare diam luctus vitae. In sapien risus, efficitur in mattis vitae, aliquam in lectus. Aliquam varius elit vel consequat tincidunt. Nunc et bibendum risus, id aliquam augue."</span>
+                            <h5>Abbie Wilson</h5>
+                            <h6>Belgrade</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="link-points">
+                    <div class="points">
+                        <div class=" point point-1 active-point"></div>
+                        <div class=" point point-2 "></div>
+                        <div class=" point point-3 "></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="news" class="landing-news">
+            <div class="section-header">
+                <h2>Rain News</h2>
+            </div>
+            <div class="news-cards grid">
+                <div class="col-12 md:col-4">
+                    <div class="news-card">
+                        <p:graphicImage name="images/pages/landing/rectangle.png" library="rain-layout" />
+                        <h5>News Title 1</h5>
+                        <span>We have selected PrimeNG among the others because we feel it’s currently the most mature and complete Angular library out there! We were simply searching the component library not a directive library.</span>
+                        <div class="news-card-footer">
+                            <p:graphicImage name="images/pages/landing/oval.png" library="rain-layout" />
+                            <div class="name">
+                                <span class="testimonial-name">Foroogh Abdi</span>
+                                <span>Company I</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="news-card">
+                        <p:graphicImage name="images/pages/landing/rectangle-2.png" library="rain-layout" />
+                        <h5>News Title 2</h5>
+                        <span>We have selected PrimeNG among the others because we feel it’s currently the most mature and complete Angular library out there! We were simply searching the component library not a directive library.</span>
+                        <div class="news-card-footer">
+                            <p:graphicImage name="images/pages/landing/oval-2.png" library="rain-layout" />
+                            <div class="name">
+                                <span class="testimonial-name">Foroogh Abdi</span>
+                                <span>Company I</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="news-card">
+                        <p:graphicImage name="images/pages/landing/rectangle-3.png" library="rain-layout" />
+                        <h5>News Title 3</h5>
+                        <span>We have selected PrimeNG among the others because we feel it’s currently the most mature and complete Angular library out there! We were simply searching the component library not a directive library.</span>
+                        <div class="news-card-footer">
+                            <p:graphicImage name="images/pages/landing/oval-3.png" library="rain-layout" />
+                            <div class="name">
+                                <span class="testimonial-name">Foroogh Abdi</span>
+                                <span>Company I</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-pricing">
+            <p:graphicImage name="images/pages/landing/effect-5.svg" library="rain-layout" />
+            <div class="section-header">
+                <h2>Pricing</h2>
+            </div>
+            <div class="pricing-cards grid">
+                <div class="col-12 md:col-4" >
+                    <div class="pricing-card beginner">
+                        <div class="pricing-header">
+                            <span class="upper-title">UPPER TITLE</span>
+                            <h6>BEGINNER</h6>
+                            <span>Good starting point for startups</span>
+                        </div>
+                        <div class="pricing-content">
+                            <ul>
+                                <li><i class="pi pi-check"></i> Push Messages</li>
+                                <li><i class="pi pi-check"></i> 10 Support Tickets</li>
+                                <li><i class="pi pi-check"></i> Free Shipping</li>
+                                <li><i class="pi pi-check"></i> Unlimited Space</li>
+                                <li><i class="pi pi-check"></i> Responsive</li>
+                            </ul>
+                            <p:commandButton type="button" value="TRY FREE" />
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="pricing-card pro">
+                        <div class="pricing-header">
+                            <span class="upper-title">UPPER TITLE</span>
+                            <h6>PRO</h6>
+                            <span>Good starting point for startups</span>
+                        </div>
+                        <div class="pricing-content">
+                            <ul>
+                                <li><i class="pi pi-check"></i> Push Messages</li>
+                                <li><i class="pi pi-check"></i> 10 Support Tickets</li>
+                                <li><i class="pi pi-check"></i> Free Shipping</li>
+                                <li><i class="pi pi-check"></i> Unlimited Space</li>
+                                <li><i class="pi pi-check"></i> Responsive</li>
+                            </ul>
+                            <p:commandButton type="button" value="TRY FREE" />
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-12 md:col-4">
+                    <div class="pricing-card enterprise">
+                        <div class="pricing-header">
+                            <span class="upper-title">UPPER TITLE</span>
+                            <h6>ENTERPRISE</h6>
+                            <span>Good starting point for startups</span>
+                        </div>
+                        <div class="pricing-content">
+                            <ul>
+                                <li><i class="pi pi-check"></i> Push Messages</li>
+                                <li><i class="pi pi-check"></i> 10 Support Tickets</li>
+                                <li><i class="pi pi-check"></i> Free Shipping</li>
+                                <li><i class="pi pi-check"></i> Unlimited Space</li>
+                                <li><i class="pi pi-check"></i> Responsive</li>
+                            </ul>
+                            <p:commandButton type="button" value="TRY FREE" />
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="landing-footer">
+            <div class="grid">
+                <div class="col-12 md:col-3">
+                    <p:graphicImage name="images/#{ guestPreferences.darkMode != 'light' ?  'logo-rain-white.svg' : 'logo-rain-black.svg'}" library="rain-layout" />
+                </div>
+                <div class="col-12 md:col-3">
+                    <span >LATEST TEMPLATES</span>
+                    <ul>
+                        <li>Diamond</li>
+                        <li>Pandora</li>
+                        <li>Siberia</li>
+                        <li>Mirage</li>
+                    </ul>
+                </div>
+                <div class="col-12 md:col-3">
+                    <span >DEMOS</span>
+                    <ul>
+                        <li>PrimeFaces</li>
+                        <li>PrimeNG</li>
+                        <li>PrimeReact</li>
+                        <li>PrimeVue</li>
+                    </ul>
+                </div>
+                <div class="col-12 md:col-3">
+                    <span >SOCIAL</span>
+                    <div class="socials">
+                        <i class="pi pi-twitter"></i>
+                        <i class="pi pi-facebook"></i>
+                        <i class="pi pi-github"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="landing-mask"></div>
+        
+    </div>
+
+</h:body>
+<h:outputStylesheet name="css/#{guestPreferences.layout}.css" library="rain-layout" />
+<h:outputStylesheet name="css/primeflex.min.css" library="rain-layout" />
+<script type="text/javascript">
+
+    hideMenu = function () {
+        $('.landing-menu').removeClass('fadeInDown').addClass('fadeOutUp');
+
+        setTimeout(function () {
+            $('.landing-wrapper').removeClass('landing-menu-active');
+            $('.landing-menu').removeClass('fadeOutUp');
+            $(document.body).removeClass('block-scroll');
+        }, 150);
+    }
+
+    showMenu = function () {
+        $('.landing-wrapper').addClass('landing-menu-active');
+        $('.landing-menu').addClass('fadeInDown');
+        $(document.body).addClass('block-scroll');
+    }
+
+    $(function () {
+        $('#landing-menu-button').on('click', function (e) {
+            var wrapper = $('.landing-wrapper');
+
+            if (wrapper.hasClass('landing-menu-active'))
+                hideMenu();
+            else
+                showMenu();
+
+            e.preventDefault();
+        });
+
+        $('.landing-menu').find('a').on('click', function (e) {
+            hideMenu();
+        });
+    });
+
+      $(function () {
+            var testimonials = $('.testimonials-content');
+                $('.point').on('click', function (e) {
+                    var point = $(this);
+
+                    point.siblings('.active-point').removeClass('active-point');
+                    point.addClass('active-point');
+
+                    if (point.hasClass('point-1')) {
+                        testimonials.css('transform', 'translate3d(0, 0, 0)');
+                    } else if (point.hasClass('point-2')) {
+                        testimonials.css('transform', 'translate3d(-100%, 0, 0)');
+                    } else if (point.hasClass('point-3')) {
+                        testimonials.css('transform', 'translate3d(-200%, 0, 0)');
+                    }
+
+                    e.preventDefault();
+            });
+        });
+</script>
+<script>
+    //<![CDATA[
+    var $this = this;
+
+    $(document).ready(function () {
+        $('html').animate({ scrollTop: 0 }, 1);
+        $('body').animate({ scrollTop: 0 }, 1);
+    });
+
+    /* Scroll Animate */
+    $('a[href*="#"]:not([href="#"])').click(function () {
+        var target = $(this.hash);
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, 500);
+            return false;
+        }
+    });//]]>
+</script>
+
+</html>

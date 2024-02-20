@@ -1,0 +1,60 @@
+html {
+    height: 100%;
+    font-size: $fontSize;
+}
+
+body {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    font-weight: 400;
+    color: $textColor;
+    padding: 0;
+    margin: 0;
+    min-height: 100%;
+    background-color: $bodyBgColor;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &.blocked-scroll {
+        overflow: auto;
+    } 
+   
+}
+
+a {
+    text-decoration: none;
+    color: lighten($primaryColor, 10%);
+}
+
+.ajax-loader {
+    font-size: 32px;
+    color: $primaryColor;
+}  
+
+.layout-main {
+    @include flex();
+    @include flex-direction-column();
+    @include flex-justify-between();
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+.layout-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    animation-duration: $animationDuration;
+    animation-timing-function: $animationTimingFunction;
+    animation-fill-mode: forwards;
+}
+
+@media (max-width : 992px){
+    .layout-main {
+        padding-top: 120px;
+    }
+}
+

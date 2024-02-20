@@ -1,0 +1,90 @@
+[33mcommit c2a32cc83183a3f7f0754ae3768ad7842dec49b1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Thu Dec 28 15:36:29 2023 -0500
+
+    cambio ultimo
+
+[33mcommit 87c36a7e1be8c599358d9e4e4e3d42cc27e12b77[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Thu Dec 14 16:54:01 2023 -0500
+
+    Cambio de las funciones en las tabvistas
+
+[33mcommit a77c4b1d34caa9937f94d5003f15238478b63f45[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Wed Dec 13 17:06:28 2023 -0500
+
+    HACIENDO LO QUE SE PUEDE
+
+[33mcommit 48ba54ba6da54c694abdc4982fe21167574c1cd7[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Mon Dec 11 14:28:40 2023 -0500
+
+    Implementacion de un clase ListadoPrueba
+
+[33mcommit e7099cc51791f94ac4695e044ee6b58e000352e5[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Wed Dec 6 11:39:23 2023 -0500
+
+    Clases ya despleagadas con la conexion
+
+[33mcommit 238c3187ce6d33b628c9c2bb9c64a9f70c7557b1[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Wed Nov 29 15:22:22 2023 -0500
+
+    Nosequehiceperohicealgo
+
+[33mcommit be9230fee418b05b3b05b5fdb1f5e6654a3f4348[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Tue Nov 28 15:57:01 2023 -0500
+
+    commit Servicios
+
+[33mcommit 14fb1e6e90ee7adb28496045fd9004d4570777af[m
+Merge: d7f1614 f9a7f48
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Thu Nov 23 17:22:45 2023 -0500
+
+    Merge branch 'master' of https://github.com/Jeanf4/TumiStation
+
+[33mcommit d7f161408353bae525a1327f5f233074e2a1569c[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Thu Nov 23 17:21:57 2023 -0500
+
+    configurando un TabView
+
+[33mcommit f0c6cf1fcf11bea7a74fb6769c976a9e51feeeb4[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Thu Nov 23 17:15:14 2023 -0500
+
+    Implementación de un TabView
+
+[33mcommit f9a7f48f862c7ad7e5d1e7fbbecd7644edfdaf73[m
+Author: Jeanf4 <135834442+Jeanf4@users.noreply.github.com>
+Date:   Thu Nov 23 17:06:54 2023 -0500
+
+    Update README.md
+
+[33mcommit 071843cc6e7f9d4dab67c011751e0b7bad3f128a[m
+Author: Jeanf4 <135834442+Jeanf4@users.noreply.github.com>
+Date:   Thu Nov 23 17:06:32 2023 -0500
+
+    Create README.md
+
+[33mcommit 71b775d031768e1dec23fea167081a53e458c5d9[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Wed Nov 22 16:07:51 2023 -0500
+
+    commit para el login
+
+[33mcommit 7acf8932fcf11b2c3141bd8f51b2a9e2971716d7[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Tue Nov 21 15:14:26 2023 -0500
+
+    complementanción de la tabla
+
+[33mcommit 5ae1cfb1615a6e5a20deed576ff883c07c7f9a94[m
+Author: Gean Pierre <jean_tlv1997@hotmail.com>
+Date:   Thu Nov 16 14:51:50 2023 -0500
+
+    Miprimercommit

@@ -1,0 +1,17 @@
+.layout-topbar-colored {
+    $topbarBgColor: $primaryColor;
+    $topbarBorderColor: none;
+    $topbarBoxShadow:0 2px 5px 0 rgba(0,0,0,0.05);
+
+    $topbarItemTextColor: #ffffff;
+    $topbarItemSecondaryTextColor: #E2F1FF;
+    $topbarItemTextHoverBgColor: rgba(255,255,255,.15);
+    $topbarItemBgColor:lighten($primaryColor, 5%);
+    $topbarItemBorderColor: lighten($primaryColor, 5%);
+    $topbarItemNotificationColor:$primaryColor;
+    
+    $topbarItemSubmenuItemHoverBgColor: rgba($primaryColor, .2);
+   
+
+    @import '../_topbar_theme';
+}

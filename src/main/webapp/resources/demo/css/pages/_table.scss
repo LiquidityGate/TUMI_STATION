@@ -1,0 +1,21 @@
+.table-demo {
+    .ui-datatable .ui-column-filter {
+        display: none;
+    }
+
+    .customers-table-header {
+        @include flex();
+        @include flex-align-center();
+        @include flex-justify-between();
+        @include flex-wrap(wrap);
+    }
+
+}
+
+@media (max-width: 640px) {
+    .table-demo {
+        .ui-progressbar {
+            margin-top: .5rem;
+        }
+    }
+}

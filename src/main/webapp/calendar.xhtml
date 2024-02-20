@@ -1,0 +1,64 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Calendar</ui:define>
+
+    <ui:define name="viewname">
+        <li>PAGES</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/calendar">CALENDAR</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <div class="grid">
+                <div class="col-12">
+                    <div class="card">
+                        <p:growl id="messages" showDetail="true" />
+                        
+                        <h5>Calendar</h5>
+                        <p:schedule id="schedule" value="#{calendarDemoView.eventModel}" widgetVar="myschedule" >
+                            <p:ajax event="dateSelect" listener="#{calendarDemoView.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                            <p:ajax event="eventSelect" listener="#{calendarDemoView.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                            <p:ajax event="eventMove" listener="#{calendarDemoView.onEventMove}" update="messages" />
+                            <p:ajax event="eventResize" listener="#{calendarDemoView.onEventResize}" update="messages" />
+                        </p:schedule>
+    
+                        <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="fade" width="350" responsive="true">
+                            <p:outputPanel id="eventDetails" styleClass="ui-fluid">
+                                <div class="field">
+                                    <p:outputLabel for="title" value="Title" />
+                                    <p:inputText id="title" value="#{calendarDemoView.event.title}" required="true" />
+                                </div>
+                                <div class="field">
+                                    <p:outputLabel for="from" value="From" />
+                                    <p:datePicker id="from" value="#{calendarDemoView.event.startDate}" pattern="dd/MM/yyyy" showTime="true" appendTo="@(body)"  />
+                                </div>
+                                <div class="field">
+                                    <p:outputLabel for="to" value="To" />
+                                    <p:datePicker id="to" value="#{calendarDemoView.event.endDate}" pattern="dd/MM/yyyy" showTime="true" appendTo="@(body)" />
+                                </div>
+                                <div class="field-checkbox">
+                                    <p:selectBooleanCheckbox id="allDay" value="#{calendarDemoView.event.allDay}" />
+                                    <p:outputLabel for="allDay" value="All Day" />
+                                </div>
+                            </p:outputPanel>
+                            <f:facet name="footer">
+                                    <p:commandButton id="addButton" value="Save" action="#{calendarDemoView.addEvent}" icon="pi pi-check" oncomplete="PF('myschedule').update();PF('eventDialog').hide();" />
+                                    <p:commandButton type="reset" value="Reset" styleClass="ui-button-secondary" icon="pi pi-refresh" />
+                                </f:facet>
+                        </p:dialog>   
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

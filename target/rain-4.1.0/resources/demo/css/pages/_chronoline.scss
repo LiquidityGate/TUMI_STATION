@@ -1,0 +1,33 @@
+.custom-marker {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.ui-chronoline-event-content,
+.ui-chronoline-event-opposite {
+  line-height: 1;
+}
+
+@media screen and (max-width: 960px) {
+  .customized-chronoline .ui-chronoline-event:nth-child(even) {
+    flex-direction: row !important;
+  }
+
+  .customized-chronoline .ui-chronoline-event:nth-child(even) .ui-chronoline-event-content {
+    text-align: left !important;
+  }
+
+  .customized-chronoline .ui-chronoline-event-opposite {
+    flex: 0;
+  }
+
+  .customized-chronoline .ui-card {
+    margin-top: 1rem;
+  }
+}

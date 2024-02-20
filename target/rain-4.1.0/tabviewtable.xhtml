@@ -1,0 +1,110 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <h:outputStylesheet name="css/flags/flags.css" library="demo" />
+    </ui:define>
+
+    <ui:define name="title">Asociados</ui:define>
+
+    <ui:define name="viewname">
+        <li>INICIO</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/table">ASOCIADOS</p:link>
+        </li>
+    </ui:define>
+    <ui:define name="content">
+        <h:form id="form">
+            <p:selectOneMenu value="#{bean.selectedOption}">
+                <f:selectItem itemLabel="Opción 1" itemValue="option1" />
+                <f:selectItem itemLabel="Opción 2" itemValue="option2" />
+                <p:ajax listener="#{bean.onOptionChange}" update="tabView1 tabView2" />
+            </p:selectOneMenu>
+
+            <!--TABVIEW PARA LOS PACIENTES-->
+            <p:outputPanel id="tabView1">
+                <p:tabView rendered="#{bean.selectedOption eq 'option1'}">
+                    <!-- Contenido de pestañas para la opción 1 -->
+                    <p:tab title="Medicos">Datos</p:tab>
+                    <p:tab title="Lincenciados en Enfermeria">Tab 2 Content</p:tab>
+                    <p:tab title="Asistente de Médico">Tab 3 Content</p:tab>
+                    <p:tab title="Auxiliar de Enfermería">Tab 4 Content</p:tab>
+                    <p:tab title="Auxiliar de farmacia">Tab 5 Content</p:tab>
+                </p:tabView>
+            </p:outputPanel>
+            <!--TABVIEW PARA LOS MEDICOS-->
+            <p:outputPanel id="tabView2">
+                <p:tabView rendered="#{bean.selectedOption eq 'option2'}">
+                    <!-- Contenido de pestañas para la opción 2 -->
+                    <p:tab title="Medicos">Datos</p:tab>
+                    <p:tab title="Lincenciados en Enfermeria">Tab 2 Content</p:tab>
+                    <p:tab title="Asistente de Médico">Tab 3 Content</p:tab>
+                    <p:tab title="Auxiliar de Enfermería">Tab 4 Content</p:tab>
+                    <p:tab title="Auxiliar de farmacia">Tab 5 Content</p:tab>
+                </p:tabView>
+            </p:outputPanel>
+
+            <p:outputPanel id="dataTable1">
+                <p:dataTable rendered="#{bean.selectedOption eq 'option1'}">
+                    <!-- Contenido de la tabla para la opción 1 -->
+                    <p:column headerText="Codigo" style="width: 300px;">
+                        <h:outputText value="#{customer.Codigo_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Rol" style="width: 300px;">
+                        <h:outputText value="#{customer.codRol}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo de Identidad" style="width: 300px;">
+                        <h:outputText value="#{customer.codTipoDocIdent}" />
+                    </p:column>
+                </p:dataTable>
+            </p:outputPanel>
+
+            <p:outputPanel id="dataTable2">
+                <p:dataTable rendered="#{bean.selectedOption eq 'option2'}">
+                    <!-- Contenido de la tabla para la opción 2 -->
+                    <p:column headerText="Codigo" style="width: 300px;">
+                        <h:outputText value="#{customer.Codigo_Asociado}" />
+                    </p:column>
+
+                    <p:column headerText="Rol" style="width: 300px;">
+                        <h:outputText value="#{customer.codRol}" />
+                    </p:column>
+
+                    <p:column headerText="Tipo de Identidad" style="width: 300px;">
+                        <h:outputText value="#{customer.codTipoDocIdent}" />
+                    </p:column>
+                </p:dataTable>
+            </p:outputPanel>
+        </h:form>
+
+        <script>
+            function showHide(option) {
+                if (option === 'option1') {
+                    document.getElementById('tabView1').style.display = 'block';
+                    document.getElementById('dataTable1').style.display = 'block';
+
+                    document.getElementById('tabView2').style.display = 'none';
+                    document.getElementById('dataTable2').style.display = 'none';
+                } else if (option === 'option2') {
+                    document.getElementById('tabView1').style.display = 'none';
+                    document.getElementById('dataTable1').style.display = 'none';
+
+                    document.getElementById('tabView2').style.display = 'block';
+                    document.getElementById('dataTable2').style.display = 'block';
+                }
+            }
+
+            // Llamada inicial para ocultar/mostrar basado en la opción seleccionada al inicio
+            showHide('#{bean.selectedOption}');
+        </script>
+    </ui:define>
+
+</ui:composition>
+

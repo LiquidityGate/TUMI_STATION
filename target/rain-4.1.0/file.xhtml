@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">File</ui:define>
+
+    <ui:define name="viewname">
+        <li>UI KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/file">FILE</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="grid">
+            <div class="col-12">
+                <div class="card">
+                    <h5>Advanced</h5>
+                    <h:form>
+                        <p:fileUpload listener="#{fileDemoView.handleFileUpload}" mode="advanced" dragDropSupport="false"
+                                      multiple="true" update="messages" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" style="width:100%" />
+    
+                        <p:growl id="messages" showDetail="true" />
+                    </h:form>
+
+                    <h5>Basic</h5>
+                    <h:form enctype="multipart/form-data">
+                        <p:fileUpload value="#{fileDemoView.file}" mode="simple" skinSimple="true"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

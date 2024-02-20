@@ -1,0 +1,17 @@
+$bodyBgColor:#2B394F !default;
+$textColor:#f8fafc !default;
+$textSecondaryColor:#7e92b9 !default;
+
+$contentBgColor:#364760 !default;
+$contentAltBgColor:#2B394F !default;
+$dividerColor:#364760 !default;
+
+$menuTooltipBgColor:lighten(#2B394F, 5%) !default;
+$menuTooltipTextColor:#ffffff !default;
+
+$topbarItemSubmenuBgColor: lighten($bodyBgColor, 5%) !default;
+$topbarItemSubmenuTextColor: #f8fafc !default;
+$topbarItemSubmenuSecondaryTextColor: #7e92b9 !default;
+$topbarItemSubmenuBoxShadow:0 24px 64px -2px rgba(0, 0, 0, 0.02), 0 6px 16px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -2px rgba(0, 0, 0, 0.08) !default;
+
+@import './_common.scss';

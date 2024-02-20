@@ -1,0 +1,195 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pr="http://primefaces.org/rain"
+                template="/WEB-INF/template.xhtml"
+                xmlns:webjars="http://webjars.org/ui"
+                webjars:assetLocator="org.webjars.WebJarAssetLocator">
+
+    <ui:define name="head">
+        <h:outputStylesheet  library="demo"  name="css/flags/flags.css"/>
+    </ui:define>
+
+    <ui:define name="title">Asociados</ui:define>
+
+    <ui:define name="viewname">
+        <li>INICIO</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/table">ASOCIADOS</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+
+            <div class="grid table-demo">
+
+                <div class="card col-12">
+                    <h2>Asociados</h2>
+                    <p>Condición de los Asociados</p>
+                    <!--FILTRAR POR ESPECIALIDAD-->
+                    <p:panel>
+                        <p:selectOneMenu value="#{basicView.estadoSeleccionado}" style="width:150px">
+                            <f:selectItem itemLabel="Eliga:" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Aprobados" itemValue="Aprobados"/>
+                            <f:selectItem itemLabel="Desaprobados" itemValue="Desaprobados"/>
+                            <p:ajax listener="#{basicView.onEstadoChange}"/>
+                        </p:selectOneMenu>
+                    </p:panel>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name"/>
+                        </f:facet>
+                        <h:outputText value="#{t.displayName}" />
+                    </p:column>
+
+                    <f:facet name="footer">
+                        <p:separator />
+                        <h:outputText value="#{selectOneMenuView.themes.size()} themes" style="font-weight:bold;"/>
+                    </f:facet>
+
+                    <h4>Especialidades</h4>
+                    <p:tabView scrollable="true">
+                        <p:tab title="General">Postulacion General</p:tab>
+                        <p:tab title="Medicos">Postulacion de Medicos</p:tab>
+                        <p:tab title="Lincenciados en Enfermeria">Postulacion de Licenciados den Enfermeria</p:tab>
+                        <p:tab title="Asistente de Médico">Postulacion de Asistentes de Médicos</p:tab>
+                        <p:tab title="Auxiliar de Enfermería">Postulacion de Auxiliares de Enfermeria</p:tab>
+                        <p:tab title="Auxiliar de farmacia">Postulacion de Auxiliares de Farmacia</p:tab>
+                        <p:tab title="Conductor">Postulacion de Conductores en Ambulancia</p:tab>
+                        <p:tab title="Dentista">Postulacion de Dentistas</p:tab>
+                        <p:tab title="Farmacéutico">Postulacion de Farmacéuticos</p:tab>
+                        <p:tab title="Fisioterapeuta">Postulacion de Fisioterapeutas</p:tab>
+                        <p:tab title="Higienista dental">Postulacion de Higienistas Dentales</p:tab>
+                        <p:tab title="Nutricionista">Postulacion de Nutricionistas</p:tab>
+                        <p:tab title="Obstetra">Postulacion de Obstetras</p:tab>
+                        <p:tab title="Optometrista">Postulacion de Optometristas</p:tab>
+                        <p:tab title="Paramédico">Postulacion de Paramédicos</p:tab>
+                        <p:tab title="Podólogo">Postulacion de Podólogos</p:tab>
+                        <p:tab title="Psicólogo">Postulacion de Psicólogos</p:tab>
+                        <p:tab title="Técnico de radiologia">Postulacion de Técnicos de Radiologia</p:tab>
+                        <p:tab title="Técnico en emergencias médicas">Postulacion de Técnicos en Emergencias Médicas</p:tab>
+                        <p:tab title="Técnico en Enfermeria">Postulacion de Técnicos en Enfermeria</p:tab>
+                        <p:tab title="Técnico laboratorista">Postulacion de Técnicos Laboratoristas</p:tab>
+                        <p:tab title="Técnico en electrocardiograma">Postulacion de Técnicos en Electrocardiograma</p:tab>
+                        <p:tab title="Terapeuta ocupacional">Postulacion de Terapeutas ocupacionales</p:tab>
+                        <p:tab title="trabajo social">Postulacion de Trabajo Social</p:tab>
+                        <p:tab title="Especialistas en atención al cliente">Postulacion de Especialistas en Atención al Cliente</p:tab>
+                    </p:tabView>
+
+                    <div>
+                        <!-- Mensajes de depuración -->
+                        <p:messages showDetail="true" />
+
+                        <p:dataTable id="TablaDatos" value="#{DataAfiliados.ListarDatos}" var="dato" rowKey="#{dato.codigo_Asociado}" emptyMessage="No se encontraron registros" reflow="true" rows="29" paginator="true">
+                            <p:column style="width: 250px;" headerText="Código Asociado">
+                                #{dato.codigo_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Rol">
+                                #{dato.codRol}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Tipo Documento Identidad">
+                                #{dato.codTipoDocIdent}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Número RUC Asociado">
+                                #{dato.numeroRuc_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Número Documento Identidad Asociado">
+                                #{dato.numDocIdent_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Nombres Asociado">
+                                #{dato.nombres_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Apellido Paterno Asociado">
+                                #{dato.apePaterno_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Apellido Materno Asociado">
+                                #{dato.apeMaterno_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Fecha Nacimiento Asociado">
+                                #{dato.fecNacimiento_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Sexo">
+                                #{dato.codSexo}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Estado Civil">
+                                #{dato.codEstadoCivil}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Tipo Sangre">
+                                #{dato.codTipoSangre}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código País">
+                                #{dato.codPais}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Departamento">
+                                #{dato.codDepartamento}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Provincia">
+                                #{dato.codProvincia}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Distrito">
+                                #{dato.codDistrito}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Domicilio Asociado">
+                                #{dato.domicilio_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Referencia Domicilio Asociado">
+                                #{dato.referenciaDomicilio_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Ubigeo Asociado">
+                                #{dato.ubigeo_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Foto Perfil Asociado">
+                                #{dato.fotoPerfil_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Número Teléfono Asociado">
+                                #{dato.numeroTelefono_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Correo Asociado">
+                                #{dato.correo_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Clave Asociado">
+                                #{dato.clave_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Fecha Registro Asociado">
+                                #{dato.fecRegistro_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Código Situación Acceso Asociado">
+                                #{dato.codSituacionAccesoAsociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Fecha Inicio Suspensión">
+                                #{dato.fecInicioSuspension}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Fecha Término Suspensión">
+                                #{dato.fecTerminoSuspension}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Estado Actividad Asociado">
+                                #{dato.estadoActividad_Asociado}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Acepto Términos">
+                                #{dato.aceptoTerminos}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="codigo BAncario">
+                                #{dato.codBanco}
+                            </p:column>
+                            <p:column style="width: 250px;" headerText="Numero cuenta bancaria">
+                                #{dato.numeroCuentaBancaria_Asociado}
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pr="http://primefaces.org/rain"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <h:outputStylesheet name="css/flags/flags.css" library="demo" />
+    </ui:define>
+
+    <ui:define name="title">Asociados</ui:define>
+    <ui:define name="viewname">
+        <li>INICIO</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/table">ASOCIADOS</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="form">
+            <div class="grid table-demo">
+                <div class="col-12">
+                    <div class="card">
+                        <p:dataTable id="tbprueba" var="tablaprueba" widgetVar="dtprueba" value="#{tablitaview.listaDatos}" rows="10"
+                                     paginator="true" rowKey="#{tablaprueba.ID}"
+                                     scrollable="true" scrollWidth="auto"> <!-- Ajusta el ancho según tus necesidades -->
+
+                            <!-- Columnas de la tabla -->
+                            <p:column headerText="ID" style="width: 300px;">
+                                <h:outputText value="#{tablaprueba.ID}" />
+                            </p:column>
+                            <p:column headerText="CONDICION" style="width: 300px;">
+                                <h:outputText value="#{tablaprueba.condicion}" />
+                            </p:column>
+
+                            <p:column headerText="NOMBRES" style="width: 300px;">                      
+                                <h:outputText value="#{tablaprueba.nombres}" />
+                            </p:column>
+
+                            <p:column headerText="ESPECIALIDAD" style="width: 300px;">
+                                <h:outputText value="#{tablaprueba.especialidad}" />
+                            </p:column>
+
+
+                            <p:column headerText="EDAD" style="width: 300px;">
+                                <h:outputText value="#{tablaprueba.edad}" />
+                            </p:column>
+
+                            <p:column headerText="DOCUMENTO" style="width: 300px;">
+                                <h:outputText value="#{tablaprueba.documento}" />
+                            </p:column>
+
+                        </p:dataTable>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,117 @@
+@import './_topbar_common';
+
+.layout-topbar{
+    background-color: $topbarBgColor;
+    border-bottom: 1px solid $topbarBorderColor;
+    box-shadow: $topbarBoxShadow;
+
+    .layout-topbar-wrapper {
+        .layout-topbar-right {
+            .menu-button {
+                > i {
+                    color : $topbarItemTextColor;
+                }
+                &:hover{
+                    background-color: $topbarItemTextHoverBgColor;
+                    @include transition(background-color $transitionDuration);
+                }
+            }
+
+            .layout-topbar-actions {
+                > li {
+                    > a {
+                        > .topbar-icon {
+                            color: $topbarItemTextColor;
+                        }
+                        &:hover{
+                            i{
+                                background-color: $topbarItemTextHoverBgColor;
+                                @include transition(background-color $transitionDuration);
+                            }
+                        }
+                    }
+                    
+                    &.search-item {
+                        > form {
+                            > .search-input-wrapper {
+                                input {
+                                    background-color: $topbarItemBgColor;
+                                    border: 1px solid $topbarItemBorderColor;
+
+                                    &::placeholder {
+                                        color: $topbarItemSecondaryTextColor;
+                                    }
+
+                                    color: $topbarItemSecondaryTextColor;
+                                }
+
+                                 i {
+                                     color: $topbarItemTextColor;
+                                     opacity: .5;
+                                 }
+                            }
+                           
+                        }
+                    }
+
+                    > ul {
+                        box-shadow: $topbarItemSubmenuBoxShadow;
+                        background-color: $topbarItemSubmenuBgColor;
+
+                        .layout-submenu-header {
+                            background-color: lighten($primaryColor, 8%) ;
+
+                            h6 {
+                                color: #ffffff;
+                            }
+
+                            &:hover {
+                                background-color: lighten($primaryColor, 8%) ;
+                            }
+                        }
+
+                        > li {
+                            > a {
+                                color: $topbarItemSubmenuTextColor;
+
+                                i {
+                                    background-color: rgba($primaryColor,.8) ;
+                                    color: #ffffff;
+                                }
+
+                                .notification-detail {
+                                    color: $topbarItemSubmenuSecondaryTextColor;
+                                }
+                            }
+
+                            .menu-text {
+                                p {
+                                    color: $topbarItemSubmenuTextColor;
+                                }
+                                span {
+                                    color: $topbarItemSubmenuSecondaryTextColor;
+                                }
+                            }
+
+                            &:hover {
+                                background-color: $topbarItemSubmenuItemHoverBgColor;
+                                @include transition(background-color $transitionDuration);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .layout-rightpanel-button {
+                color: $topbarItemTextColor;
+                background-color: transparent;
+
+                &:hover{
+                    background-color: $topbarItemTextHoverBgColor;
+                    @include transition(background-color $transitionDuration);
+                }
+            }
+        }
+    }
+}
+

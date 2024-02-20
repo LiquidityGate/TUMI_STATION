@@ -1,0 +1,146 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+    
+    <ui:define name="title">Jerarquia de Empresa</ui:define>
+
+    <ui:define name="viewname">
+        <li>KIT</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/Estructura_OD">FORMULARIO</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <!--FORMULARIO PARA E REGISTRO!-->
+                <div class="col-12">
+                    <div class="card">
+                        <h5>Estructura Organizacional de Empresa</h5>
+                        <div class="ui-fluid formgrid grid">
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="NOrg" value="Nombre de la organizacion"/>
+                                <p:inputText id="NOrg" />
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="areas" value="Áreas" />
+                                <p:inputText id="areas" />
+                            </div>
+                            
+                             <div class="field col-12">
+                                <p:outputLabel for="DescripA" value="Descripcion de Áreas" />
+                                <p:inputTextarea id="DescripA" rows="4" />
+                            </div>
+                            
+                             <div class="field col-12 md:col-6">
+                                        <p:outputLabel value="Fecha de Inicio" />
+                                        <p:datePicker placeholder="00/00/00" showIcon="true"/>
+                             </div> 
+                            
+                             <div class="field col-12 md:col-6">
+                                <p:outputLabel for="LEmple" value="Lista de empleados" />
+                                <p:selectOneMenu id="LEmple">
+                                    <f:selectItem itemLabel="Selecionar" itemValue=""/>
+                                    <f:selectItem itemLabel="00" itemValue="1" />
+                                    <f:selectItem itemLabel="000" itemValue="2" />
+                                    <f:selectItem itemLabel="00000" itemValue="4" />
+                                </p:selectOneMenu>
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="FYD" value="Formacion y Desarrollo" />
+                                <p:inputText id="FYD" />
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="Tec" value="Tecnología" />
+                                <p:selectOneMenu id="Tec">
+                                    <f:selectItem itemLabel="Selecionar" itemValue=""/>
+                                    <f:selectItem itemLabel="00000000" itemValue="1" />
+                                    <f:selectItem itemLabel="0000" itemValue="2" />
+                                    <f:selectItem itemLabel="0000" itemValue="3" />
+                                    <f:selectItem itemLabel="0000" itemValue="4" />
+                                </p:selectOneMenu>
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="Ubica" value="Ubicaciones" />
+                                <p:selectOneMenu id="Ubica">
+                                    <f:selectItem itemLabel="Selecionar" itemValue=""/>
+                                    <f:selectItem itemLabel="00000" itemValue="1" />
+                                    <f:selectItem itemLabel="00" itemValue="2" />
+                                    <f:selectItem itemLabel="000000000000" itemValue="1" />
+                                    <f:selectItem itemLabel="00" itemValue="2" />
+                                </p:selectOneMenu>
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                            <p:outputLabel  value="Género" />
+                                        <p:selectOneRadio layout="responsive" columns="2">
+                                            <f:selectItem itemLabel="M" itemValue="1" />
+                                            <f:selectItem itemLabel="F" itemValue="2" />
+                                        </p:selectOneRadio>
+                            
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="TC" value="Tipo de contrato" />
+                                <p:selectOneMenu id="TC">
+                                    <f:selectItem itemLabel="Selecionar" itemValue=""/>
+                                    <f:selectItem itemLabel="0" itemValue="1" />
+                                    <f:selectItem itemLabel="00" itemValue="2" />
+                                </p:selectOneMenu>
+                            </div>
+                            
+                        
+                            <div class="field col-12 md:col-6">
+                                        <p:outputLabel value="Fecha de Ingreso" />
+                                        <p:datePicker placeholder="00/00/00" showIcon="true"/>
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                     <p:outputLabel value="Hora de ingreso" />
+                                     <p:datePicker  id="FI" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                     <p:outputLabel value="Hora de salida" />
+                                     <p:datePicker  id="FS" value="#{calendarView.date14}" timeOnly="true" pattern="HH:mm"/>
+                            </div>
+                            
+                            
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="NVLE" value="Nivel de estudios" />
+                                <p:selectOneMenu id="NVLE">
+                                    <f:selectItem itemLabel="Selecionar" itemValue=""/>
+                                    <f:selectItem itemLabel="Ceo" itemValue="1" />
+                                    <f:selectItem itemLabel="Presidente" itemValue="2" />
+                                </p:selectOneMenu>
+                            </div>
+                            <div class="field col-12">
+                                <p:outputLabel for="Descrip" value="Descripcion de objetivos" />
+                                <p:inputTextarea id="Descrip" rows="4" />
+                            </div>
+                            
+                            <div class="field col-12 md:col-6">
+                                <p:outputLabel for="NGest" value="Niveles de Gestion" />
+                                <p:selectOneMenu id="NGest">
+                                    <f:selectItem itemLabel="Selecionar" itemValue=""/>
+                                    <f:selectItem itemLabel="Estrategico" itemValue="1" />
+                                    <f:selectItem itemLabel="Tactico" itemValue="2" />
+                                    <f:selectItem itemLabel="Operativos" itemValue="4" />
+                                </p:selectOneMenu>
+                            </div>
+                        </div>
+                             <p:selectBooleanButton onLabel="Registrado" offLabel="Registrarse" style="width:100%" />
+                    </div>
+                </div>
+           
+          </h:form>
+    </ui:define>
+</ui:composition>

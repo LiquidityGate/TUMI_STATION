@@ -1,0 +1,145 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+
+    <div id="layout-config" class="layout-config">
+        <div class="layout-config-content">
+            <a href="#" id="layout-config-button" class="layout-config-button">
+                <i class="pi pi-cog"/>
+            </a>
+            <h:form id="config-form" styleClass="layout-config-form">
+                <div class="layout-config-header">
+                    <h3>Theme Customization</h3>
+                    <span>Rain offers different themes for layout, topbar, menu etc.</span>
+                </div>
+                
+                <p:outputPanel id="lightdark-panel" styleClass="layout-config-section options">
+                    <span class="section-name">Layout Mode</span>
+                    <div class="grid layout-config-options">
+                        <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.darkMode}" onchange="PrimeFaces.RainConfigurator.changeLayout('#{guestPreferences.layoutPrimaryColor}', '#{guestPreferences.componentTheme}', event.target.value)"   >
+                            <f:selectItem itemLabel="Light" itemValue="light" />
+                            <f:selectItem itemLabel="Dark" itemValue="dark" />
+                            <f:selectItem itemLabel="Dim" itemValue="dim" />
+                            <p:ajax onstart="PrimeFaces.RainConfigurator.beforeResourceChange()" update="config-form logolink footerlogolink  rightpanellogo"/>
+                        </p:selectOneRadio>
+                    </div>
+                </p:outputPanel>
+
+                <p:outputPanel id="menumodes-panel" styleClass="layout-config-section options">
+                    <span class="section-name">Menu Mode</span>
+                    <div class="grid layout-config-options">
+                        <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.menuMode}" onchange="PrimeFaces.RainConfigurator.changeMenuMode(event.target.value)" >
+                            <f:selectItem itemLabel="Static" itemValue="layout-static layout-static-active" />
+                            <f:selectItem itemLabel="Overlay" itemValue="layout-overlay" />
+                            <f:selectItem itemLabel="Horizontal" itemValue="layout-horizontal" />
+                            <f:selectItem itemLabel="Slim" itemValue="layout-slim" />
+                            <f:selectItem itemLabel="Slim-Plus" itemValue="layout-slim-plus" />
+                            <p:ajax update="menumodes-panel" />
+                        </p:selectOneRadio>
+                    </div>
+                </p:outputPanel>
+
+                <p:outputPanel id="menuthemes-panel" styleClass="layout-config-section options">
+                    <p:outputPanel id="menu-themes-panel" rendered="#{guestPreferences.darkMode == 'light'}">
+                        <span class="section-name">Menu Theme</span>
+                        <div class="grid layout-config-options" >
+                            <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.menuTheme}" onchange="PrimeFaces.RainConfigurator.changeSectionTheme(event.target.value , 'layout-menu')"  >
+                                <f:selectItem itemLabel="Light" itemValue="light" />
+                                <f:selectItem itemLabel="Dark" itemValue="dark" />
+                                <f:selectItem itemLabel="Dim" itemValue="dim" />
+                                <p:ajax update="menu-themes-panel config-form" />
+                            </p:selectOneRadio>
+                        </div>
+                    </p:outputPanel>
+                    <p:outputPanel rendered="#{guestPreferences.darkMode != 'light'}">
+                        <p>Menu themes are only available in light mode by design as large surfaces can emit too much brightness in dark mode.</p>
+                    </p:outputPanel>
+                </p:outputPanel>
+
+                <p:outputPanel id="topbarthemes-panel" styleClass="layout-config-section options">
+                    <span class="section-name">Topbar Theme</span>
+                    <div class="grid layout-config-options">
+                        <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.topbarTheme}" onchange="PrimeFaces.RainConfigurator.changeSectionTheme(event.target.value , 'layout-topbar')"   >
+                            <f:selectItem itemLabel="Light" itemValue="light" itemDisabled="#{guestPreferences.darkMode != 'light'}"  />
+                            <f:selectItem itemLabel="Dark" itemValue="dark" itemDisabled="#{guestPreferences.darkMode == 'dim'}" />
+                            <f:selectItem itemLabel="Dim" itemValue="dim" itemDisabled="#{guestPreferences.darkMode == 'dark'}"  />
+                            <f:selectItem itemLabel="Colored" itemValue="colored" />
+                            <p:ajax update="logolink config-form"/>
+                        </p:selectOneRadio>
+                    </div>
+                </p:outputPanel>
+
+                <p:outputPanel id="profilemenu-panel" styleClass="layout-config-section options">
+                    <span class="section-name">Profile Mode</span>
+                    <div class="grid layout-config-options">
+                        <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.profileMode}">
+                            <f:selectItem itemLabel="Popup" itemValue="popup" />
+                            <f:selectItem itemLabel="Inline" itemValue="inline" />
+                            <p:ajax oncomplete="setTimeout(function() {document.forms[0].submit()}, 500)" />
+                        </p:selectOneRadio>
+                    </div>
+                </p:outputPanel>
+
+                <p:outputPanel id="outlined-panel" styleClass="layout-config-section options">
+                    <span class="section-name">Form Type</span>
+                    <div class="grid layout-config-options">
+                        <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.inputStyle}"
+                        onchange="PrimeFaces.RainConfigurator.updateInputStyle(event.target.value)">
+                            <f:selectItem itemLabel="Outlined" itemValue="outlined" />
+                            <f:selectItem itemLabel="Filled" itemValue="filled" />
+                            <p:ajax />
+                        </p:selectOneRadio>
+                    </div>
+                </p:outputPanel>
+
+                <p:outputPanel id="primarycolors-panel" styleClass="layout-config-section colors">
+                    <span class="section-name">Layout Colors</span>
+                    <div class="grid layout-config-colors">
+                        <ui:repeat value="#{guestPreferences.layoutPrimaryColors}" var="layoutPrimaryColor">
+                            <div class="col col-fixed">
+                                <p:commandLink styleClass="layout-config-option"
+                                    actionListener="#{guestPreferences.setLayoutPrimaryColor(layoutPrimaryColor.file)}"
+                                    onstart="PrimeFaces.RainConfigurator.beforeResourceChange()"
+                                    update=":config-form:primarycolors-panel :config-form:componentthemes-panel"
+                                    oncomplete="PrimeFaces.RainConfigurator.changePrimaryColor('#{layoutPrimaryColor.file}', '#{guestPreferences.darkMode}'),
+                                    PrimeFaces.RainConfigurator.changeComponentsTheme('#{layoutPrimaryColor.file}', '#{guestPreferences.darkMode}')">
+                                    <span class="layout-config-option-color"
+                                        style="background-color: #{layoutPrimaryColor.color};" title="#{layoutPrimaryColor.name}"/>
+                                    <ui:fragment
+                                        rendered="#{layoutPrimaryColor.file eq guestPreferences.layoutPrimaryColor}">
+                                        <span class="layout-config-option-check-mask">
+                                            <i class="pi pi-check"/>
+                                        </span>
+                                    </ui:fragment>
+                                </p:commandLink>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </p:outputPanel>
+
+                <p:outputPanel id="componentthemes-panel" styleClass="layout-config-section colors">
+                    <span class="section-name">Component Colors</span>
+                    <div class="grid layout-config-colors">
+                        <ui:repeat value="#{guestPreferences.componentThemes}" var="componentTheme">
+                            <div class="col col-fixed">
+                                <p:commandLink styleClass="layout-config-option"
+                                    actionListener="#{guestPreferences.setComponentTheme(componentTheme.file)}"
+                                    update=":config-form:componentthemes-panel"
+                                    onstart="PrimeFaces.RainConfigurator.beforeResourceChange()"
+                                    oncomplete="PrimeFaces.RainConfigurator.changeComponentsTheme('#{componentTheme.file}', '#{guestPreferences.darkMode}')">
+                                    <span class="layout-config-option-color"
+                                        style="background-color: #{componentTheme.color};" title="#{componentTheme.name}"/>
+                                    <ui:fragment rendered="#{componentTheme.file eq guestPreferences.componentTheme}">
+                                        <span class="layout-config-option-check-mask">
+                                            <i class="pi pi-check"/>
+                                        </span>
+                                    </ui:fragment>
+                                </p:commandLink>
+                            </div>
+                        </ui:repeat>
+                    </div>
+                </p:outputPanel>
+            </h:form>
+        </div>
+    </div>
+</ui:composition>

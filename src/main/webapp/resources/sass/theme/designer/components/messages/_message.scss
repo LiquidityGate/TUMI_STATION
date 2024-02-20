@@ -1,0 +1,82 @@
+body {
+  .ui-message {
+    padding: $inputPadding;
+    display: inline-block;
+    border-radius: $borderRadius;
+
+    &.ui-message-info {
+      background: $infoMessageBg;
+      border: $infoMessageBorder;
+      border-width: $messageBorderWidth;
+      color: $infoMessageTextColor;
+
+      .ui-message-info-icon {
+        @include icon_override("\e924");
+        margin: 0;
+        color: $infoMessageIconColor;
+        float: none;
+        width: auto;
+        height: auto;
+        position: relative;
+        top: 1px;
+      }
+
+      .ui-message-info-detail {
+        margin-left: $inlineSpacing;
+      }
+    }
+
+    &.ui-message-warn {
+      background: $warnMessageBg;
+      border: $warnMessageBorder;
+      border-width: $messageBorderWidth;
+      color: $warnMessageTextColor;
+
+      .ui-message-warn-icon {
+        @include icon_override("\e922");
+        margin: 0;
+        color: $warnMessageIconColor;
+        float: none;
+        width: auto;
+        height: auto;
+        position: relative;
+        top: 1px;
+      }
+
+      .ui-message-warn-detail {
+        margin-left: $inlineSpacing;
+      }
+    }
+
+    &.ui-message-error,&.ui-message-fatal {
+      background: $errorMessageBg;
+      border: $errorMessageBorder;
+      border-width: $messageBorderWidth;
+      color: $errorMessageTextColor;
+
+      .ui-message-error-icon {
+        @include icon_override("\e90c");
+        margin: 0;
+        color: $errorMessageIconColor;
+        float: none;
+        width: auto;
+        height: auto;
+        position: relative;
+        top: 1px;
+      }
+
+      .ui-message-error-detail {
+        margin-left: $inlineSpacing;
+      }
+    }
+
+    &.ui-message-icon-only {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .ui-widget + .ui-message {
+    margin: 0 0 0 $inlineSpacing;
+  }
+}
