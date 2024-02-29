@@ -55,7 +55,7 @@ public class VistaRolesApp {
                     menu.setNombreRol(nombreRol);
 
                     menus.add(menu);
-                    System.out.println("  Nombre=" + nombreRol);
+                    System.out.println(" Nombre=" + nombreRol);
                 }
             }
 
