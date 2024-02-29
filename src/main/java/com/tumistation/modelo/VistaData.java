@@ -1,4 +1,4 @@
-package ConnectionBD;
+package com.tumistation.controlador;
 
 import java.sql.Date;
 

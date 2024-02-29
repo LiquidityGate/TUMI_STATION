@@ -1,6 +1,6 @@
-package ConnectionBD;
+package com.tumistation.controlador;
 
-import ConnectionBD.VistaRolesApp.Menu;
+import com.tumistation.modelo.VistaRolesApp.Menu;
 import java.sql.*;
 
 public class ListadoPrueba {

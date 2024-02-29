@@ -12,7 +12,7 @@
     
     <managed-bean>
         <managed-bean-name>DataProcessor</managed-bean-name>
-        <managed-bean-class>ConnectionBD.DataProcessor</managed-bean-class>
+        <managed-bean-class>com.tumistation.controlador.formPostulacionesAsociadosBean</managed-bean-class>
     </managed-bean>
     
     <render-kit>

@@ -1,7 +1,9 @@
+package com.tumistation.controlador;
 
-import ConnectionBD.ConnectionBD;
+
+import com.tumistation.controlador.ConnectionBD;
 import java.sql.Connection;
-import ConnectionBD.VistaData;
+import com.tumistation.controlador.VistaData;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,12 +16,12 @@ import javax.inject.Named;
 
 @Named(value = "DataAfiliados")
 @RequestScoped
-public class DataProcessor {
+public class formPostulacionesAsociadosBean {
 
     private VistaData datavista;
     private List<VistaData> listavista;
 
-    public DataProcessor() {
+    public formPostulacionesAsociadosBean() {
         datavista = new VistaData();
     }
 

@@ -1,8 +1,8 @@
 
-package IniciodeSesion;
+package com.tumistation.controlador;
 
 
-import ConnectionBD.ConnectionBD;
+import com.tumistation.controlador.ConnectionBD;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
