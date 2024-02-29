@@ -4,8 +4,8 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets" 
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pr="http://primefaces.org/rain">
-    
-        <style>
+
+    <style>
         .menu-wrapper {
             /* Estilos para el contenedor del menú */
         }
@@ -16,61 +16,62 @@
     </style>
 
     <div class="menu-wrapper" id="menuWrapper">
-        <div class="layout-menu-container">
+        <div class="layout-menu-container" bis_skin_checked="1" style="
+             width: 300px;
+             ">
             <br></br><br></br>
-            <div>
-                <p class="font-bold mr-3 w-2" style="color: #2f9e8d ;margin-left: 20px;" >FAVORITOS</p>
+            <div> 
+                <p class="font-bold mr-3 w-2  pi pi-home" style="color: #2f9e8d ;margin-left: 20px;" > Gestión de Asociados</p>
+                <br></br> 
+                <p:link outcome="dashboard" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Activación de asociados</p:link>
+                <br></br><br></br>
+                <p:link outcome="dashboard" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Modificación de datos del asociado</p:link>
+                <br></br><br></br>
+                <p:link outcome="dashboard" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Historia de atenciones</p:link>
+                <br></br> <br></br>
+                <p:link outcome="dashboard" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Historial de pagos y líquidaciones</p:link>
+                <br></br> <br></br>
             </div>
-            <br></br> 
-            <p:link outcome="dashboard" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-home"  style="margin-right: 6px"/>Dashboard</p:link>
-            <br></br> <br></br>
             <div>
-                <p class="font-bold mr-3 w-2" style="color: #2f9e8d; margin-left: 20px;">INICIO</p>
+                <p class="font-bold mr-3 w-2 pi pi-map " style="color: #2f9e8d; margin-left: 20px;"> Gestión de pedidos de atención</p>
+                <br></br>
+                <p:link outcome="table" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/> Asignación de pedido para atención</p:link>
+                <br></br><br></br>
+                <p:link outcome="formPrincipalAsociados" style="color: #fff ; text-decoration: none; margin-left:20px;"><i style="margin-right: 6px"/>Reprogramación de pedido de atención</p:link>
+                <br></br><br></br>
+                <p:link outcome="table" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/> Anular pedido de atención</p:link>
+                <br></br><br></br>
+                <p:link outcome="formPrincipalAsociados" style="color: #fff ; text-decoration: none; margin-left:20px;"><i style="margin-right: 6px"/>Devoluciones de pago por pedido</p:link>
+                <br></br><br></br>
             </div>
-            <br></br> <br></br>
-            <p:panelMenu style="width:300px">
-                <p:submenu label="Asociados">
-                    <p:menuitem value="Postulaciones" url="table" icon="pi-user-plus" outcome="table"/>
-                    <p:menuitem value="Imprimir" icon="pi-file-pdf"/>
-                </p:submenu>
-            </p:panelMenu>
-            <br></br> 
-            <p:link outcome="table" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-user-plus"></i> Postulación Asociados</p:link>
-            <br></br><br></br>
-            <p:link outcome="formPrincipalAsociados" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-wrench"></i> Servicios</p:link>
-            <br></br><br></br>
-            <p:link outcome="tabviewtable" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-bookmark" style="margin-right: 6px"/>Etiquetas flotantes</p:link>
-            <br></br><br></br>
-            <p:link outcome="invalidstate" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-exclamation-circle" style="margin-right: 6px"/>Estado invalido</p:link>
-            <br></br><br></br>
-            <p:link outcome="pruebatabla" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-mobile" style="margin-right: 6px"/>Botón</p:link>
-            <br></br><br></br>
-            <p:link outcome="formlayout" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-table" style="margin-right: 6px"/>Formularios</p:link>
-            <br></br><br></br>
-            <p:link outcome="list" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-list" style="margin-right: 6px"/>Lista</p:link>
-            <br></br><br></br>
-            <p:link outcome="tree" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-share-alt" style="margin-right: 6px"/>Arbol</p:link>
-            <br></br><br></br>
-            <p:link outcome="panel" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-tablet" style="margin-right: 6px"/>Panel</p:link>
-            <br></br><br></br>
-            <p:link outcome="overlay" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-clone" style="margin-right: 6px"/>Overlay</p:link>
-            <br></br><br></br>
-            <p:link outcome="menu" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-bars" style="margin-right: 6px"/>Menu</p:link>
-            <br></br><br></br>
-            <p:link outcome="messages" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-comment" style="margin-right: 6px"/>Mensaje</p:link>
-            <br></br><br></br>
-            <p:link outcome="file" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-file" style="margin-right: 6px"/>Archivo</p:link>
-            <br></br><br></br>
-            <p:link outcome="charts" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-chart-bar" style="margin-right: 6px"/>Chart</p:link>
-            <br></br><br></br>
-            <p:link outcome="media" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i class="pi pi-image" style="margin-right: 6px"/>Media</p:link>
-            <br></br><br></br>
-            <p:link outcome="D_trabajador" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-circle-off" style="margin-right: 6px"/>Jeraraquia de Empresa</p:link>
-            <br></br><br></br>
-            <p:link outcome="formPrincipalAsociados" style="color: #fff ; text-decoration: none; margin-left:20px;"><i class="pi pi-google" style="margin-right: 6px"/>Asociados</p:link>
-            <br></br><br></br>
-            <p:link id="logouLink" outcome="login" style="color: #fff ; text-decoration: none; margin-left:20px;" onclick="return confirmarCerrarSesion()"><i class="pi pi-power-off" style="margin-right: 6px"></i>Cerrar Sesión</p:link>
+            <div>
+                <p class="font-bold mr-3 w-2 pi pi-chart-line" style="color: #2f9e8d; margin-left: 20px;"> Liquidación - pago a asociados</p>
+                <br></br>
+                <p:link outcome="button" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>pago de servicio a asociado</p:link>
+                <br></br><br></br>
+                <p:link outcome="formlayout" style="color: #fff ; text-decoration: none; margin-left:20px;"><i style="margin-right: 6px"/>cuenta corriente de asociado</p:link>
+                <br></br><br></br>
+            </div>
+            <div>
+                <p class="font-bold mr-3 w-2 pi pi-users" style="color: #2f9e8d; margin-left: 20px;"> Comité de Seguridad y Salud</p>
+                <br></br>
+                <p:link outcome="list" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Descarga de Formatos y Formularios</p:link>
+                <br></br><br></br>
+                <p:link outcome="tree" style="color: #fff ; text-decoration: none; margin-left:20px;"><i style="margin-right: 6px"/>Carga de cómite y Seguridad</p:link>
+                <br></br><br></br>
+                <p:link outcome="panel" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Carga del Comité de Investigación</p:link>
+                <br></br><br></br>
+            </div>
 
+            <div>
+                <p class="font-bold mr-3 w-2 pi pi-th-large" style="color: #2f9e8d; margin-left: 20px;"> Adm. y Mantenimiento</p>
+                <br></br>
+                <p:link outcome="overlay" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Creación de usuarios</p:link>
+                <br></br><br></br>
+                <p:link outcome="menu" style="color: #fff ; text-decoration: none; margin-left: 20px;"><i style="margin-right: 6px"/>Gestión de Roles y Accesibilidad</p:link>
+                <br></br><br></br>
+            </div>
+            
             <!--FUNCION PARA CARGAR VENTANA EMERGENTE DE CIERRE DE SESION-->
             <script>
                 function confirmarCerrarSesion() {
