@@ -14,7 +14,7 @@
         <managed-bean-name>DataProcessor</managed-bean-name>
         <managed-bean-class>ConnectionBD.DataProcessor</managed-bean-class>
     </managed-bean>
-    
+   
     <render-kit>
         <renderer>
             <component-family>org.primefaces.component</component-family>

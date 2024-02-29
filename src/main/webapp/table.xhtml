@@ -52,14 +52,19 @@
                     </f:facet>
 
                     <h4>Especialidades</h4>
-                    <p:tabView>
-                        <p:tab title="Menús">
-                            <ui:repeat value="#{vistaRolesApp.allMenus}" var="menu">
-                                <p:outputLabel value="#{menu.nombreRol}" />
-                            </ui:repeat>
+                    
+
+                   <p:tabView scrollable="true" value="#{vistaRolesApp.allMenus}" var="menu">
+                       <p:tab title="#{menu.nombreRol}">
+                            Contenido de la pestaña Menús 
+                            <h:outputText value="Contenido" />
                         </p:tab>
+                       
+                        
+                        
                     </p:tabView>
 
+                    
                     
                 </div>
             </div>

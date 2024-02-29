@@ -1,0 +1,277 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:pr="http://primefaces.org/rain"
+                template="/WEB-INF/template.xhtml">
+
+
+    <ui:define name="title">Gestión de Ocurrencias</ui:define>
+
+    <ui:define name="viewname">
+        <li>Inspecciones SST</li>
+        <li><i class="pi pi-chevron-right"></i></li>
+        <li>
+            <p:link outcome="/formPrincipalOcurrencia">Formulario de Gestión de Ocurrencias</p:link>
+        </li>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="mainForm">
+            <!-- REGISTRO DE INVESTIGACION -->  
+            <h5 class="h-5rem text-center text-5xl p-4 text-white-alpha-90" 
+                style="background-color: #2A2A2A;
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;">
+                Registro de Ocurrencias
+            </h5>
+            <div class="card crud-demo">
+                <!-- <p:growl id="messages" showDetail="true" /> --> 
+
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <!-- BOTONES AGREGAR Y ELIMINAR-->
+                        <p:commandButton value="Nueva Ocurrencia" icon="pi pi-plus" 
+                                         onclick="mostrarModal(); return false;" class="mr-2" 
+                                         style="background-color:#3C9462; border:1px solid #3C9462;" />
+
+                        <p:commandButton id="boton-eliminar-ocurrencias" 
+                                         icon="pi pi-trash" 
+                                         update="@this" 
+                                         style="background-color:red; border:1px solid red;">  
+                        </p:commandButton>
+                    </p:toolbarGroup>
+
+                    <p:toolbarGroup align="right">
+                        <!-- BOTON IMPORTAR-->
+
+                        <p:fileUpload mode="simple" skinSimple="true" label="Importar" chooseIcon="pi pi-download" />
+
+                        <!-- BOTON EXPORTAR-->
+
+                        <p:commandButton value="Exportar" icon="pi pi-upload" styleClass="ui-button-help" ajax="false">
+                            <p:dataExporter type="pdf" target="tablaPrincipal" fileName="products" />
+                        </p:commandButton>
+                    </p:toolbarGroup>
+                </p:toolbar>
+
+                <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+
+                <p:dataTable id="tablaPrincipal" widgetVar="dtOcurrencias" var="dashboard" value="#{ocurrenciaManagedBean.listaOcurrencia}" 
+                             reflow="true" styleClass="products-table"  selection="#{ocurrenciaManagedBean.listaOcurrencia}"  
+                             rowKey="#{dashboard.codigo}" paginator="true" rows="4" rowSelectMode="add" paginatorPosition="bottom" editable="true" editMode="cell">
+
+                    <p:ajax event="cellEdit" listener="#{ocurrenciaManagedBean.onCellEdit(event)}" update="tablaPrincipal"/>
+
+                    <!-- ENTRADA PARA REALIZAR BÚSQUEDAS -->
+                    <f:facet name="header">
+                        <div class="products-table-header">
+                            <span style="font-weight: bold">Ocurrencias Registradas</span>
+                            <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                                <p:inputText id="globalFilter" onkeyup="PF('dtOcurrencias').filter()" placeholder="Buscar" />
+                            </span>
+                        </div>
+                    </f:facet>
+
+                    <p:column headerText="Codigo" sortBy="#{dashboard.codigo}" filterBy="#{dashboard.codigo}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{dashboard.codigo}" />
+                            </f:facet>
+
+                            <f:facet name="input">
+                                <p:inputText id="modelInput2"  value="#{dashboard.codigo}"  style="width:100%"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Nombre" sortBy="#{dashboard.nombre}" filterBy="#{dashboard.nombre}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{dashboard.nombre}" />
+                            </f:facet>
+
+                            <f:facet name="input">
+                                <p:inputText  value="#{dashboard.nombre}"  style="width:100%" label="Nombre"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Tipo de ocurrencia" sortBy="#{dashboard.tipoOcurrencia}" filterBy="#{dashboard.tipoOcurrencia}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{dashboard.tipoOcurrencia}" />
+                            </f:facet>
+
+                            <f:facet name="input">
+                                <p:inputText  value="#{dashboard.tipoOcurrencia}"  style="width:100%" label="Nombre"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column headerText="Fecha de registro" sortBy="#{dashboard.fechaOcurrencia}" filterBy="#{dashboard.fechaOcurrencia}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{dashboard.fechaOcurrencia}" />
+                            </f:facet>
+
+                            <f:facet name="input">
+                                <p:inputText  value="#{dashboard.fechaOcurrencia}"  style="width:100%" label="Nombre"/>
+                            </f:facet>
+                        </p:cellEditor>       
+                    </p:column>
+
+                    <p:column headerText="N° de personas afectadas" sortBy="#{dashboard.numPersonasAfectadas}" filterBy="#{dashboard.numPersonasAfectadas}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{dashboard.numPersonasAfectadas}" />
+                            </f:facet>
+
+                            <f:facet name="input">
+                                <p:inputText  value="#{dashboard.numPersonasAfectadas}"  style="width:100%" label="Nombre"/>
+                            </f:facet>
+                        </p:cellEditor>      
+                    </p:column>
+
+                    <p:column exportable="false">
+                        <!-- BOTÓN PARA EDITAR FILAS INDIVIDUALMENTE -->
+
+                        <p:commandButton icon="pi pi-pencil" 
+                                         styleClass="edit-button rounded-button ui-button-success" process="@this" >
+                            <f:setPropertyActionListener value="#{dashboard}" target="#{ocurrenciaManagedBean.selectedOcurrencia}" />
+                        </p:commandButton>
+
+                        <!-- BOTÓN PARA ELIMINAR FILAS INDIVIDUALMENTE -->
+
+                        <p:commandButton icon="pi pi-trash" 
+                                         styleClass="edit-button rounded-button ui-button-warning"  oncomplete="if (#{not empty ocurrenciaManagedBean.selectedOcurrencia}) PF('deleteOcurrenciaDialog').show();">
+                            <f:setPropertyActionListener target="#{ocurrenciaManagedBean.selectedOcurrencia}" value="#{dashboard}" />
+                        </p:commandButton>
+                    </p:column>
+                </p:dataTable>
+
+                <p:contextMenu for="tablaPrincipal" widgetVar="cMenu">  
+                    <p:menuitem value="Edit Cell" icon="pi pi-search"
+                                onclick="PF('cellProducts').showCellEditor();
+                                        return false;"/>
+                    <p:menuitem value="Hide Menu" icon="pi pi-times" onclick="PF('cMenu').hide()"/>
+                </p:contextMenu>
+
+                <!-- VENTANA EMERGENTE PARA ELIMINAR REGISTRO -->
+
+                <p:confirmDialog widgetVar="deleteOcurrenciaDialog" showEffect="fade" width="300"
+                                 message="¿Desea eliminar la ocurrencia?" header="Confirmar" severity="warn">
+                    <p:commandButton value="Sí" icon="pi pi-check" styleClass="ui-button-danger"
+                                     action="#{ocurrenciaManagedBean.eliminarRegistro()}"
+                                     process="@this" 
+                                     oncomplete="PF('deleteOcurrenciaDialog').hide();" />
+
+                    <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                                     onclick="PF('deleteOcurrenciaDialog').hide();" />
+                </p:confirmDialog>
+
+                <!-- VENTANA EMERGENTE: TIPO DE OCURRENCIA -->
+
+                <p:dialog id="modalOcurrencia" widgetVar="modalOcurrencia" modal="true" style="box-shadow:0px 0px 31px -4px rgba(255,246,0,1);border-radius:20px;">
+                    <div>
+                        <p:outputLabel value="¿Que ocurrencia desea registrar?" class="text-5xl" style="color: white; font-family: 'Inter', sans-serif; font-weight: 500;" />    
+                    </div>
+
+                    <p:selectOneRadio layout="responsive" columns="1" class="text-4xl mb-6 mt-6" 
+                                      id="radioOcurrencia" value="#{ocurrenciaManagedBean.selectedOcurrencia.tipoOcurrencia}" onchange="updateSelectedOcurrenciaNombre()">
+                        <f:selectItem itemLabel="Accidente Laboral" itemValue="Accidente" />
+                        <f:selectItem itemLabel="Incidente Laboral" itemValue="Incidente" />
+                    </p:selectOneRadio>
+
+                    <div class="text-center">
+                        <p:commandButton value="Aceptar" 
+                                         styleClass="ui-button-raised ui-button-warning ui-button w-3 h-3rem mt-8 mb-8" 
+                                         style="background-color:#FFF600; border:2px solid #ffffff;font-weight: 600" 
+                                         onclick="openDialog();"/>
+                    </div>
+                </p:dialog>
+
+                <!-- VENTANAS EMERGENTES PARA REGISTRAR LA DESCRIPCION -->
+                <!-- CASO 1: ACCIDENTE-->
+
+                <p:dialog id="dialogoAccidente" widgetVar="dialogoAccidente" modal="true" resizable="false" style="box-shadow:0px 0px 31px -4px rgba(255,246,0,1);border-radius:20px;">
+                    <div>
+                        <p:outputLabel value="Ingrese breve descripción del Accidente" class="text-5xl" style="color: white; font-family: 'Inter', sans-serif; font-weight: 500;" />    
+                    </div>
+                    <div class="mt-8">
+                        <p:outputLabel value="Nombre:" class="text-xl mr-8" style="color: white; font-family: 'Inter', sans-serif; font-weight: 300;" />    
+                        <p:inputText class="w-full mb-6 mt-3" placeholder="Ingrese aquí" value="#{ocurrenciaManagedBean.selectedOcurrencia.nombre}" style="background:transparent; color: white; border: none; border-bottom: 3px solid  #FFF600;"/>
+                    </div>
+
+                    <div class="text-center">
+                        <p:commandButton value="Aceptar" 
+                                         onclick="redirigirPagina('accidente');"
+                                         styleClass="ui-button-raised ui-button-warning ui-button w-3 h-3rem mt-8 mb-8" 
+                                         style="background-color:#FFF600; border:2px solid #ffffff;font-weight: 600"
+                                         action="#{ocurrenciaManagedBean.agregarRegistroTipoOcurrencia}"/>
+                    </div>
+                </p:dialog>
+
+
+                <!-- CASO 2: INCIDENTE -->
+
+                <p:dialog id="dialogoIncidente" widgetVar="dialogoIncidente" modal="true" resizable="false" style="box-shadow:0px 0px 31px -4px rgba(255,246,0,1);border-radius:20px;">
+                    <div>
+                        <p:outputLabel value="Ingrese breve descripción del Incidente" class="text-5xl" style="color: white; font-family: 'Inter', sans-serif; font-weight: 500;" />    
+                    </div>
+                    <div class="mt-8">
+                        <p:outputLabel value="Nombre:" class="text-xl mr-8" style="color: white; font-family: 'Inter', sans-serif; font-weight: 300;" />    
+                        <p:inputText class="w-full mb-6 mt-3" placeholder="Ingrese aquí" value="#{ocurrenciaManagedBean.selectedOcurrencia.nombre}" style="background:transparent; color: white; border: none; border-bottom: 3px solid  #FFF600;"/>
+                    </div>
+
+                    <div class="text-center">
+                        <p:commandButton value="Aceptar" 
+                                         onclick="redirigirPagina('incidente');"
+                                         styleClass="ui-button-raised ui-button-warning ui-button w-3 h-3rem mt-8 mb-8" 
+                                         style="background-color:#FFF600; border:2px solid #ffffff;font-weight: 600"
+                                         action="#{ocurrenciaManagedBean.agregarRegistroTipoOcurrencia}"/>
+                    </div>
+                </p:dialog>
+
+                <!-- VENTANA EMERGENTE PARA EDITAR REGISTRO -->
+
+
+                <!-- VENTANA EMERGENTE PARA ELIMINAR REGISTRO -->
+
+                <!-- CONFIGURACIÓN PARA FORMATO DE LAS VENTANAS EMERGENTES -->
+                <p:confirmDialog global="true" showEffect="fade" width="300">
+                    <p:commandButton value="Sí" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                                     icon="pi pi-times" />
+                </p:confirmDialog>
+
+
+                <!-- JAVASCRIPT: FUNCIONALIDAD PARA LAS VENTANAS EMERGENTES & VARIOS -->
+                <script>
+                    function mostrarModal() {
+                        PF('modalOcurrencia').show();
+                    }
+
+                    function openDialog() {
+                        var selectedOption = $("input[name='mainForm:radioOcurrencia']:checked").val();
+
+                        if (selectedOption === 'Accidente') {
+                            PF('dialogoAccidente').show();
+                        } else if (selectedOption === 'Incidente') {
+                            PF('dialogoIncidente').show();
+                        }
+                    }
+
+                    function redirigirPagina(dialogType) {
+                        if (dialogType === 'accidente') {
+                            window.location.href = "formAccidente.xhtml";
+                        } else {
+                            window.location.href = "formIncidente.xhtml";
+                        }
+                    }
+                </script>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

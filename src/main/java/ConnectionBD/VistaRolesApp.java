@@ -1,5 +1,3 @@
-package ConnectionBD;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +9,6 @@ import javax.faces.bean.ViewScoped;
 
 @ManagedBean
 @ViewScoped
-
 public class VistaRolesApp {
 
     public static class Menu {
@@ -39,22 +36,27 @@ public class VistaRolesApp {
     public List<Menu> getAllMenus() {
         List<Menu> menus = new ArrayList<>();
 
-        String sql = "SELECT Codigo_Rol, Descripcion_Rol FROM Tb_RolesApp";
+        // Nombre del procedimiento almacenado
+        String storedProcedure = "ObtenerRolesParaTumiStation";
 
-        try (Connection connection = ConnectionBD.obtenerConexion();
-             PreparedStatement statement = connection.prepareStatement(sql);
-             ResultSet resultSet = statement.executeQuery()) {
+        try (Connection connection = ConnectionBD.ConnectionBD.obtenerConexion();
+             // Llamada al procedimiento almacenado
+             PreparedStatement statement = connection.prepareCall("{call " + storedProcedure + "}")) {
 
-            while (resultSet.next()) {
-                int codigoRol = resultSet.getInt("Codigo_Rol");
-                String nombreRol = resultSet.getString("Descripcion_Rol");
+            // Ejecutar la llamada al procedimiento almacenado
+            try (ResultSet resultSet = statement.executeQuery()) {
 
-                Menu menu = new Menu();
-                menu.setCodigoRol(codigoRol);
-                menu.setNombreRol(nombreRol);
+                while (resultSet.next()) {
+                    
+                    String nombreRol = resultSet.getString("Descripcion_Rol");
 
-                menus.add(menu);
-                System.out.println("Menú: Código=" + codigoRol + ", Nombre=" + nombreRol);
+                    Menu menu = new Menu();
+                   
+                    menu.setNombreRol(nombreRol);
+
+                    menus.add(menu);
+                    System.out.println("  Nombre=" + nombreRol);
+                }
             }
 
         } catch (SQLException e) {
