@@ -52,33 +52,26 @@
                     </f:facet>
 
                     <h4>Especialidades</h4>
-<<<<<<< HEAD
-                    
 
-                   <p:tabView scrollable="true" value="#{vistaRolesApp.allMenus}" var="menu">
-                       <p:tab title="#{menu.nombreRol}">
+
+
+                    <p:tabView scrollable="true" value="#{vistaRolesApp.allMenus}" var="menu">
+                        <p:tab title="#{menu.nombreRol}">
                             Contenido de la pestaña Menús 
                             <h:outputText value="Contenido" />
-=======
-                    <p:tabView scrollable="true">
-                        <p:tab title="Menús">
-                            <ui:repeat value="#{vistaRolesApp.allMenus}" var="menu">
-                                <p:outputLabel value="#{menu.nombreRol}" />
-                            </ui:repeat>
->>>>>>> 6915cc99e9515ab2a780bf825be5acf7ec34fd9c
-                        </p:tab>
-                       
-                        
-                        
-                    </p:tabView>
 
-                    
-                    
-                </div>
-            </div>
-        </h:form>
-    </ui:define>
-</ui:composition>
+                            <p:tabView scrollable="true">
+                                <p:tab title="Menús">
+                                    <ui:repeat value="#{vistaRolesApp.allMenus}" var="menu">
+                                        <p:outputLabel value="#{menu.nombreRol}" />
+                                    </ui:repeat>
+                                </p:tab>
+                            </p:tabView>
+                            </div>
+                            </div>
+                            </h:form>
+                            </ui:define>
+                            </ui:composition>
 
 
 

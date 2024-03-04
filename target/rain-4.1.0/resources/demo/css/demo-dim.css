@@ -139,7 +139,7 @@
   padding: 1rem;
 }
 .crud-demo .products-table > .ui-datatable-tablewrapper > table > thead > tr > th:nth-child(2) {
-  width: 2rem;
+  width: 218px;
 }
 .crud-demo .products-table .ui-rating {
   display: inline-block;

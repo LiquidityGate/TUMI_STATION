@@ -203,7 +203,7 @@ a {
   }
 }
 .layout-content {
-  padding: 30px 36px;
+  padding: 30px 196px;
   flex: 1 1 auto;
 }
 
@@ -582,7 +582,7 @@ a {
 .layout-topbar-colored .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li.search-item > form > .search-input-wrapper input {
   background-color: #d68262;
   border: 1px solid #d68262;
-  color: #E2F1FF;
+  color: #000000;
 }
 .layout-topbar-colored .layout-topbar .layout-topbar-wrapper .layout-topbar-right .layout-topbar-actions > li.search-item > form > .search-input-wrapper input::placeholder {
   color: #E2F1FF;
@@ -1925,7 +1925,7 @@ a {
   width: 240px;
   position: fixed;
   left: 0;
-  top: 60px;
+  top: 30px;
   z-index: 998;
   transform: none;
   -moz-transition: transform 0.2s;
@@ -2161,7 +2161,7 @@ a {
     transform: translate3d(0px, 0px, 0px);
   }
   .layout-static.layout-static-active .layout-main {
-    margin-left: 240px;
+    margin-left: auto;
   }
   .layout-static.layout-static-active .layout-topbar .layout-topbar-wrapper .layout-topbar-right .menu-button-wrapper .menu-button .menu-button-bars span {
     width: 0%;
@@ -2890,7 +2890,7 @@ a {
 
 .layout-breadcrumb {
   background-color: transparent;
-  border-bottom: solid 1px #4D4D4D;
+  /* border-bottom: solid 1px #4D4D4D; */
   padding: 12px 36px;
   display: -ms-flexbox;
   display: flex;
@@ -2979,7 +2979,7 @@ a {
 }
 .layout-footer {
   padding: 16px 120px;
-  border-top: solid 1px #4D4D4D;
+  border-top: solid 1px #E9E9E9;
 }
 .layout-footer span {
   font-size: 12px;
@@ -4716,7 +4716,7 @@ a {
   margin: 0;
 }
 .help-page .help-search {
-  background-image: url("#{resource['rain-layout:images/pages/help/rain.png']}");
+  background-image: url("/ISO_SMART/faces/javax.faces.resource/images/pages/help/rain.png?ln=rain-layout");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
