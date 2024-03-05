@@ -1,5 +1,6 @@
 package com.tumistation.controlador;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,11 +8,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 
 @ManagedBean
-@ViewScoped
-public class VistaRolesApp {
+@RequestScoped
+public class VistaRolesApp implements Serializable{
 
     public static class Menu {
 
@@ -41,7 +42,7 @@ public class VistaRolesApp {
         // Nombre del procedimiento almacenado
         String storedProcedure = "ObtenerRolesParaTumiStation";
 
-        try (Connection connection = ConnectionBD.ConnectionBD.obtenerConexion();
+        try (Connection connection = ConnectionBD.obtenerConexion();
              // Llamada al procedimiento almacenado
              PreparedStatement statement = connection.prepareCall("{call " + storedProcedure + "}")) {
 

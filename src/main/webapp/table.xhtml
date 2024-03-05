@@ -6,7 +6,8 @@
                 xmlns:pr="http://primefaces.org/rain"
                 template="/WEB-INF/template.xhtml"
                 xmlns:webjars="http://webjars.org/ui"
-                webjars:assetLocator="org.webjars.WebJarAssetLocator">
+                webjars:assetLocator="org.webjars.WebJarAssetLocator"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <ui:define name="head">
         <h:outputStylesheet  library="demo"  name="css/flags/flags.css"/>
@@ -55,23 +56,48 @@
 
 
 
-                    <p:tabView scrollable="true" value="#{vistaRolesApp.allMenus}" var="menu">
-                        <p:tab title="#{menu.nombreRol}">
-                            Contenido de la pestaña Menús 
-                            <h:outputText value="Contenido" />
+                    <p:tabView scrollable="true">
+                        <c:forEach items="#{vistaRolesApp.allMenus}" var="menu">
+                            <p:tab  rendered="#{menu.nombreRol eq 'Fisioterapeuta'}" title="#{menu.nombreRol}">
+                                CONTENIDO DE FISOTERAPIA
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                            <p:tab  rendered="#{menu.nombreRol eq 'Licenciado en Enfermería'}"  title="#{menu.nombreRol}">
+                                CONTENIDO DE LICENCIADO EN ENFERMERIA 
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Médico'}" title="#{menu.nombreRol}">
+                                CONTENIDO DE MEDICO
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Nutricionista'}" title="#{menu.nombreRol}">
+                                CONTENIDO DE NUTRICIONISTA 
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Obstetra'}" title="#{menu.nombreRol}">
+                                CONTENIDO DE OBSTETRA 
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Psicólogo'}" title="#{menu.nombreRol}">
+                                CONTENIDO DE PSICOLOGO 
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Técnico en Enfermería'}" title="#{menu.nombreRol}">
+                                CONTENIDO DE TECNICO EN ENFERMERIA 
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Técnico laboratorista'}" title="#{menu.nombreRol}">
+                                CONTENIDO DE TECNICO LABORATORISTA 
+                                <h:outputText value="Contenido" />
+                            </p:tab>
+                        </c:forEach>
+                    </p:tabView>
 
-                            <p:tabView scrollable="true">
-                                <p:tab title="Menús">
-                                    <ui:repeat value="#{vistaRolesApp.allMenus}" var="menu">
-                                        <p:outputLabel value="#{menu.nombreRol}" />
-                                    </ui:repeat>
-                                </p:tab>
-                            </p:tabView>
-                            </div>
-                            </div>
-                            </h:form>
-                            </ui:define>
-                            </ui:composition>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
 
 
 
