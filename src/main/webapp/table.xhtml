@@ -57,10 +57,14 @@
 
 
                     <p:tabView scrollable="true">
-                        <c:forEach items="#{vistaRolesApp.allMenus}" var="menu">
+                        <c:forEach items="#{VistaRolesApp.listaMenus}" var="menu">
                             <p:tab  rendered="#{menu.nombreRol eq 'Fisioterapeuta'}" title="#{menu.nombreRol}">
-                                CONTENIDO DE FISOTERAPIA
-                                <h:outputText value="Contenido" />
+                                
+                                <c:forEach items="#{VistaRolesApp.filtroAsociadoSeleccionado}" var="asociadoInfo">
+                                    <h:outputText value="" /><br/>
+                                </c:forEach>
+                                
+                               
                             </p:tab>
                             <p:tab  rendered="#{menu.nombreRol eq 'Licenciado en Enfermería'}"  title="#{menu.nombreRol}">
                                 CONTENIDO DE LICENCIADO EN ENFERMERIA 
@@ -92,6 +96,7 @@
                             </p:tab>
                         </c:forEach>
                     </p:tabView>
+
 
                 </div>
             </div>
