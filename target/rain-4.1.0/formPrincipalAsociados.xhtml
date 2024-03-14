@@ -48,17 +48,29 @@
                 <h2>Historia por Servicio</h2>
                 <p>Los pacientes que han adquirido/reservado uno de los servicios disponibles; su información podrá ser visualizada en la tabla.</p> 
                 <p:tabView scrollable="true">
-                    <p:tab title="Atención Medica">Datos</p:tab>
-                    <p:tab title="Enfermeria">Tab 2 Content</p:tab>
-                    <p:tab title="Examenes de Laboratorio">Tab 3 Content</p:tab>
-                    <p:tab title="Examenes por imágenes">Tab 4 Content</p:tab>
-                    <p:tab title="Ambulancia">Tab 5 Content</p:tab>
-                    <p:tab title="Terapia">Tab 6 Content</p:tab>
-                    <p:tab title="Nutrición">Tab 7 Content</p:tab>
-                    <p:tab title="Psicologia">Tab 8 Content</p:tab>
-                    <p:tab title="Obstetricia">Tab 9 Content</p:tab>
-                    <p:tab title="Examenes Auxiliares">Tab 10 Content</p:tab>
-                </p:tabView>
+                        <c:forEach items="#{VistaRolesApp.listaMenus}" var="menu">
+                            <p:tab  rendered="#{menu.nombreRol eq 'Fisioterapeuta'}" title="#{menu.nombreRol}">
+                            </p:tab>
+                            <p:tab  rendered="#{menu.nombreRol eq 'Licenciado en Enfermería'}"  title="#{menu.nombreRol}">
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Médico'}" title="#{menu.nombreRol}">
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Nutricionista'}" title="#{menu.nombreRol}">
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Obstetra'}" title="#{menu.nombreRol}">
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Psicólogo'}" title="#{menu.nombreRol}">
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Técnico en Enfermería'}" title="#{menu.nombreRol}">
+                            </p:tab>
+                            <p:tab   rendered="#{menu.nombreRol eq 'Técnico laboratorista'}" title="#{menu.nombreRol}">
+                            </p:tab>
+
+
+                        </c:forEach>
+
+
+                    </p:tabView>
 
                 
               <!--ESTA TABLA MUESTRA LOS DATOS DEL PACIENTE QUE HA RESERVADO UN SERVICIO EN SALUD-->

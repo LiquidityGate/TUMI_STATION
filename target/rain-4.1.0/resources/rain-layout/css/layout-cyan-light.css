@@ -97,6 +97,8 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
 }
 
 h3 {
@@ -155,7 +157,7 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100%;
-  background-color: #f4f7f9;
+  background-color: #2A2A2A;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -165,7 +167,7 @@ body.blocked-scroll {
 
 a {
   text-decoration: none;
-  color: #4cb7e0;
+  color: #2f9e8d;
 }
 
 .ajax-loader {
@@ -205,7 +207,7 @@ a {
 .layout-content {
   padding: 30px 36px;
   flex: 1 1 auto;
-  background-color: #2f9e8d;
+  background-color: #2A2A2A;
 }
 
 @media (max-width: 991px) {
@@ -1940,7 +1942,7 @@ a {
 .menu-wrapper .layout-menu-container {
   overflow: auto;
   height: 100%;
-  background-color: #000000; /* Nuevo fondo de color */
+  background-color: #2A2A2A; /* Nuevo fondo de color */
 }
 .menu-wrapper .layout-menu-container .layout-profile.layout-profile-active .layout-profile-icon {
   -webkit-transform: rotate(-180deg);
@@ -2930,7 +2932,7 @@ a {
   font-size: 10px;
 }
 .layout-breadcrumb .breadcrumb .route-bar-breadcrumb > li .ui-link {
-  color: #191a1c;
+  color: #65686a;
   -moz-transition: color 0.2s;
   -o-transition: color 0.2s;
   -webkit-transition: color 0.2s;
@@ -4995,7 +4997,7 @@ a {
   width: 52px;
   height: 52px;
   line-height: 52px;
-  background-color: #25A4D4;
+  background-color: #2f9e8d;
   text-align: center;
   top: 230px;
   left: -51px;

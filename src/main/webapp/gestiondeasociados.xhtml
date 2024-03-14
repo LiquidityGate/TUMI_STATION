@@ -131,12 +131,12 @@
     </style>
 
 
-    <ui:define name="title">Dashboard</ui:define>
+    <ui:define name="title">Gestión Asociados</ui:define>
     <ui:define name="viewname">
         <li>RAIN</li>
         <li><i class="pi pi-chevron-right"></i></li>
         <li>
-            <p:link outcome="/dashboard">DASHBOARD</p:link>
+            <p:link outcome="/dashboard">GESTIÓN ASOCIADOS</p:link>
         </li>
     </ui:define>
     <ui:define name="content">
@@ -146,7 +146,7 @@
                 style="background-color: #2A2A2A;
                 font-family: 'Inter', sans-serif;
                 font-weight: 600;">
-                GESTION  DE ASOCIADOS   
+                GESTIÓN ASOCIADOS   
             </h5>
             <div>
                 <p:panel>
@@ -255,9 +255,6 @@
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
-
-
-
                     <!-- COLUMNA FECHA DE REGISTRO-->
                     <p:column headerText="Fecha de Registro" sortBy="#{dashboard.numPersonasAfectadas}" filterBy="#{dashboard.numPersonasAfectadas}">
                         <p:cellEditor>

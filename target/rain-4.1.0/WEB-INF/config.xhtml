@@ -1,6 +1,6 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
 
     <div id="layout-config" class="layout-config">
         <div class="layout-config-content">
@@ -12,7 +12,7 @@
                     <h3>Theme Customization</h3>
                     <span>Rain offers different themes for layout, topbar, menu etc.</span>
                 </div>
-                
+
                 <p:outputPanel id="lightdark-panel" styleClass="layout-config-section options">
                     <span class="section-name">Layout Mode</span>
                     <div class="grid layout-config-options">
@@ -43,7 +43,7 @@
                     <p:outputPanel id="menu-themes-panel" rendered="#{guestPreferences.darkMode == 'light'}">
                         <span class="section-name">Menu Theme</span>
                         <div class="grid layout-config-options" >
-                            <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.menuTheme}" onchange="PrimeFaces.RainConfigurator.changeSectionTheme(event.target.value , 'layout-menu')"  >
+                            <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.menuTheme}" onchange="PrimeFaces.RainConfigurator.changeSectionTheme(event.target.value, 'layout-menu')"  >
                                 <f:selectItem itemLabel="Light" itemValue="light" />
                                 <f:selectItem itemLabel="Dark" itemValue="dark" />
                                 <f:selectItem itemLabel="Dim" itemValue="dim" />
@@ -59,7 +59,7 @@
                 <p:outputPanel id="topbarthemes-panel" styleClass="layout-config-section options">
                     <span class="section-name">Topbar Theme</span>
                     <div class="grid layout-config-options">
-                        <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.topbarTheme}" onchange="PrimeFaces.RainConfigurator.changeSectionTheme(event.target.value , 'layout-topbar')"   >
+                        <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.topbarTheme}" onchange="PrimeFaces.RainConfigurator.changeSectionTheme(event.target.value, 'layout-topbar')"   >
                             <f:selectItem itemLabel="Light" itemValue="light" itemDisabled="#{guestPreferences.darkMode != 'light'}"  />
                             <f:selectItem itemLabel="Dark" itemValue="dark" itemDisabled="#{guestPreferences.darkMode == 'dim'}" />
                             <f:selectItem itemLabel="Dim" itemValue="dim" itemDisabled="#{guestPreferences.darkMode == 'dark'}"  />
@@ -84,7 +84,7 @@
                     <span class="section-name">Form Type</span>
                     <div class="grid layout-config-options">
                         <p:selectOneRadio layout="responsive" columns="2" value="#{guestPreferences.inputStyle}"
-                        onchange="PrimeFaces.RainConfigurator.updateInputStyle(event.target.value)">
+                                          onchange="PrimeFaces.RainConfigurator.updateInputStyle(event.target.value)">
                             <f:selectItem itemLabel="Outlined" itemValue="outlined" />
                             <f:selectItem itemLabel="Filled" itemValue="filled" />
                             <p:ajax />
@@ -98,13 +98,13 @@
                         <ui:repeat value="#{guestPreferences.layoutPrimaryColors}" var="layoutPrimaryColor">
                             <div class="col col-fixed">
                                 <p:commandLink styleClass="layout-config-option"
-                                    actionListener="#{guestPreferences.setLayoutPrimaryColor(layoutPrimaryColor.file)}"
-                                    onstart="PrimeFaces.RainConfigurator.beforeResourceChange()"
-                                    update=":config-form:primarycolors-panel :config-form:componentthemes-panel"
-                                    oncomplete="PrimeFaces.RainConfigurator.changePrimaryColor('#{layoutPrimaryColor.file}', '#{guestPreferences.darkMode}'),
-                                    PrimeFaces.RainConfigurator.changeComponentsTheme('#{layoutPrimaryColor.file}', '#{guestPreferences.darkMode}')">
+                                               actionListener="#{guestPreferences.setLayoutPrimaryColor(layoutPrimaryColor.file)}"
+                                               onstart="PrimeFaces.RainConfigurator.beforeResourceChange()"
+                                               update=":config-form:primarycolors-panel :config-form:componentthemes-panel"
+                                               oncomplete="PrimeFaces.RainConfigurator.changePrimaryColor('#{layoutPrimaryColor.file}', '#{guestPreferences.darkMode}'),
+                                               PrimeFaces.RainConfigurator.changeComponentsTheme('#{layoutPrimaryColor.file}', '#{guestPreferences.darkMode}')">
                                     <span class="layout-config-option-color"
-                                        style="background-color: #{layoutPrimaryColor.color};" title="#{layoutPrimaryColor.name}"/>
+                                          style="background-color: #{layoutPrimaryColor.color};" title="#{layoutPrimaryColor.name}"/>
                                     <ui:fragment
                                         rendered="#{layoutPrimaryColor.file eq guestPreferences.layoutPrimaryColor}">
                                         <span class="layout-config-option-check-mask">
@@ -123,12 +123,12 @@
                         <ui:repeat value="#{guestPreferences.componentThemes}" var="componentTheme">
                             <div class="col col-fixed">
                                 <p:commandLink styleClass="layout-config-option"
-                                    actionListener="#{guestPreferences.setComponentTheme(componentTheme.file)}"
-                                    update=":config-form:componentthemes-panel"
-                                    onstart="PrimeFaces.RainConfigurator.beforeResourceChange()"
-                                    oncomplete="PrimeFaces.RainConfigurator.changeComponentsTheme('#{componentTheme.file}', '#{guestPreferences.darkMode}')">
+                                               actionListener="#{guestPreferences.setComponentTheme(componentTheme.file)}"
+                                               update=":config-form:componentthemes-panel"
+                                               onstart="PrimeFaces.RainConfigurator.beforeResourceChange()"
+                                               oncomplete="PrimeFaces.RainConfigurator.changeComponentsTheme('#{componentTheme.file}', '#{guestPreferences.darkMode}')">
                                     <span class="layout-config-option-color"
-                                        style="background-color: #{componentTheme.color};" title="#{componentTheme.name}"/>
+                                          style="background-color: #{componentTheme.color};" title="#{componentTheme.name}"/>
                                     <ui:fragment rendered="#{componentTheme.file eq guestPreferences.componentTheme}">
                                         <span class="layout-config-option-check-mask">
                                             <i class="pi pi-check"/>
@@ -142,4 +142,11 @@
             </h:form>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+                                              document.getElementById('layout-config-button').addEventListener('click', function (event) {
+                                                  event.preventDefault(); // Evitar que el enlace realice la acción por defecto
+                                                  document.getElementById('config-form').classList.toggle('open');
+                                              });
+    </script>
 </ui:composition>

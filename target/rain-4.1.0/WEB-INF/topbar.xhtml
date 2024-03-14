@@ -1,8 +1,8 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui" xmlns:po="http://primefaces.org/rain">
-    
-      <style>
+
+    <style>
         .menu-wrapper {
             /* Estilos para el contenedor del menú */
         }
@@ -20,19 +20,6 @@
                 </h:link>
             </div>
             <div class="layout-topbar-right">
-                <div class="menu-button-wrapper">
-                    <a href="#" onclick="toggleMenu()" class="menu-button">
-                        <div class="menu-button-bars">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div class="menu-button-times">
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </a>
-                </div>
                 <ul class="layout-topbar-actions">
                     <li class="search-item topbar-item">
                         <h:form onsubmit="return false;">
@@ -216,30 +203,33 @@
                                 <li>
                                     <a href="#">
                                         <i class="pi pi-user"></i>
-                                        <span>Profile</span>
+                                        <span>Perfil</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <i class="pi pi-cog"></i>
-                                        <span>Settings</span>
+                                        <span>Configuraciones</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="#">
                                         <i class="pi pi-envelope"></i>
-                                        <span>Messages</span>
+                                        <span>Mensajes</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="pi pi-bell"></i>
-                                        <span>Notifications</span>
+                                    <a href="#" onclick="logout();">
+                                        <i class="pi pi-sign-out"></i>
+                                        <span>Cerrar sesión</span>
                                     </a>
+
                                 </li>
                             </ul>
                         </li>
                     </ui:fragment>
+
+
 
                 </ul>
                 <a href="#" class="layout-rightpanel-button">
@@ -247,12 +237,32 @@
                 </a>
             </div>
         </div>
-
     </div>
-     <script>
-        function toggleMenu() {
-            const menuWrapper = document.getElementById('menuWrapper');
-            menuWrapper.classList.toggle('menu-hidden');
+    <!-- Agrega el código JavaScript al final del documento antes de la etiqueta </body> -->
+    <script type="text/javascript">
+        function logout() {
+            // Realiza alguna acción antes de cerrar sesión si es necesario
+            // Luego, redirige a la página de cierre de sesión o realiza otras acciones según tus necesidades.
+            window.location.replace('#{request.contextPath}/logout.xhtml'); // Usamos el contexto de la aplicación para la URL
         }
+        // Espera a que el documento esté completamente cargado
+        $(document).ready(function () {
+            // Encuentra el enlace de la lista de perfil
+            var profileLink = $('.topbar-item.user-profile a');
+            // Encuentra la lista oculta
+            var profileList = $('.topbar-item.user-profile ul');
+
+            // Oculta la lista de perfil al principio
+            profileList.hide();
+
+            // Agrega un controlador de eventos al hacer clic en el enlace
+            profileLink.click(function (e) {
+                // Evita que el enlace siga su enlace predeterminado
+                e.preventDefault();
+
+                // Alternar el despliegue/ocultamiento de la lista de perfil
+                profileList.slideToggle();
+            });
+        });
     </script>
 </ui:composition>

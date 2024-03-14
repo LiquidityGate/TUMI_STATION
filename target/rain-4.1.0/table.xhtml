@@ -13,91 +13,122 @@
         <h:outputStylesheet  library="demo"  name="css/flags/flags.css"/>
     </ui:define>
 
-    <ui:define name="title">Asociados</ui:define>
+    <ui:define name="title">Gestión Asociados</ui:define>
 
     <ui:define name="viewname">
         <li>INICIO</li>
         <li><i class="pi pi-chevron-right"></i></li>
         <li>
-            <p:link outcome="/table">ASOCIADOS</p:link>
+            <p:link outcome="/table">GESTION DE ASOCIADOS</p:link>
         </li>
     </ui:define>
-
     <ui:define name="content">
+        <h2 style="color: white">GESTION DE ASOCIADOS</h2>
+        <br></br>
         <h:form>
-
             <div class="grid table-demo">
-
                 <div class="card col-12">
-                    <h2>Asociados</h2>
-                    <p>Condición de los Asociados</p>
-                    <!--FILTRAR POR ESPECIALIDAD-->
-                    <p:panel>
-                        <p:selectOneMenu value="#{basicView.estadoSeleccionado}" style="width:150px">
-                            <f:selectItem itemLabel="Eliga:" itemValue="" noSelectionOption="true"/>
-                            <f:selectItem itemLabel="Aprobados" itemValue="Aprobados"/>
-                            <f:selectItem itemLabel="Desaprobados" itemValue="Desaprobados"/>
-                            <p:ajax listener="#{basicView.onEstadoChange}"/>
-                        </p:selectOneMenu>
-                    </p:panel>
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="Name"/>
                         </f:facet>
                         <h:outputText value="#{t.displayName}" />
                     </p:column>
-
                     <f:facet name="footer">
                         <p:separator />
                         <h:outputText value="#{selectOneMenuView.themes.size()} themes" style="font-weight:bold;"/>
                     </f:facet>
-
                     <h4>Especialidades</h4>
 
+                    <!--Este TabView filtra las especialidades de nuestra tabla de asociados -->
+                    <div>
+                        <p:tabView scrollable="true">
+                            <c:forEach items="#{VistaRolesApp.listaMenus}" var="menu">
+                                <p:tab  rendered="#{menu.nombreRol eq 'Fisioterapeuta'}" title="#{menu.nombreRol}">
+                                </p:tab>
+                                <p:tab  rendered="#{menu.nombreRol eq 'Licenciado en Enfermería'}"  title="#{menu.nombreRol}">
+                                    CONTENIDO DE LICENCIADO EN ENFERMERIA 
+                                    <h:outputText value="Contenido" />
+                                </p:tab>
+                                <p:tab   rendered="#{menu.nombreRol eq 'Médico'}" title="#{menu.nombreRol}">
+                                    CONTENIDO DE MEDICO
+                                    <h:outputText value="Contenido" />
+                                </p:tab>
+                                <p:tab   rendered="#{menu.nombreRol eq 'Nutricionista'}" title="#{menu.nombreRol}">
+                                    CONTENIDO DE NUTRICIONISTA 
+                                    <h:outputText value="Contenido" />
+                                </p:tab>
+                                <p:tab   rendered="#{menu.nombreRol eq 'Obstetra'}" title="#{menu.nombreRol}">
+                                    CONTENIDO DE OBSTETRA 
+                                    <h:outputText value="Contenido" />
+                                </p:tab>
+                                <p:tab   rendered="#{menu.nombreRol eq 'Psicólogo'}" title="#{menu.nombreRol}">
+                                    CONTENIDO DE PSICOLOGO 
+                                    <h:outputText value="Contenido" />
+                                </p:tab>
+                                <p:tab   rendered="#{menu.nombreRol eq 'Técnico en Enfermería'}" title="#{menu.nombreRol}">
+                                    CONTENIDO DE TECNICO EN ENFERMERIA 
+                                    <h:outputText value="Contenido" />
+                                </p:tab>
+                                <p:tab   rendered="#{menu.nombreRol eq 'Técnico laboratorista'}" title="#{menu.nombreRol}">
+                                    CONTENIDO DE TECNICO LABORATORISTA 
+                                    <h:outputText value="Contenido" />
+                                </p:tab>
+                            </c:forEach>
+                        </p:tabView>
+                    </div>
 
+                    <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+                    <div>
+                        <p:dataTable id="tablaUsuario" reflow="true" value="#{DataAfiliados.ListarDatos()}" rowKey="#{asociados.codigo_Asociado}" 
+                                     var="asociados" paginator="true" rowSelectMode="add" paginatorPosition="bottom" >
 
-                    <p:tabView scrollable="true">
-                        <c:forEach items="#{VistaRolesApp.listaMenus}" var="menu">
-                            <p:tab  rendered="#{menu.nombreRol eq 'Fisioterapeuta'}" title="#{menu.nombreRol}">
-                                
-                                <c:forEach items="#{VistaRolesApp.filtroAsociadoSeleccionado}" var="asociadoInfo">
-                                    <h:outputText value="" /><br/>
-                                </c:forEach>
-                                
-                               
-                            </p:tab>
-                            <p:tab  rendered="#{menu.nombreRol eq 'Licenciado en Enfermería'}"  title="#{menu.nombreRol}">
-                                CONTENIDO DE LICENCIADO EN ENFERMERIA 
-                                <h:outputText value="Contenido" />
-                            </p:tab>
-                            <p:tab   rendered="#{menu.nombreRol eq 'Médico'}" title="#{menu.nombreRol}">
-                                CONTENIDO DE MEDICO
-                                <h:outputText value="Contenido" />
-                            </p:tab>
-                            <p:tab   rendered="#{menu.nombreRol eq 'Nutricionista'}" title="#{menu.nombreRol}">
-                                CONTENIDO DE NUTRICIONISTA 
-                                <h:outputText value="Contenido" />
-                            </p:tab>
-                            <p:tab   rendered="#{menu.nombreRol eq 'Obstetra'}" title="#{menu.nombreRol}">
-                                CONTENIDO DE OBSTETRA 
-                                <h:outputText value="Contenido" />
-                            </p:tab>
-                            <p:tab   rendered="#{menu.nombreRol eq 'Psicólogo'}" title="#{menu.nombreRol}">
-                                CONTENIDO DE PSICOLOGO 
-                                <h:outputText value="Contenido" />
-                            </p:tab>
-                            <p:tab   rendered="#{menu.nombreRol eq 'Técnico en Enfermería'}" title="#{menu.nombreRol}">
-                                CONTENIDO DE TECNICO EN ENFERMERIA 
-                                <h:outputText value="Contenido" />
-                            </p:tab>
-                            <p:tab   rendered="#{menu.nombreRol eq 'Técnico laboratorista'}" title="#{menu.nombreRol}">
-                                CONTENIDO DE TECNICO LABORATORISTA 
-                                <h:outputText value="Contenido" />
-                            </p:tab>
-                        </c:forEach>
-                    </p:tabView>
-
-
+                            <f:facet name="header">
+                                <div class="products-table-header">
+                                    <span style="font-weight: bold">Asociados Registrados</span>
+                                    <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                                        <p:inputText id="globalFilter" onkeyup="PF('').filter()" placeholder="Buscar" />
+                                    </span>
+                                </div>
+                            </f:facet>
+                            
+                            <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+                            <p:column headerText="Codigo Asociado" style="text-align: center;" class="w-1">
+                                <h:outputText value="#{asociados.codigo_Asociado}" />
+                            </p:column>
+                            
+                            <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+                            <p:column 
+                                headerText="DNI/RUC" style="text-align: center;">
+                                <h:outputText value="#{asociados.numDocIdent_Asociado}" />
+                            </p:column>
+                            
+                            <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+                            <p:column 
+                                headerText="Nombres" style="text-align: center;">
+                                <h:outputText value="#{asociados.nombres}" />
+                            </p:column>
+                            
+                            <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+                            <p:column 
+                                headerText="Categoria de Registro" style="text-align: center;">
+                                <h:outputText value="#{asociados.descripcion_Rol}" />
+                            </p:column>
+                            
+                            <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+                            <p:column 
+                                headerText="Fecha de Registro" style="text-align: center;">
+                                <h:outputText value="#{asociados.fecRegistro_Asociado}" />
+                            </p:column>
+                            
+                            <!-- TABLA DE DATOS - CRUD (CREATE, READ, UPDATE & DELETE-->
+                            <p:column 
+                                headerText="Estado de Activación" style="text-align: center;">
+                                <h:outputText value="#{asociados.estadoActividad_Asociado}" />
+                            </p:column>
+                            
+                        </p:dataTable>
+                    </div>
                 </div>
             </div>
         </h:form>

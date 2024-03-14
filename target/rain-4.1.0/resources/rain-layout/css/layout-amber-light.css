@@ -97,6 +97,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  text-align: center;
 }
 
 h3 {
@@ -2925,7 +2926,7 @@ a {
   font-size: 10px;
 }
 .layout-breadcrumb .breadcrumb .route-bar-breadcrumb > li .ui-link {
-  color: #191a1c;
+  color: #65686a;
   -moz-transition: color 0.2s;
   -o-transition: color 0.2s;
   -webkit-transition: color 0.2s;
