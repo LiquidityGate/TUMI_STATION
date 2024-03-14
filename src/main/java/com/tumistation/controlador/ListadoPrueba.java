@@ -22,9 +22,9 @@ public class ListadoPrueba {
         List<String> listaFiltroAsociados = new ArrayList<>();
 
         try ( Connection connection = ConnectionBD.obtenerConexion()) {
-            String nombreRoles = obtenerNombreFiltroAsociado("Licenciado en Enfermería");
+            
 
-            String sql = "EXEC [dbo].[SPTS_FiltrarAsociados_ByEspecialidad] @rol = ?";
+            String sql = "EXEC [dbo].[FiltrarAsociadoByNombre] = ?";
             try ( PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setString(1, "Licenciado en Enfermería");
                 try ( ResultSet resultSet = statement.executeQuery()) {
