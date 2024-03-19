@@ -212,6 +212,19 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
+                            
+                             <!--COLUMNA CATEGORIA REGISTRO-->
+                             <p:column headerText="Categoria De Registro" style="text-align: center;" sortBy="#{menu.descripcion_rol}"  filterBy="#{menu.descripcion_rol}">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{menu.descripcion_rol}" />
+                                    </f:facet>
+
+                                    <f:facet name="input">
+                                        <p:inputText  value="#{menu.descripcion_rol}"  style="width:100%" label="Nombre"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
 
                             
 
