@@ -212,13 +212,19 @@
                                     </f:facet>
                                 </p:cellEditor>
                             </p:column>
-                            
-                             <!--COLUMNA CATEGORIA REGISTRO-->
-                             <p:column headerText="Categoria De Registro" style="text-align: center;" sortBy="#{menu.descripcion_rol}"  filterBy="#{menu.descripcion_rol}">
+
+                            <!--COLUMNA CATEGORIA REGISTRO-->
+                            <p:column headerText="Categoria De Registro" style="text-align: center;" sortBy="#{menu.descripcion_rol}"  filterBy="#{menu.descripcion_rol}">
                                 <p:cellEditor>
                                     <f:facet name="output">
                                         <h:outputText value="#{menu.descripcion_rol}" />
                                     </f:facet>
+                                    <div class="field col-12 md:col-4">
+                                        <p:selectOneMenu id="labeled" value="#{selectOneMenuView.labeled}" label="Always Display Label"
+                                                         alwaysDisplayLabel="true">
+                                            <f:selectItems value="#{selectOneMenuView.cities}"/>
+                                        </p:selectOneMenu>
+                                    </div>
 
                                     <f:facet name="input">
                                         <p:inputText  value="#{menu.descripcion_rol}"  style="width:100%" label="Nombre"/>
@@ -226,7 +232,7 @@
                                 </p:cellEditor>
                             </p:column>
 
-                            
+
 
                             <!--COLUMNA FECHA DE REGISTROS-->
                             <p:column headerText="Fecha de Registro" style="text-align: center;" sortBy="#{menu.fechaRegistro}"  filterBy="#{menu.fechaRegistro}">

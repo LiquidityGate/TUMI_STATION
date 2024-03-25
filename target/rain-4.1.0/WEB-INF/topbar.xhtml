@@ -1,6 +1,12 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui" xmlns:po="http://primefaces.org/rain">
+                xmlns:f="http://java.sun.com/jsf/core" 
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui" 
+                xmlns:po="http://primefaces.org/rain">
+
+    <!--HERRAMIENTA PARA TRAER AL JAVASCRIPT Y JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/sass/layout/topbar/_topbar_common.scss"/>
 
     <style>
         .menu-wrapper {
@@ -19,222 +25,227 @@
                     <p:graphicImage library="image" name="logo_tumi_blanco.png" alt="Logo" style="width: 47.5%; height: 30%;margin-top: 5px ;"/>
                 </h:link>
             </div>
-            <div class="layout-topbar-right">
-                <ul class="layout-topbar-actions">
-                    <li class="search-item topbar-item">
-                        <h:form onsubmit="return false;">
-                            <h:panelGroup styleClass="md-inputfield search-input-wrapper">
-                                <p:inputText placeholder="Buscar..." style="margin-top: 10px;"/>
-                                <i class="pi pi-search"></i>
-                            </h:panelGroup>
-                        </h:form>
-                    </li>
-                    <li class="topbar-item notifications">
-                        <a href="#">
-                            <i class="topbar-icon pi pi-bell"></i>
-                        </a>
-                        <ul>
-                            <li class="layout-submenu-header">
-                                <h6 class="header-text">Notifications </h6>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-shopping-cart"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">New Order</div>
-                                        <div class="notification-detail">You have <strong>3</strong> new orders.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-check-square"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Withdrawn Completed</div>
-                                        <div class="notification-detail">Funds are on their way.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-chart-line"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Monthly Reports</div>
-                                        <div class="notification-detail">New reports are ready.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-comment"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Comments</div>
-                                        <div class="notification-detail"><strong>2</strong> new comments.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-refresh"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Chargeback Request</div>
-                                        <div class="notification-detail"><strong>1</strong> to review.</div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="topbar-item messages">
-                        <a href="#">
-                            <i class="topbar-icon pi pi-comment"></i>
-                        </a>
-                        <ul >
-                            <li class="layout-submenu-header">
-                                <h6 class="header-text">Messages </h6>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-1.png" library="demo" />
-                                    <div class="notification-item">
-                                        <div class="notification-summary">New Order</div>
-                                        <div class="notification-detail">You have <strong>3</strong> new orders.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-2.png" library="demo" />
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Withdrawn Completed</div>
-                                        <div class="notification-detail">Funds are on their way.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-3.png" library="demo" />
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Monthly Reports</div>
-                                        <div class="notification-detail">New reports are ready.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-2.png" library="demo" />
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Comments</div>
-                                        <div class="notification-detail"><strong>2</strong> new comments.</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <p:graphicImage name="images/dashboard/avatar-4.png" library="demo" />
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Chargeback Request</div>
-                                        <div class="notification-detail"><strong>1</strong> to review.</div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="topbar-item sales">
-                        <a href="#">
-                            <i class="topbar-icon pi pi-tag"></i>
-                        </a>
-                        <ul >
-                            <li class="layout-submenu-header">
-                                <h6 class="header-text">Sales </h6>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-mobile"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Mat Black Case</div>
-                                        <div class="notification-detail"><strong>2</strong> item</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-tag"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Space Tshirt</div>
-                                        <div class="notification-detail"><strong>1</strong> item</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-tag"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Orange Black Hoodie</div>
-                                        <div class="notification-detail"><strong>1</strong> item</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-paperclip"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Wonders Notebook</div>
-                                        <div class="notification-detail"><strong>2</strong> item</div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a tabindex="0">
-                                    <i class="pi pi-desktop"></i>
-                                    <div class="notification-item">
-                                        <div class="notification-summary">Green Portal Sticker</div>
-                                        <div class="notification-detail"><strong>5</strong> item</div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <ui:fragment rendered="#{guestPreferences.profileMode == 'popup' ? true : false}">
-                        <li class="topbar-item user-profile">
+
+            <!--ESTE BOTON, SIRVE PARA DESPLEGAR EL MENU TUMISTATION-->
+            <div class="layout-topbar-right" style="background-color: #2f9e8d;">
+
+                <div class="layout-topbar-right">
+                    <ul class="layout-topbar-actions">
+                        <li class="search-item topbar-item">
+                            <h:form onsubmit="return false;">
+                                <h:panelGroup styleClass="md-inputfield search-input-wrapper">
+                                    <p:inputText placeholder="Buscar..." style="margin-top: 10px;"/>
+                                    <i class="pi pi-search"></i>
+                                </h:panelGroup>
+                            </h:form>
+                        </li>
+                        <li class="topbar-item notifications">
                             <a href="#">
-                                <p:graphicImage name="images/avatar-profilemenu.png" library="rain-layout" />
+                                <i class="topbar-icon pi pi-bell"></i>
                             </a>
                             <ul>
+                                <li class="layout-submenu-header">
+                                    <h6 class="header-text">Notifications </h6>
+                                </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="pi pi-user"></i>
-                                        <span>Perfil</span>
+                                    <a tabindex="0">
+                                        <i class="pi pi-shopping-cart"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">New Order</div>
+                                            <div class="notification-detail">You have <strong>3</strong> new orders.</div>
+                                        </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="pi pi-cog"></i>
-                                        <span>Configuraciones</span>
+                                    <a tabindex="0">
+                                        <i class="pi pi-check-square"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Withdrawn Completed</div>
+                                            <div class="notification-detail">Funds are on their way.</div>
+                                        </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        <i class="pi pi-envelope"></i>
-                                        <span>Mensajes</span>
+                                    <a tabindex="0">
+                                        <i class="pi pi-chart-line"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Monthly Reports</div>
+                                            <div class="notification-detail">New reports are ready.</div>
+                                        </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" onclick="logout();">
-                                        <i class="pi pi-sign-out"></i>
-                                        <span>Cerrar sesión</span>
+                                    <a tabindex="0">
+                                        <i class="pi pi-comment"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Comments</div>
+                                            <div class="notification-detail"><strong>2</strong> new comments.</div>
+                                        </div>
                                     </a>
-
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <i class="pi pi-refresh"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Chargeback Request</div>
+                                            <div class="notification-detail"><strong>1</strong> to review.</div>
+                                        </div>
+                                    </a>
                                 </li>
                             </ul>
                         </li>
-                    </ui:fragment>
+                        <li class="topbar-item messages">
+                            <a href="#">
+                                <i class="topbar-icon pi pi-comment"></i>
+                            </a>
+                            <ul >
+                                <li class="layout-submenu-header">
+                                    <h6 class="header-text">Messages </h6>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <p:graphicImage name="images/dashboard/avatar-1.png" library="demo" />
+                                        <div class="notification-item">
+                                            <div class="notification-summary">New Order</div>
+                                            <div class="notification-detail">You have <strong>3</strong> new orders.</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <p:graphicImage name="images/dashboard/avatar-2.png" library="demo" />
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Withdrawn Completed</div>
+                                            <div class="notification-detail">Funds are on their way.</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <p:graphicImage name="images/dashboard/avatar-3.png" library="demo" />
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Monthly Reports</div>
+                                            <div class="notification-detail">New reports are ready.</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <p:graphicImage name="images/dashboard/avatar-2.png" library="demo" />
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Comments</div>
+                                            <div class="notification-detail"><strong>2</strong> new comments.</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <p:graphicImage name="images/dashboard/avatar-4.png" library="demo" />
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Chargeback Request</div>
+                                            <div class="notification-detail"><strong>1</strong> to review.</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="topbar-item sales">
+                            <a href="#">
+                                <i class="topbar-icon pi pi-tag"></i>
+                            </a>
+                            <ul >
+                                <li class="layout-submenu-header">
+                                    <h6 class="header-text">Sales </h6>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <i class="pi pi-mobile"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Mat Black Case</div>
+                                            <div class="notification-detail"><strong>2</strong> item</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <i class="pi pi-tag"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Space Tshirt</div>
+                                            <div class="notification-detail"><strong>1</strong> item</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <i class="pi pi-tag"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Orange Black Hoodie</div>
+                                            <div class="notification-detail"><strong>1</strong> item</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <i class="pi pi-paperclip"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Wonders Notebook</div>
+                                            <div class="notification-detail"><strong>2</strong> item</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a tabindex="0">
+                                        <i class="pi pi-desktop"></i>
+                                        <div class="notification-item">
+                                            <div class="notification-summary">Green Portal Sticker</div>
+                                            <div class="notification-detail"><strong>5</strong> item</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <ui:fragment rendered="#{guestPreferences.profileMode == 'popup' ? true : false}">
+                            <li class="topbar-item user-profile">
+                                <a href="#">
+                                    <p:graphicImage name="images/avatar-profilemenu.png" library="rain-layout" />
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="pi pi-user"></i>
+                                            <span>Perfil</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="pi pi-cog"></i>
+                                            <span>Configuraciones</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="messages.xhtml">
+                                            <i class="pi pi-envelope"></i>
+                                            <span>Mensajes</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" onclick="logout();">
+                                            <i class="pi pi-sign-out"></i>
+                                            <span>Cerrar sesión</span>
+                                        </a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                        </ui:fragment>
 
 
 
-                </ul>
-                <a href="#" class="layout-rightpanel-button">
-                    <i class="pi pi-ellipsis-v"></i>
-                </a>
+                    </ul>
+                    <a href="#" class="layout-rightpanel-button">
+                        <i class="pi pi-ellipsis-v"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
