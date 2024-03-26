@@ -262,20 +262,32 @@
 
 
                             <p:column headerText="Gestión" exportable="false">
+
                                 <!-- BOTÓN PARA EDITAR FILAS INDIVIDUALMENTE -->
                                 <p:commandButton icon="pi pi-pencil" 
                                                  styleClass="edit-button rounded-button ui-button-success" process="@this" >
                                     <f:setPropertyActionListener value="#{dashboard}" target="#{ocurrenciaManagedBean.selectedOcurrencia}" />
                                 </p:commandButton>
 
-                                <!-- BOTÓN PARA ELIMINAR FILAS INDIVIDUALMENTE -->
-                                <p:commandButton icon="pi pi-eye" 
-                                                 styleClass="edit-button rounded-button ui-button-warning"  oncomplete="if (#{not empty ocurrenciaManagedBean.selectedOcurrencia}) PF('deleteOcurrenciaDialog').show();">
-                                    <f:setPropertyActionListener target="#{ocurrenciaManagedBean.selectedOcurrencia}" value="#{dashboard}" />
-                                </p:commandButton>
+                                <!-- BOTÓN PARA MOSTRAR TODOS LOS DATOS DE LOS POSTULANTES-->
+                                <p:commandButton id="showDetailsButton" icon="pi pi-eye" styleClass="edit-button rounded-button ui-button-warning" onclick="abrirDialogo();" />
+
+
                             </p:column>
 
                         </p:dataTable>
+
+                        <script type="text/javascript">
+                            function abrirDialogo() {
+                                // Abre una ventana emergente con una URL específica
+                                window.open('', '_blank', 'max-width=600,max-height=400');
+                            }
+                        </script>
+                        <!--VENTANA EMERGENTE PARA MOSTRAR TODOS LOS DATOS DE LOS POSTULANTES-->
+
+
+
+
                     </div>
                 </div>
             </div>
