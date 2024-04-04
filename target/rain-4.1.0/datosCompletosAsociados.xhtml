@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <title>Informacion Completo de los Asociados</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <style>
+            .txt1{
+                margin-right:  auto;
+            }
+            
+            .btn_habilitar{
+                
+            
+            }
+        </style>
+    </h:head>
+
+    <body>
+        <div>
+            <h1>Información de los Asociados</h1>
+            <h:form>
+                <div>
+                    <label for="input1" class="txt1" >NOMBRES:</label>
+                    <input type="text" id="input1" value="Nombres" disabled="disabled"/>
+                </div>
+                <div>
+                    <label for="input1" class="txt1" >APELLIDO PATERNO:</label>
+                    <input type="text" id="input1" value="Nombres" disabled="disabled"/>
+                </div>
+                <div>
+                    <label for="input1" class="txt1" >APELLIDO MATERNO:</label>
+                    <input type="text" id="input1" value="Nombres" disabled="disabled"/>
+                </div>
+                <div>
+                    <label for="input1" class="txt1" >DNI:</label>
+                    <input type="text" id="input1" value="Nombres" disabled="disabled"/>
+                </div>
+                <div>
+                    <label for="input1" class="txt1" >TELEFONO:</label>
+                    <input type="text" id="input1" value="Nombres" disabled="disabled"/>
+                </div>
+                <!-- Otros campos -->
+                <div>
+                    <p:commandButton  class="btn_habilitar" value="Habilitar"/>
+                    
+                </div>
+                <div>
+                    <p:commandButton  class="btn_deshabilitar" value="deshabilitar"/>
+                </div>
+            </h:form>
+        </div>
+    </body>
+</html>
